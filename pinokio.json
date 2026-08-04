@@ -1,0 +1,32 @@
+{
+  "title": "MiniMax H3",
+  "description": "MiniMax H3 omni-modal video generation in ComfyUI. Text/image/video/audio in, video with native 32kHz stereo audio out (768p default, 1080p+ supported). Disk-optimized: pruned INT8 + NVFP4 weights (~63GB instead of ~290GB). NVIDIA only.",
+  "icon": "icon.png",
+  "gpu": "nvidia",
+  "posts": [],
+  "links": [
+    {
+      "title": "MiniMax H3 (model)",
+      "links": [
+        { "title": "Hugging Face", "value": "https://huggingface.co/MiniMaxAI/MiniMax-H3" },
+        { "title": "ComfyUI weights", "value": "https://huggingface.co/Comfy-Org/MiniMax-H3" },
+        { "title": "License", "value": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE" },
+        { "title": "MiniMax", "value": "https://www.minimax.io" }
+      ]
+    },
+    {
+      "title": "Prompting guides",
+      "links": [
+        { "title": "Base (T2V / FL2V)", "value": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/docs/VIDEO_PROMPT_WRITING_GUIDE_base_en.md" },
+        { "title": "Reference (Ref2VA)", "value": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/docs/VIDEO_PROMPT_WRITING_GUIDE_ref_en.md" }
+      ]
+    },
+    {
+      "title": "ComfyUI",
+      "links": [
+        { "title": "GitHub", "value": "https://github.com/comfyanonymous/ComfyUI" },
+        { "title": "H3 tutorial", "value": "https://docs.comfy.org/tutorials/video/minimax/minimax-h3" }
+      ]
+    }
+  ]
+}
