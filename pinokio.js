@@ -1,5 +1,5 @@
 module.exports = {
-  version: "7.0",
+  version: "8.0",
   title: "MiniMax H3",
   description: "MiniMax H3 omni-modal video generation in ComfyUI. Text/image/video/audio in, video with native 32kHz stereo audio out (768p default, 1080p+ supported). Disk-optimized: pruned INT8 + NVFP4 weights (~63GB instead of ~290GB). NVIDIA only.",
   icon: "icon.png",
@@ -18,7 +18,6 @@ module.exports = {
       "download/text_encoder_int8.js",
       "remove/fl2va.js",
       "remove/ref2va.js",
-      "sage3.js",
       "workflows.js"
     ]
     let is_downloading = null
@@ -33,8 +32,7 @@ module.exports = {
     let has = {
       fl2va: info.exists("app/models/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors"),
       ref2va: info.exists("app/models/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors"),
-      encoder_int8: info.exists("app/models/text_encoders/qwen3vl_32b_minimax_h3_int8_convrot.safetensors"),
-      sage3: info.exists("sage3.installed")
+      encoder_int8: info.exists("app/models/text_encoders/qwen3vl_32b_minimax_h3_int8_convrot.safetensors")
     }
 
     if (running.install) {
@@ -159,24 +157,6 @@ module.exports = {
           icon: "fa-solid fa-hard-drive",
           text: "Manage Disk Space",
           menu: removals
-        })
-      }
-
-      // SageAttention 3: Blackwell-only FP4 attention, 2.4-3.3x on long sequences.
-      if (!has.sage3) {
-        menu.push({
-          icon: "fa-solid fa-bolt",
-          text: "Install SageAttention 3 (Blackwell, ~2.4-3.3x)",
-          href: "sage3.js",
-          mode: "refresh",
-          confirm: "Builds FP4 attention kernels from source. Downloads a CUDA 13 toolkit (~4.9GB) and compiles for 15-25 minutes. RTX 50-series only."
-        })
-      } else {
-        menu.push({
-          icon: "fa-solid fa-bolt",
-          text: "SageAttention 3 installed — use the 'Patch Sage Attention KJ' node (mode: sageattn3)",
-          href: "sage3.js",
-          mode: "refresh"
         })
       }
 
