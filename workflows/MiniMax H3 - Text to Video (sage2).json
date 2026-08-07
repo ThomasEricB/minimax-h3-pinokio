@@ -1,22 +1,22 @@
 {
   "id": "e3f2b845-8f2c-4b5a-9caf-eac1029d3e7e",
   "revision": 0,
-  "last_node_id": 120,
-  "last_link_id": 228,
+  "last_node_id": 118,
+  "last_link_id": 227,
   "nodes": [
     {
       "id": 92,
       "type": "SaveVideo",
       "pos": [
-        -210,
-        4850
+        -660,
+        4840
       ],
       "size": [
-        1030,
+        1070,
         126
       ],
       "flags": {},
-      "order": 8,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
@@ -40,57 +40,20 @@
       ]
     },
     {
-      "id": 114,
-      "type": "LoadImage",
-      "pos": [
-        -1610,
-        4860
-      ],
-      "size": [
-        450,
-        630
-      ],
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            218
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "transparent_rgb_gaming_mouse.png",
-        "image"
-      ]
-    },
-    {
       "id": 115,
       "type": "ResolutionSelector",
       "pos": [
-        -1110,
-        5230
+        -1550,
+        5220
       ],
       "size": [
         270,
         170
       ],
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
-      "showAdvanced": false,
+      "showAdvanced": true,
       "inputs": [],
       "outputs": [
         {
@@ -112,7 +75,7 @@
         "Node name for S&R": "ResolutionSelector"
       },
       "widgets_values": [
-        "1:1 (Square)",
+        "16:9 (Widescreen)",
         0.4,
         32
       ]
@@ -121,22 +84,22 @@
       "id": 105,
       "type": "4c314f31-ecda-4b08-ae98-faaba1bf613f",
       "pos": [
-        -730,
-        4850
+        -1180,
+        4840
       ],
       "size": [
         480,
         630
       ],
       "flags": {},
-      "order": 6,
+      "order": 4,
       "mode": 0,
       "inputs": [
         {
           "name": "first_frame",
           "shape": 7,
           "type": "IMAGE",
-          "link": 218
+          "link": null
         },
         {
           "name": "last_frame",
@@ -192,11 +155,11 @@
         "previewExposures": []
       },
       "widgets_values": [
-        "Editorial tech product film. The transparent gaming mouse from <Picture 1> in its original scene: a pitch-black studio void with a dark, subtle reflective surface, lit by dramatic duotone vibrant blue and warm neon orange rim lighting, deep soft shadow falloff into pure black. Monochromatic dark palette with electric blue and amber accents. Material motif: glowing internal metallic micro-components and glossy acrylic refractions. The environment is constant throughout.\nSHOT 1: The scene opens exactly on image 1, the mouse resting confidently on the dark surface; the blue and orange lights slowly pulse brighter, refracting deeply through the transparent acrylic shell as the camera executes a slow, deliberate push-in to reveal the intricate circuitry.\nSHOT 2: Cut to an extreme macro profile of the ridged scroll wheel and layered internal micro-components; the camera glides slowly along the side as a sharp beam of warm orange light sweeps across the metallic textures, contrasting perfectly against the deep blue ambient glow.\nSHOT 3: Cut to a low-angle beauty shot: the mouse levitates weightlessly a few centimeters above the dark reflective surface, rotating in a slow, precise orbit; the duotone lighting flares gently along the glassy transparent edges before fading slowly into a sleek silhouette.\nAudio: deep pulsing sub-bass room tone, sharp tactile mechanical clicks, a sweeping glassy whoosh on cuts, and a rising electronic swell that resolves to near-silence on the final fade. ",
+        "Realistic live-action cinematic look, action movie trailer: practical film photography style, a post-rain dusk metropolis, anamorphic lens, shallow depth of field, film grain, city volumetric fog, flying-car traffic between the towers, restrained grading for a premium feel, powerful natural movement.\n\nScene overview: at dusk on a cluster of skyscrapers, the protagonist is being chased, sprinting and leaping across rooftops, jumping from one building's roof to the next with pursuers closing in behind. This is the escape sequence of an action movie trailer: every leap is life-or-death, thrilling and fluid.\n\nStoryboard (each shot a separate scene, rapid cuts, all landing on the musical beats):\n[0s-1.5s] Shot 1: high side angle: the protagonist sprinting at the roof edge, pursuers appearing in the rooftop doorway behind him, wind catching his coat.\n[1s-2.5s] Shot 2: the protagonist leaps across the gap between buildings, body stretching mid-air, towers and flying-car light trails behind him, a slight slow-motion feel.\n[2.5s-4s] Shot 3: he lands, rolls and rises, low-angle shot, tower shadows and fog behind him, he keeps running.\n[4s-5s] Shot 4: freeze: the instant he hits the edge of the next roof and launches into the jump, silhouette, holding.\n\nCamera: each shot its own angle, cuts clean and hard, no dissolves, a slight frame jitter on the jumps.\n\nAudio: wind, rapid footsteps, city ambience, low score underneath, an accent hit on each leap, the score bursting at 4s, closing the last 1s.\n\nNo text, subtitles, logos or watermarks of any kind, no animation or cartoon rendering, no overly-CG look, keep the live-action texture.",
         1344,
         768,
         5,
-        168866841893410,
+        556589502035082,
         "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
         "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "minimax_h3_video_vae_fp16.safetensors",
@@ -207,22 +170,22 @@
       "id": 116,
       "type": "MarkdownNote",
       "pos": [
-        -2090,
-        4860
+        -2080,
+        4840
       ],
       "size": [
         450,
-        630
+        740
       ],
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [],
       "title": "Note: MiniMax H3",
       "properties": {},
       "widgets_values": [
-        "## MiniMax H3\n\n[MiniMax H3](https://www.minimax.io/blog/minimax-h3) is MiniMax's general-purpose, omni-modal generation model. It jointly understands text, image, video, and audio, and generates video with **native stereo audio**: voice, sound effects, and music are modeled jointly in a single forward pass, not layered on afterward. Output is up to 2K resolution, 24fps, and up to about 15 seconds.\n\n## About this workflow\n\nThis template runs the **Image to Video** task (`MiniMaxH3ImageToVideo` node), which covers both:\n\n- **t2va** (text-to-video), when no images are connected\n- **fl2va** (first/last-frame image-to-video), when `first_frame` and/or `last_frame` are connected\n\n**Key inputs**\n\n- **first_frame / last_frame**: optional keyframes; the model generates the motion between them\n- **prompt**: describe the shots, motion, and the accompanying audio (dialogue, SFX, music) in one block\n- **width / height**: set via Resolution Selector. H3's native canvas is a 768px short edge, capped at 768x1344 pixels, rounded to a multiple of 32\n- **duration (seconds)**: converted to a valid frame `length` by the Math Expression node, snapping up to the model's 17-frame-per-block (17k+5) grid at 24fps"
+        "## MiniMax H3\n\n[MiniMax H3](https://www.minimax.io/blog/minimax-h3) is MiniMax's general-purpose, omni-modal generation model. It jointly understands text, image, video, and audio, and generates video with **native stereo audio**: voice, sound effects, and music are modeled jointly in a single forward pass, not layered on afterward. Output is up to 2K resolution, 24fps, and up to about 15 seconds.\n\n## ComfyUI links\n- [ComfyUI#15224](https://github.com/Comfy-Org/ComfyUI/pull/15224)\n- [\ud83e\udd17 Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)\n\n## About this workflow\n\n**Key inputs**\n\n- **prompt**: describe the shots, camera moves, and the accompanying audio (dialogue, SFX, music) in one block\n- **width / height**: set via Resolution Selector. H3's native canvas is a 768px short edge, capped at 768x1344 pixels, rounded to a multiple of 32\n- **duration (seconds)**: converted to a valid frame `length` by the Math Expression node, snapping up to the model's 17-frame-per-block (17k+5) grid at 24fps\n"
       ],
       "color": "#222",
       "bgcolor": "#000"
@@ -231,22 +194,22 @@
       "id": 117,
       "type": "MarkdownNote",
       "pos": [
-        -2570,
-        4860
+        -2550,
+        4840
       ],
       "size": [
         440,
-        680
+        740
       ],
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [],
       "title": "Note: Model Links",
       "properties": {},
       "widgets_values": [
-        "## Model Links\n\n**vae**\n\n- [minimax_h3_video_vae_fp16.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors)\n- [minimax_h3_audio_vae_fp32.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors)\n\n**diffusion_models**\n\n- [minimax_h3_fl2va_pruned_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors)\n\n**text_encoders**\n\n- [qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors)\n\n\n## Model Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 vae/\n│   │   ├── minimax_h3_video_vae_fp16.safetensors\n│   │   └── minimax_h3_audio_vae_fp32.safetensors\n│   ├── 📂 diffusion_models/\n│   │   └── minimax_h3_fl2va_pruned_int8_convrot.safetensors\n│   └── 📂 text_encoders/\n│       └── qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\n```\n\n## Report Issue\n\nNote: Please update ComfyUI first ([guide](https://docs.comfy.org/installation/update_comfyui)) and prepare required models. Desktop/Cloud updates follow stable releases, so some nightly-supported models may not be available yet.\n\n- Cannot run / runtime errors: [ComfyUI/issues](https://github.com/comfyanonymous/ComfyUI/issues)\n- UI / frontend issues: [ComfyUI_frontend/issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)\n- Workflow issues: [workflow_templates/issues](https://github.com/Comfy-Org/workflow_templates/issues)\n"
+        "## Model Links\n\n**vae**\n\n- [minimax_h3_video_vae_fp16.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors)\n- [minimax_h3_audio_vae_fp32.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors)\n\n**diffusion_models**\n\n- [minimax_h3_fl2va_pruned_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors)\n\n**text_encoders**\n\n- [qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors)\n\n\n## Model Storage Location\n\n```\n\ud83d\udcc2 ComfyUI/\n\u251c\u2500\u2500 \ud83d\udcc2 models/\n\u2502   \u251c\u2500\u2500 \ud83d\udcc2 vae/\n\u2502   \u2502   \u251c\u2500\u2500 minimax_h3_video_vae_fp16.safetensors\n\u2502   \u2502   \u2514\u2500\u2500 minimax_h3_audio_vae_fp32.safetensors\n\u2502   \u251c\u2500\u2500 \ud83d\udcc2 diffusion_models/\n\u2502   \u2502   \u2514\u2500\u2500 minimax_h3_fl2va_pruned_int8_convrot.safetensors\n\u2502   \u2514\u2500\u2500 \ud83d\udcc2 text_encoders/\n\u2502       \u2514\u2500\u2500 qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\n```\n\n## Report Issue\n\nNote: Please update ComfyUI first ([guide](https://docs.comfy.org/installation/update_comfyui)) and prepare required models. Desktop/Cloud updates follow stable releases, so some nightly-supported models may not be available yet.\n\n- Cannot run / runtime errors: [ComfyUI/issues](https://github.com/comfyanonymous/ComfyUI/issues)\n- UI / frontend issues: [ComfyUI_frontend/issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)\n- Workflow issues: [workflow_templates/issues](https://github.com/Comfy-Org/workflow_templates/issues)\n"
       ],
       "color": "#222",
       "bgcolor": "#000"
@@ -255,7 +218,7 @@
       "id": 118,
       "type": "MarkdownNote",
       "pos": [
-        -1130,
+        -1570,
         5460
       ],
       "size": [
@@ -263,7 +226,7 @@
         520
       ],
       "flags": {},
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -274,89 +237,6 @@
       ],
       "color": "#222",
       "bgcolor": "#000"
-    },
-    {
-      "id": 119,
-      "type": "ImageScaleToTotalPixels",
-      "pos": [
-        -1520,
-        5610
-      ],
-      "size": [
-        280,
-        150
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "showAdvanced": true,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            228
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageScaleToTotalPixels"
-      },
-      "widgets_values": [
-        "nearest-exact",
-        1,
-        32
-      ]
-    },
-    {
-      "id": 120,
-      "type": "GetImageSize",
-      "pos": [
-        -1490,
-        5810
-      ],
-      "size": [
-        230,
-        80
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 228
-        }
-      ],
-      "outputs": [
-        {
-          "name": "width",
-          "type": "INT",
-          "links": null
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": null
-        },
-        {
-          "name": "batch_size",
-          "type": "INT",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "GetImageSize"
-      },
-      "widgets_values": []
     }
   ],
   "links": [
@@ -367,14 +247,6 @@
       92,
       0,
       "VIDEO"
-    ],
-    [
-      218,
-      114,
-      0,
-      105,
-      0,
-      "IMAGE"
     ],
     [
       219,
@@ -391,39 +263,18 @@
       105,
       3,
       "INT"
-    ],
-    [
-      228,
-      119,
-      0,
-      120,
-      0,
-      "IMAGE"
     ]
   ],
-  "groups": [
-    {
-      "id": 5,
-      "title": "Use Image Size",
-      "bounding": [
-        -1530,
-        5540,
-        296.484375,
-        354
-      ],
-      "color": "#3f789e",
-      "flags": {}
-    }
-  ],
+  "groups": [],
   "definitions": {
     "subgraphs": [
       {
         "id": "4c314f31-ecda-4b08-ae98-faaba1bf613f",
         "version": 1,
         "state": {
-          "lastGroupId": 5,
-          "lastNodeId": 120,
-          "lastLinkId": 228,
+          "lastGroupId": 4,
+          "lastNodeId": 118,
+          "lastLinkId": 227,
           "lastRerouteId": 0
         },
         "revision": 0,
@@ -441,8 +292,8 @@
         "outputNode": {
           "id": -20,
           "bounding": [
-            690,
-            4810,
+            670,
+            4780,
             128,
             68
           ]
@@ -593,8 +444,8 @@
             ],
             "localized_name": "VIDEO",
             "pos": [
-              714,
-              4834
+              694,
+              4804
             ]
           }
         ],
@@ -605,7 +456,7 @@
             "type": "VAELoader",
             "pos": [
               -2020,
-              5020
+              4970
             ],
             "size": [
               640,
@@ -655,7 +506,7 @@
             "type": "VAELoader",
             "pos": [
               -2020,
-              5160
+              5100
             ],
             "size": [
               650,
@@ -703,8 +554,8 @@
             "id": 23,
             "type": "VAEDecodeAudio",
             "pos": [
-              -30,
-              4970
+              -50,
+              4880
             ],
             "size": [
               230,
@@ -748,8 +599,8 @@
             "id": 10,
             "type": "VAEDecode",
             "pos": [
-              -30,
-              4850
+              -50,
+              4760
             ],
             "size": [
               230,
@@ -793,8 +644,8 @@
             "id": 17,
             "type": "KSamplerSelect",
             "pos": [
-              -780,
-              4950
+              -790,
+              4910
             ],
             "size": [
               370,
@@ -825,8 +676,8 @@
             "id": 9,
             "type": "BasicScheduler",
             "pos": [
-              -780,
-              5100
+              -790,
+              5030
             ],
             "size": [
               370,
@@ -867,7 +718,7 @@
             "type": "SamplerCustomAdvanced",
             "pos": [
               -360,
-              4860
+              4820
             ],
             "size": [
               230,
@@ -934,8 +785,8 @@
             "id": 16,
             "type": "BasicGuider",
             "pos": [
-              -780,
-              4820
+              -790,
+              4800
             ],
             "size": [
               360,
@@ -978,7 +829,7 @@
             "type": "UNETLoader",
             "pos": [
               -2020,
-              4670
+              4630
             ],
             "size": [
               640,
@@ -1004,8 +855,7 @@
                 "name": "MODEL",
                 "type": "MODEL",
                 "links": [
-                  5,
-                  193
+                  228
                 ]
               }
             ],
@@ -1029,7 +879,7 @@
             "type": "CLIPLoader",
             "pos": [
               -2020,
-              4830
+              4780
             ],
             "size": [
               640,
@@ -1079,7 +929,7 @@
             "id": 15,
             "type": "RandomNoise",
             "pos": [
-              -780,
+              -790,
               4660
             ],
             "size": [
@@ -1122,8 +972,8 @@
             "id": 91,
             "type": "CreateVideo",
             "pos": [
-              300,
-              4890
+              260,
+              4790
             ],
             "size": [
               270,
@@ -1170,11 +1020,11 @@
             "type": "MiniMaxH3ImageToVideo",
             "pos": [
               -1290,
-              4630
+              4650
             ],
             "size": [
-              430,
-              550
+              410,
+              510
             ],
             "flags": {},
             "order": 12,
@@ -1276,7 +1126,7 @@
             "type": "ComfyMathExpression",
             "pos": [
               -1710,
-              5410
+              5300
             ],
             "size": [
               360,
@@ -1338,7 +1188,7 @@
             "type": "PrimitiveFloat",
             "pos": [
               -2020,
-              5410
+              5300
             ],
             "size": [
               270,
@@ -1375,6 +1225,47 @@
             "widgets_values": [
               2
             ]
+          },
+          {
+            "id": 112,
+            "type": "PathchSageAttentionKJ",
+            "pos": [
+              -2020,
+              4760
+            ],
+            "size": [
+              380,
+              82
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "model",
+                "type": "MODEL",
+                "link": 228
+              }
+            ],
+            "outputs": [
+              {
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  5,
+                  193
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "PathchSageAttentionKJ"
+            },
+            "widgets_values": [
+              "auto"
+            ],
+            "title": "Patch Sage Attention (sageattn3)",
+            "color": "#232",
+            "bgcolor": "#353"
           }
         ],
         "groups": [
@@ -1385,7 +1276,7 @@
               -2050,
               4540,
               700,
-              800
+              670
             ],
             "color": "#3f789e",
             "flags": {}
@@ -1396,8 +1287,8 @@
             "bounding": [
               -810,
               4540,
-              700,
-              800
+              690,
+              670
             ],
             "color": "#3f789e",
             "flags": {}
@@ -1409,7 +1300,7 @@
               -1320,
               4540,
               480,
-              800
+              670
             ],
             "color": "#3f789e",
             "flags": {}
@@ -1420,8 +1311,8 @@
             "bounding": [
               -90,
               4540,
-              700,
-              800
+              670,
+              670
             ],
             "color": "#3f789e",
             "flags": {}
@@ -1446,7 +1337,7 @@
           },
           {
             "id": 5,
-            "origin_id": 6,
+            "origin_id": 112,
             "origin_slot": 0,
             "target_id": 9,
             "target_slot": 0,
@@ -1494,7 +1385,7 @@
           },
           {
             "id": 193,
-            "origin_id": 6,
+            "origin_id": 112,
             "origin_slot": 0,
             "target_id": 16,
             "target_slot": 0,
@@ -1667,9 +1558,19 @@
             "target_id": 13,
             "target_slot": 0,
             "type": "COMBO"
+          },
+          {
+            "id": 228,
+            "origin_id": 6,
+            "origin_slot": 0,
+            "target_id": 112,
+            "target_slot": 0,
+            "type": "MODEL"
           }
         ],
-        "extra": {}
+        "extra": {},
+        "last_node_id": 112,
+        "last_link_id": 228
       }
     ]
   },
@@ -1681,10 +1582,10 @@
     "VHS_MetadataImage": true,
     "VHS_KeepIntermediate": true,
     "ds": {
-      "scale": 1.075154262068966,
+      "scale": 0.5603112840466928,
       "offset": [
-        1481.4819098512912,
-        -4731.499462177808
+        2335.3467480944532,
+        -4102.867472659601
       ]
     }
   },

@@ -1009,7 +1009,7 @@
         "Node name for S&R": "PathchSageAttentionKJ"
       },
       "widgets_values": [
-        "sageattn3"
+        "auto"
       ],
       "title": "Patch Sage Attention (sageattn3)",
       "color": "#232",
