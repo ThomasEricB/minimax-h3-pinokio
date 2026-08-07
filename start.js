@@ -1,4 +1,7 @@
 module.exports = {
+  requires: {
+    bundle: "ai"
+  },
   daemon: true,
   run: [
     {
@@ -18,7 +21,7 @@ module.exports = {
           // span \r\n) and the Open Web UI menu item would never appear.
           // Verified against logs/api/start.js: the GUI url is the only http:// in
           // the output, so the generic capture is unambiguous.
-          "event": "/(http:\/\/[0-9.]+:[0-9]+)/",
+          "event": "/To see the GUI go to: +(http:\/\/[a-zA-Z0-9.]+:[0-9]+)/i",
           "done": true
         }, {
           "event": "/errno/i",
@@ -33,7 +36,7 @@ module.exports = {
       // Sets the 'url' local variable that pinokio.js reads to show "Open Web UI".
       method: "local.set",
       params: {
-        url: "{{input.event[1]}}"
+        url: "http://localhost:8188"
       }
     }
   ]
