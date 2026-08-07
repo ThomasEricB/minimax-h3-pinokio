@@ -32,6 +32,24 @@ module.exports = {
         ]
       }
     },
+    // Install KJNodes
+    {
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes",
+        message: [
+          "git clone https://github.com/kijai/ComfyUI-KJNodes"
+        ],
+      }
+    },
+    {
+      method: "shell.run",
+      params: {
+        venv: "../../env",
+        path: "app/custom_nodes/ComfyUI-KJNodes",
+        message: [ "uv pip install -r requirements.txt", ]
+      }
+    },
     // Must run AFTER requirements.txt so its pins win. ComfyUI's requirements
     // already resolve to a CUDA 13 torch today, so this is a guarantee rather
     // than a fix -- the H3 NVFP4 / INT8-ConvRot weights need cu130 to hit the
