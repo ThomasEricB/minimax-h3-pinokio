@@ -356,6 +356,7 @@
           ]
         }
       ],
+      "title": "Reference to Video (MiniMax H3)",
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.30.0",
@@ -433,7 +434,7 @@
         },
         "revision": 0,
         "config": {},
-        "name": "New Subgraph",
+        "name": "Reference to Video (MiniMax H3)",
         "inputNode": {
           "id": -10,
           "bounding": [
@@ -1948,8 +1949,8 @@
     "ds": {
       "scale": 0.5131581182307069,
       "offset": [
-        2293.997133558839,
-        -4585.326984644152
+        2287.7708492112556,
+        -4490.154384242378
       ]
     },
     "frontendVersion": "1.48.6",
