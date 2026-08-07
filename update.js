@@ -3,6 +3,12 @@ module.exports = {
     {
       method: "shell.run",
       params: {
+        message: "git pull"
+      }
+    },
+    {
+      method: "shell.run",
+      params: {
         path: "app",
         message: "git pull"
       }
@@ -12,6 +18,13 @@ module.exports = {
       params: {
         path: "app/custom_nodes/ComfyUI-Manager",
         message: "git pull"
+      }
+    },
+    {
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes/ComfyUI-KJNodes",
+        message: "git pull",
       }
     },
     {
