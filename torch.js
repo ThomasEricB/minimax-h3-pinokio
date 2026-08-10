@@ -189,6 +189,7 @@ module.exports = {
       "method": "shell.run",
       "params": {
         "bluefairy": "off",
+        "env": { "UV_HTTP_TIMEOUT": "60" },
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
         "message": [
