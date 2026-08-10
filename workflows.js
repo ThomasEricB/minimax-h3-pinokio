@@ -6,10 +6,24 @@
 // consumers (BasicGuider + BasicScheduler), mode `sageattn2`. Set that node to
 // `disabled` to A/B against stock attention.
 //
-// Safe to re-run: it overwrites the three bundled files and touches nothing else,
-// so your own saved workflows are never affected.
+// Safe to re-run: it overwrites the four bundled files and the small sidebar
+// helper only, so your own saved workflows are never affected.
 module.exports = {
   run: [
+    {
+      method: "fs.copy",
+      params: {
+        src: "custom_nodes/minimax_h3_pinokio/__init__.py",
+        dest: "app/custom_nodes/minimax_h3_pinokio/__init__.py"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "custom_nodes/minimax_h3_pinokio/web/open-workflows.js",
+        dest: "app/custom_nodes/minimax_h3_pinokio/web/open-workflows.js"
+      }
+    },
     {
       method: "fs.copy",
       params: {
@@ -41,7 +55,6 @@ module.exports = {
   ]
 }
 
-// Note: which workflow auto-opens is browser localStorage state
-// (Comfy.Workflow.LastOpenPaths:<user>), not a server-side file, so it cannot be
-// preset from here. ComfyUI's "Comfy.Workflow.Persist" setting (on by default)
-// reopens the last-used workflow, so opening one of these once makes it stick.
+// The bundled frontend helper opens the Workflows sidebar on each page load.
+// ComfyUI still controls which workflow is active through its normal browser
+// persistence, so this does not overwrite the user's current graph.
