@@ -1,5 +1,5 @@
 {
-  "title": "MiniMax H3",
+  "title": "MiniMax H3 ComfyUI",
   "description": "MiniMax H3 omni-modal video generation in ComfyUI. Text/image/video/audio in, video with native 32kHz stereo audio out (768p default, 1080p+ supported). Disk-optimized: pruned INT8 + NVFP4 weights (~63GB instead of ~290GB). NVIDIA only.",
   "icon": "icon.png",
   "gpu": "nvidia",
