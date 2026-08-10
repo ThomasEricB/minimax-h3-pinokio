@@ -193,7 +193,8 @@ module.exports = {
         "path": "{{args && args.path ? args.path : '.'}}",
         "message": [
           "uv pip install torch==2.10.0 torchvision==0.25.0 torchaudio==2.10.0 --index-url https://download.pytorch.org/whl/cu130 --force-reinstall",
-          "uv pip install https://github.com/mjun0812/flash-attention-prebuild-wheels/releases/download/v0.7.16/flash_attn-2.8.3+cu130torch2.10-cp310-cp310-linux_aarch64.whl --no-deps"
+          "uv pip install https://github.com/mjun0812/flash-attention-prebuild-wheels/releases/download/v0.7.16/flash_attn-2.8.3+cu130torch2.10-cp310-cp310-linux_aarch64.whl --no-deps",
+          "uv pip install https://huggingface.co/cocktailpeanut/wheels/resolve/main/sageattention-2.2.0%2Bcu130torch2.10.0andhigher-cp310-abi3-linux_aarch64.whl --no-deps"
         ]
       },
       "next": null
