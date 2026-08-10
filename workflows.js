@@ -13,15 +13,29 @@ module.exports = {
     {
       method: "fs.copy",
       params: {
-        src: "workflows/MiniMax H3 - Text to Video (sage2).json",
-        dest: "app/user/default/workflows/MiniMax H3 - Text to Video (sage2).json"
+        src: "workflows/MiniMax H3 - Text to Video.json",
+        dest: "app/user/default/workflows/MiniMax H3 - Text to Video.json"
       }
     },
     {
       method: "fs.copy",
       params: {
-        src: "workflows/MiniMax H3 - Reference to Video (sage2).json",
-        dest: "app/user/default/workflows/MiniMax H3 - Reference to Video (sage2).json"
+        src: "workflows/MiniMax H3 - Text to Video (NVIDIA).json",
+        dest: "app/user/default/workflows/MiniMax H3 - Text to Video (NVIDIA).json"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "workflows/MiniMax H3 - Reference to Video.json",
+        dest: "app/user/default/workflows/MiniMax H3 - Reference to Video.json"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "workflows/MiniMax H3 - Reference to Video (NVIDIA).json",
+        dest: "app/user/default/workflows/MiniMax H3 - Reference to Video (NVIDIA).json"
       }
     }
   ]
