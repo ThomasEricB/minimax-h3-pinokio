@@ -49,6 +49,12 @@ module.exports = {
           path: "app"
         }
       }
+    },
+    {
+      method: "script.start",
+      params: {
+        uri: "workflows.js"
+      }
     }
   ]
 }
