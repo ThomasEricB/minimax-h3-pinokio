@@ -51,6 +51,20 @@ module.exports = {
         src: "workflows/MiniMax H3 - Reference to Video (NVIDIA).json",
         dest: "app/user/default/workflows/MiniMax H3 - Reference to Video (NVIDIA).json"
       }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "workflows/MiniMax H3 - Image to Video.json",
+        dest: "app/user/default/workflows/MiniMax H3 - Image to Video.json"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "workflows/MiniMax H3 - Image to Video (NVIDIA).json",
+        dest: "app/user/default/workflows/MiniMax H3 - Image to Video (NVIDIA).json"
+      }
     }
   ]
 }

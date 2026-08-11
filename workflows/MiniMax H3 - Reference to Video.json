@@ -1,8 +1,8 @@
 {
   "id": "e3f2b845-8f2c-4b5a-9caf-eac1029d3e7e",
   "revision": 0,
-  "last_node_id": 142,
-  "last_link_id": 298,
+  "last_node_id": 143,
+  "last_link_id": 305,
   "nodes": [
     {
       "id": 92,
@@ -427,8 +427,8 @@
         "version": 1,
         "state": {
           "lastGroupId": 5,
-          "lastNodeId": 142,
-          "lastLinkId": 298,
+          "lastNodeId": 143,
+          "lastLinkId": 305,
           "lastRerouteId": 0
         },
         "revision": 0,
@@ -680,7 +680,8 @@
                 "name": "MODEL",
                 "type": "MODEL",
                 "links": [
-                  283
+                  304,
+                  305
                 ]
               }
             ],
@@ -1167,7 +1168,7 @@
                 "localized_name": "model",
                 "name": "model",
                 "type": "MODEL",
-                "link": 252
+                "link": 305
               },
               {
                 "localized_name": "scheduler",
@@ -1208,51 +1209,6 @@
               20,
               1
             ]
-          },
-          {
-            "id": 126,
-            "type": "BasicGuider",
-            "pos": [
-              -260,
-              5080
-            ],
-            "size": [
-              360,
-              60
-            ],
-            "flags": {},
-            "order": 7,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "model",
-                "name": "model",
-                "type": "MODEL",
-                "link": 257
-              },
-              {
-                "localized_name": "conditioning",
-                "name": "conditioning",
-                "type": "CONDITIONING",
-                "link": 270
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "GUIDER",
-                "name": "GUIDER",
-                "type": "GUIDER",
-                "links": [
-                  254
-                ]
-              }
-            ],
-            "properties": {
-              "cnr_id": "comfy-core",
-              "ver": "0.30.0",
-              "Node name for S&R": "BasicGuider"
-            },
-            "widgets_values": []
           },
           {
             "id": 129,
@@ -1577,50 +1533,49 @@
             ]
           },
           {
-            "id": 141,
-            "type": "PathchSageAttentionKJ",
+            "id": 126,
+            "type": "BasicGuider",
             "pos": [
-              -1230,
-              4940
+              -260,
+              5080
             ],
             "size": [
-              380,
-              82
+              360,
+              60
             ],
             "flags": {},
-            "order": 16,
+            "order": 7,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "model",
                 "name": "model",
                 "type": "MODEL",
-                "link": 283
+                "link": 304
+              },
+              {
+                "localized_name": "conditioning",
+                "name": "conditioning",
+                "type": "CONDITIONING",
+                "link": 270
               }
             ],
             "outputs": [
               {
-                "localized_name": "MODEL",
-                "name": "MODEL",
-                "type": "MODEL",
+                "localized_name": "GUIDER",
+                "name": "GUIDER",
+                "type": "GUIDER",
                 "links": [
-                  252,
-                  257
+                  254
                 ]
               }
             ],
-            "title": "Patch Sage Attention (sageattn3)",
             "properties": {
-              "cnr_id": "comfyui-kjnodes",
-              "ver": "dcfcb5dc9bad14912272cedd351cbb377bd27a22",
-              "Node name for S&R": "PathchSageAttentionKJ"
+              "cnr_id": "comfy-core",
+              "ver": "0.30.0",
+              "Node name for S&R": "BasicGuider"
             },
-            "widgets_values": [
-              "disabled",
-              false
-            ],
-            "color": "#232",
-            "bgcolor": "#353"
+            "widgets_values": []
           }
         ],
         "groups": [
@@ -1650,14 +1605,6 @@
           }
         ],
         "links": [
-          {
-            "id": 283,
-            "origin_id": 127,
-            "origin_slot": 0,
-            "target_id": 141,
-            "target_slot": 0,
-            "type": "MODEL"
-          },
           {
             "id": 272,
             "origin_id": 128,
@@ -1697,22 +1644,6 @@
             "target_id": 136,
             "target_slot": 12,
             "type": "INT"
-          },
-          {
-            "id": 252,
-            "origin_id": 141,
-            "origin_slot": 0,
-            "target_id": 124,
-            "target_slot": 0,
-            "type": "MODEL"
-          },
-          {
-            "id": 257,
-            "origin_id": 141,
-            "origin_slot": 0,
-            "target_id": 126,
-            "target_slot": 0,
-            "type": "MODEL"
           },
           {
             "id": 270,
@@ -1937,6 +1868,22 @@
             "target_id": 124,
             "target_slot": 1,
             "type": "COMBO"
+          },
+          {
+            "id": 304,
+            "origin_id": 127,
+            "origin_slot": 0,
+            "target_id": 126,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 305,
+            "origin_id": 127,
+            "origin_slot": 0,
+            "target_id": 124,
+            "target_slot": 0,
+            "type": "MODEL"
           }
         ],
         "extra": {}
@@ -1946,13 +1893,13 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.42409761837248505,
+      "scale": 0.7513148009015784,
       "offset": [
-        2791.3193478512553,
-        -4315.198563004378
+        1683.5978049574592,
+        -4659.615471589956
       ]
     },
-    "frontendVersion": "1.48.6",
+    "frontendVersion": "1.48.7",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,

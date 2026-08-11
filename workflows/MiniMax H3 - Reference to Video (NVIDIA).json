@@ -1,8 +1,8 @@
 {
   "id": "e3f2b845-8f2c-4b5a-9caf-eac1029d3e7e",
   "revision": 0,
-  "last_node_id": 142,
-  "last_link_id": 298,
+  "last_node_id": 143,
+  "last_link_id": 303,
   "nodes": [
     {
       "id": 92,
@@ -356,7 +356,6 @@
           ]
         }
       ],
-      "title": "Reference to Video (MiniMax H3)",
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.30.0",
@@ -428,8 +427,8 @@
         "version": 1,
         "state": {
           "lastGroupId": 5,
-          "lastNodeId": 142,
-          "lastLinkId": 298,
+          "lastNodeId": 143,
+          "lastLinkId": 303,
           "lastRerouteId": 0
         },
         "revision": 0,
@@ -587,7 +586,7 @@
             ],
             "pos": [
               -2143.435546875,
-              5294
+              5274
             ]
           },
           {
@@ -599,7 +598,7 @@
             ],
             "pos": [
               -2143.435546875,
-              5274
+              5294
             ]
           },
           {
@@ -662,7 +661,7 @@
               90
             ],
             "flags": {},
-            "order": 8,
+            "order": 9,
             "mode": 0,
             "inputs": [
               {
@@ -681,7 +680,7 @@
                 "name": "MODEL",
                 "type": "MODEL",
                 "links": [
-                  283
+                  301
                 ]
               }
             ],
@@ -714,7 +713,7 @@
               120
             ],
             "flags": {},
-            "order": 9,
+            "order": 10,
             "mode": 0,
             "inputs": [
               {
@@ -767,7 +766,7 @@
               327.1828806488038
             ],
             "flags": {},
-            "order": 15,
+            "order": 16,
             "mode": 0,
             "inputs": [
               {
@@ -804,52 +803,6 @@
             "bgcolor": "#533"
           },
           {
-            "id": 141,
-            "type": "PathchSageAttentionKJ",
-            "pos": [
-              -1230,
-              4940
-            ],
-            "size": [
-              380,
-              82
-            ],
-            "flags": {},
-            "order": 16,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "model",
-                "name": "model",
-                "type": "MODEL",
-                "link": 283
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "MODEL",
-                "name": "MODEL",
-                "type": "MODEL",
-                "links": [
-                  252,
-                  257
-                ]
-              }
-            ],
-            "title": "Patch Sage Attention (sageattn3)",
-            "properties": {
-              "cnr_id": "comfyui-kjnodes",
-              "ver": "dcfcb5dc9bad14912272cedd351cbb377bd27a22",
-              "Node name for S&R": "PathchSageAttentionKJ"
-            },
-            "widgets_values": [
-              "auto",
-              false
-            ],
-            "color": "#232",
-            "bgcolor": "#353"
-          },
-          {
             "id": 119,
             "type": "VAELoader",
             "pos": [
@@ -861,7 +814,7 @@
               70
             ],
             "flags": {},
-            "order": 0,
+            "order": 1,
             "mode": 0,
             "inputs": [
               {
@@ -913,7 +866,7 @@
               564.0816100463862
             ],
             "flags": {},
-            "order": 14,
+            "order": 15,
             "mode": 0,
             "inputs": [
               {
@@ -1062,7 +1015,7 @@
               70
             ],
             "flags": {},
-            "order": 1,
+            "order": 2,
             "mode": 0,
             "inputs": [
               {
@@ -1115,7 +1068,7 @@
               70
             ],
             "flags": {},
-            "order": 13,
+            "order": 14,
             "mode": 0,
             "inputs": [
               {
@@ -1163,7 +1116,7 @@
               70
             ],
             "flags": {},
-            "order": 4,
+            "order": 5,
             "mode": 0,
             "inputs": [
               {
@@ -1207,14 +1160,14 @@
               130
             ],
             "flags": {},
-            "order": 5,
+            "order": 6,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "model",
                 "name": "model",
                 "type": "MODEL",
-                "link": 252
+                "link": 303
               },
               {
                 "localized_name": "scheduler",
@@ -1257,51 +1210,6 @@
             ]
           },
           {
-            "id": 126,
-            "type": "BasicGuider",
-            "pos": [
-              -260,
-              5080
-            ],
-            "size": [
-              360,
-              60
-            ],
-            "flags": {},
-            "order": 7,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "model",
-                "name": "model",
-                "type": "MODEL",
-                "link": 257
-              },
-              {
-                "localized_name": "conditioning",
-                "name": "conditioning",
-                "type": "CONDITIONING",
-                "link": 270
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "GUIDER",
-                "name": "GUIDER",
-                "type": "GUIDER",
-                "links": [
-                  254
-                ]
-              }
-            ],
-            "properties": {
-              "cnr_id": "comfy-core",
-              "ver": "0.30.0",
-              "Node name for S&R": "BasicGuider"
-            },
-            "widgets_values": []
-          },
-          {
             "id": 129,
             "type": "RandomNoise",
             "pos": [
@@ -1313,7 +1221,7 @@
               90
             ],
             "flags": {},
-            "order": 10,
+            "order": 11,
             "mode": 0,
             "inputs": [
               {
@@ -1360,7 +1268,7 @@
             "flags": {
               "collapsed": true
             },
-            "order": 12,
+            "order": 13,
             "mode": 0,
             "inputs": [
               {
@@ -1422,7 +1330,7 @@
               140
             ],
             "flags": {},
-            "order": 6,
+            "order": 7,
             "mode": 0,
             "inputs": [
               {
@@ -1494,7 +1402,7 @@
             "flags": {
               "collapsed": false
             },
-            "order": 2,
+            "order": 3,
             "mode": 0,
             "inputs": [
               {
@@ -1541,7 +1449,7 @@
             "flags": {
               "collapsed": false
             },
-            "order": 3,
+            "order": 4,
             "mode": 0,
             "inputs": [
               {
@@ -1586,7 +1494,7 @@
               110
             ],
             "flags": {},
-            "order": 11,
+            "order": 12,
             "mode": 0,
             "inputs": [
               {
@@ -1622,6 +1530,96 @@
               24,
               8
             ]
+          },
+          {
+            "id": 126,
+            "type": "BasicGuider",
+            "pos": [
+              -260,
+              5080
+            ],
+            "size": [
+              360,
+              60
+            ],
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 302
+              },
+              {
+                "localized_name": "conditioning",
+                "name": "conditioning",
+                "type": "CONDITIONING",
+                "link": 270
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "GUIDER",
+                "name": "GUIDER",
+                "type": "GUIDER",
+                "links": [
+                  254
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.30.0",
+              "Node name for S&R": "BasicGuider"
+            },
+            "widgets_values": []
+          },
+          {
+            "id": 143,
+            "type": "PathchSageAttentionKJ",
+            "pos": [
+              -1270,
+              4940
+            ],
+            "size": [
+              350,
+              90
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 301
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "MODEL",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  302,
+                  303
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfyui-kjnodes",
+              "ver": "60cd6bc1870db94c6eeb05fbe455147a8e91c4e9",
+              "Node name for S&R": "PathchSageAttentionKJ"
+            },
+            "widgets_values": [
+              "auto",
+              false
+            ],
+            "color": "#232",
+            "bgcolor": "#353"
           }
         ],
         "groups": [
@@ -1651,14 +1649,6 @@
           }
         ],
         "links": [
-          {
-            "id": 283,
-            "origin_id": 127,
-            "origin_slot": 0,
-            "target_id": 141,
-            "target_slot": 0,
-            "type": "MODEL"
-          },
           {
             "id": 272,
             "origin_id": 128,
@@ -1698,22 +1688,6 @@
             "target_id": 136,
             "target_slot": 12,
             "type": "INT"
-          },
-          {
-            "id": 252,
-            "origin_id": 141,
-            "origin_slot": 0,
-            "target_id": 124,
-            "target_slot": 0,
-            "type": "MODEL"
-          },
-          {
-            "id": 257,
-            "origin_id": 141,
-            "origin_slot": 0,
-            "target_id": 126,
-            "target_slot": 0,
-            "type": "MODEL"
           },
           {
             "id": 270,
@@ -1938,6 +1912,30 @@
             "target_id": 124,
             "target_slot": 1,
             "type": "COMBO"
+          },
+          {
+            "id": 301,
+            "origin_id": 127,
+            "origin_slot": 0,
+            "target_id": 143,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 302,
+            "origin_id": 143,
+            "origin_slot": 0,
+            "target_id": 126,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 303,
+            "origin_id": 143,
+            "origin_slot": 0,
+            "target_id": 124,
+            "target_slot": 0,
+            "type": "MODEL"
           }
         ],
         "extra": {}
@@ -1953,7 +1951,7 @@
         -4490.154384242378
       ]
     },
-    "frontendVersion": "1.48.6",
+    "frontendVersion": "1.48.7",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,
