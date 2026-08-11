@@ -34,7 +34,7 @@ module.exports = {
     },
     // Install KJNodes
     {
-      when: "{{platform === 'win32' && gpu === 'nvidia''}}",
+      when: "{{platform === 'win32' && gpu === 'nvidia'}}",
       method: "shell.run",
       params: {
         path: "app/custom_nodes",
@@ -44,7 +44,7 @@ module.exports = {
       }
     },
     {
-      when: "{{platform === 'win32' && gpu === 'nvidia''}}",
+      when: "{{platform === 'win32' && gpu === 'nvidia'}}",
       method: "shell.run",
       params: {
         venv: "../../env",
