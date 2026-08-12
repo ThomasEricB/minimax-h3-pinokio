@@ -32,7 +32,8 @@ module.exports = {
     let has = {
       fl2va: info.exists("app/models/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors"),
       ref2va: info.exists("app/models/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors"),
-      encoder_int8: info.exists("app/models/text_encoders/qwen3vl_32b_minimax_h3_int8_convrot.safetensors")
+      encoder_int8: info.exists("app/models/text_encoders/qwen3vl_32b_minimax_h3_int8_convrot.safetensors"),
+      turbo_lora: info.exists("app/models/loras/minimax_h3_turbo_v4_step600_ema.safetensors")
     }
 
     if (running.install) {
@@ -110,6 +111,14 @@ module.exports = {
           icon: "fa-solid fa-download",
           text: "INT8 text encoder — optional upgrade (27.1GB)",
           href: "download/text_encoder_int8.js",
+          mode: "refresh"
+        })
+      }
+      if (!has.turbo_lora) {
+        downloads.push({
+          icon: "fa-solid fa-download",
+          text: "Turbo LoRA (780MB)",
+          href: "download/turbo_lora.js",
           mode: "refresh"
         })
       }

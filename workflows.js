@@ -65,6 +65,48 @@ module.exports = {
         src: "workflows/MiniMax H3 - Image to Video (NVIDIA).json",
         dest: "app/user/default/workflows/MiniMax H3 - Image to Video (NVIDIA).json"
       }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "workflows/MiniMax H3 - Text to Video - Turbo.json",
+        dest: "app/user/default/workflows/MiniMax H3 - Text to Video - Turbo.json"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "workflows/MiniMax H3 - Text to Video - Turbo (NVIDIA).json",
+        dest: "app/user/default/workflows/MiniMax H3 - Text to Video - Turbo (NVIDIA).json"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "workflows/MiniMax H3 - Reference to Video - Turbo.json",
+        dest: "app/user/default/workflows/MiniMax H3 - Reference to Video - Turbo.json"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "workflows/MiniMax H3 - Reference to Video - Turbo (NVIDIA).json",
+        dest: "app/user/default/workflows/MiniMax H3 - Reference to Video - Turbo (NVIDIA).json"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "workflows/MiniMax H3 - Image to Video - Turbo.json",
+        dest: "app/user/default/workflows/MiniMax H3 - Image to Video - Turbo.json"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "workflows/MiniMax H3 - Image to Video - Turbo (NVIDIA).json",
+        dest: "app/user/default/workflows/MiniMax H3 - Image to Video - Turbo (NVIDIA).json"
+      }
     }
   ]
 }

@@ -32,6 +32,16 @@ module.exports = {
         ]
       }
     },
+    // Install comfyui-miniMax-h3-turbo Nodes
+    {
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes",
+        message: [
+          "git clone https://github.com/larryvrh/ComfyUI-MiniMax-H3-Turbo"
+        ],
+      }
+    },
     // Install KJNodes
     {
       when: "{{platform === 'win32' && gpu === 'nvidia'}}",
@@ -117,6 +127,12 @@ module.exports = {
       method: "script.start",
       params: {
         uri: "download/ref2va.js"
+      }
+    },
+    {
+      method: "script.start",
+      params: {
+        uri: "download/turbo_lora.js"
       }
     },
     // Ready-to-run graphs in the Workflows sidebar, models already selected.
