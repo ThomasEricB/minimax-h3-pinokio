@@ -6,6 +6,7 @@ module.exports = {
     // MiniMax H3 runs natively in ComfyUI (comfy_extras/nodes_minimax_h3.py on
     // master) -- no custom nodes or wrapper repos are needed.
     {
+      when: "{{!exists('app')}}",
       method: "shell.run",
       params: {
         message: [
@@ -14,6 +15,7 @@ module.exports = {
       }
     },
     {
+      when: "{{!exists('app/custom_nodes/ComfyUI-Manager')}}",
       method: "shell.run",
       params: {
         message: [
@@ -34,6 +36,7 @@ module.exports = {
     },
     // Install comfyui-miniMax-h3-turbo Nodes
     {
+      when: "{{!exists('app/custom_nodes/ComfyUI-MiniMax-H3-Turbo')}}",
       method: "shell.run",
       params: {
         path: "app/custom_nodes",
@@ -42,9 +45,42 @@ module.exports = {
         ],
       }
     },
+    // Install comfyui-h3-VisionPromptor Nodes
+    {
+      when: "{{!exists('app/custom_nodes/ComfyUI-H3-VisionPromptor')}}",
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes",
+        message: [
+          "git clone https://github.com/benjiyaya/ComfyUI-H3-VisionPromptor"
+        ],
+      }
+    },
+    // Install comfyui-custom-scripts Nodes
+    {
+      when: "{{!exists('app/custom_nodes/ComfyUI-Custom-Scripts')}}",
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes",
+        message: [
+          "git clone https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
+        ],
+      }
+    },
+    // Install rgthree-comfy Nodes
+    {
+      when: "{{!exists('app/custom_nodes/rgthree-comfy')}}",
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes",
+        message: [
+          "git clone https://github.com/rgthree/rgthree-comfy"
+        ],
+      }
+    },
     // Install KJNodes
     {
-      when: "{{platform === 'win32' && gpu === 'nvidia'}}",
+      when: "{{platform === 'win32' && gpu === 'nvidia' && !exists('app/custom_nodes/ComfyUI-KJNodes')}}",
       method: "shell.run",
       params: {
         path: "app/custom_nodes",
@@ -133,6 +169,12 @@ module.exports = {
       method: "script.start",
       params: {
         uri: "download/turbo_lora.js"
+      }
+    },
+    {
+      method: "script.start",
+      params: {
+        uri: "download/qwen3_vl_4b.js"
       }
     },
     // Ready-to-run graphs in the Workflows sidebar, models already selected.

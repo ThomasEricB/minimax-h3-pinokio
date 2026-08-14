@@ -107,6 +107,13 @@ module.exports = {
         src: "workflows/MiniMax H3 - Image to Video - Turbo (NVIDIA).json",
         dest: "app/user/default/workflows/MiniMax H3 - Image to Video - Turbo (NVIDIA).json"
       }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "workflows/Prompt Enhancer - Image Analyzer.json",
+        dest: "app/user/default/workflows/Prompt Enhancer - Image Analyzer.json"
+      }
     }
   ]
 }

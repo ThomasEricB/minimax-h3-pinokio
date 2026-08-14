@@ -1,0 +1,466 @@
+{
+  "id": "a418e90f-f7a9-4b0f-9237-59620be66a48",
+  "revision": 0,
+  "last_node_id": 16,
+  "last_link_id": 14,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -160,
+        5330
+      ],
+      "size": [
+        460,
+        590
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "aux_id": "pythongosssss/ComfyUI-Custom-Scripts"
+      },
+      "widgets_values": [
+        "How the reference pictures align with the target video — <Picture 1> (from [Shot 1]) aligns with the 0.00-second mark of the target video; <Picture 2> (from [Shot 4]) aligns with the 5.00-second mark of the target video.\n\n[Shot 1] Live-action, cinematic, a wide-angle shot frames the Kung Fu fighter standing on a rocky beach at sunset, surrounded by crashing waves and a distant horizon. The camera tilts up slightly to emphasize the imposing figure. The fighter, a middle-aged man with short black hair and a weathered face, wears a faded blue martial arts uniform and holds a wooden staff. [Shot 2] At 00:01.500, the camera cuts to a low-angle close-up of the fighter’s hands executing a spinning kick, his boots kicking up sand while waves crash behind him. [Shot 3] At 00:03.000, the shot transitions to a wide shot showing the fighter landing a punch, his uniform billowing in the wind as waves roll in. [Shot 4] At 00:04.500, the camera pulls back to reveal the fighter standing center frame, staff raised high, surrounded by receding waves. The final shot settles into the exact pose and composition of <Picture 2> (office setting). The soundscape includes distant waves, rustling fabric, and the rhythmic sound of the fighter’s movements. Non-diegetic music features slow, steady drum patterns with a low-toned instrument.\n\noverall_soundscape: N/A\n\nnon_diegetic_music: N/A"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "LoadImage",
+      "pos": [
+        -1080,
+        5330
+      ],
+      "size": [
+        330,
+        470
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11,
+            12
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.31.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Jackie.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -160,
+        6060
+      ],
+      "size": [
+        460,
+        420
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "aux_id": "pythongosssss/ComfyUI-Custom-Scripts"
+      },
+      "widgets_values": [
+        "A male figure with black, medium-length, slightly wavy hair and a red headband is captured mid-kick in a dynamic martial arts pose; he wears a light blue short-sleeved V-neck shirt, black loose-fitting pants, and black shoes with white socks, one of which is visible above the shoe; no other accessories or props are visible. The scene is set outdoors on a grassy field with a reddish-brown dirt patch behind him, and distant hills and two thin flags (one yellow, one red and blue) are visible in the background; the lighting is diffuse daylight with a slightly overcast sky, resulting in a muted color palette dominated by greens, browns, and the blue of the shirt; the visual style is live-action, with naturalistic detail and motion captured in a medium full shot that frames the subject from the knees up, emphasizing his posture and the environment around him.\n\nA beach scene at sunset or sunrise, with the camera positioned low near the sand, capturing the foreground of foamy ocean waves breaking onto the shore; the water is textured with white foam and greenish-blue undertones, and the sand is dark brown and granular; in the background, a hilly coastline with sparse vegetation and a distant town or settlement is visible under a clear sky that transitions from pale yellow near the horizon to deep blue above, with a faint wispy cloud; the lighting is warm and directional, casting a golden glow across the water and land; the visual style is cinematic, with shallow depth of field blurring the distant hills and emphasizing the waves and sand; the shot is a wide-angle, low-angle view that captures the expanse of the beach and horizon, conveying a sense of natural scale and tranquility."
+      ]
+    },
+    {
+      "id": 10,
+      "type": "H3VisionAnalyzer",
+      "pos": [
+        -600,
+        6060
+      ],
+      "size": [
+        400,
+        420
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "shape": 7,
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "label": "image_0",
+          "name": "images.image_0",
+          "type": "IMAGE",
+          "link": 12
+        },
+        {
+          "label": "image_1",
+          "name": "images.image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 14
+        },
+        {
+          "label": "image_2",
+          "name": "images.image_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "description",
+          "type": "STRING",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "benjiyaya/ComfyUI-H3-VisionPromptor",
+        "ver": "24a3671baf08a13dac92d48b91641f472b8ac6a4",
+        "Node name for S&R": "H3VisionAnalyzer"
+      },
+      "widgets_values": [
+        "qwen3vl_4b_bf16.safetensors",
+        "detailed_subject_scene",
+        861856986,
+        "randomize",
+        0.2,
+        1024,
+        true,
+        ""
+      ]
+    },
+    {
+      "id": 1,
+      "type": "H3VisionPromptor",
+      "pos": [
+        -600,
+        5330
+      ],
+      "size": [
+        400,
+        588.0000000000001
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "shape": 7,
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "label": "image_0",
+          "name": "images.image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 11
+        },
+        {
+          "label": "image_1",
+          "name": "images.image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 13
+        },
+        {
+          "label": "image_2",
+          "name": "images.image_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            2
+          ]
+        },
+        {
+          "name": "vision_context",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "debug",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "benjiyaya/ComfyUI-H3-VisionPromptor",
+        "ver": "24a3671baf08a13dac92d48b91641f472b8ac6a4",
+        "Node name for S&R": "H3VisionPromptor"
+      },
+      "widgets_values": [
+        "qwen_3_4b.safetensors",
+        "A Kung Fu fighter performing Kung Fu on the beach of <Picture 2>",
+        "Auto",
+        5,
+        "detailed_subject_scene",
+        3399576430,
+        "randomize",
+        0.7,
+        0.95,
+        64,
+        2048,
+        1,
+        false,
+        true,
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 13,
+      "type": "LoadImage",
+      "pos": [
+        -1080,
+        6010
+      ],
+      "size": [
+        330,
+        470
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            13,
+            14
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.31.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Beach_square.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 14,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        -1080,
+        5860
+      ],
+      "size": [
+        330,
+        90
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "",
+        "showNav": true,
+        "showAllGraphs": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 16,
+      "type": "MarkdownNote",
+      "pos": [
+        -1480,
+        5860
+      ],
+      "size": [
+        380,
+        90
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Workflow Guide",
+      "properties": {},
+      "widgets_values": [
+        "1. Upload your reference images\n2. Set the durion in the **H3 Vision Promptor** according to the video duration you plan to generate\n3. Bypass the group you don't need with the **Fast Groups Bypasser**"
+      ],
+      "color": "#222",
+      "bgcolor": "#000",
+      "shape": "default"
+    }
+  ],
+  "links": [
+    [
+      2,
+      1,
+      0,
+      3,
+      0,
+      "STRING"
+    ],
+    [
+      10,
+      10,
+      0,
+      11,
+      0,
+      "STRING"
+    ],
+    [
+      11,
+      12,
+      0,
+      1,
+      1,
+      "IMAGE"
+    ],
+    [
+      12,
+      12,
+      0,
+      10,
+      1,
+      "IMAGE"
+    ],
+    [
+      13,
+      13,
+      0,
+      1,
+      2,
+      "IMAGE"
+    ],
+    [
+      14,
+      13,
+      0,
+      10,
+      2,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Prompt Enhancer",
+      "bounding": [
+        -620,
+        5250,
+        940,
+        690
+      ],
+      "color": "#8AA",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Image Analyzer",
+      "bounding": [
+        -620,
+        5980,
+        940,
+        520
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6830134553650707,
+      "offset": [
+        1880.493403667367,
+        -5107.77893852291
+      ]
+    },
+    "frontendVersion": "1.48.7"
+  },
+  "version": 0.4
+}

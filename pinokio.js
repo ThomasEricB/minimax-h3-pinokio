@@ -33,7 +33,8 @@ module.exports = {
       fl2va: info.exists("app/models/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors"),
       ref2va: info.exists("app/models/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors"),
       encoder_int8: info.exists("app/models/text_encoders/qwen3vl_32b_minimax_h3_int8_convrot.safetensors"),
-      turbo_lora: info.exists("app/models/loras/minimax_h3_turbo_v4_step600_ema.safetensors")
+      turbo_lora: info.exists("app/models/loras/minimax_h3_turbo_v4_step600_ema.safetensors"),
+      prompt_enhancer: info.exists("app/models/clip/qwen3vl_4b_bf16.safetensors")
     }
 
     if (running.install) {
@@ -119,6 +120,14 @@ module.exports = {
           icon: "fa-solid fa-download",
           text: "Turbo LoRA (780MB)",
           href: "download/turbo_lora.js",
+          mode: "refresh"
+        })
+      }
+      if (!has.prompt_enhancer) {
+        downloads.push({
+          icon: "fa-solid fa-download",
+          text: "Prompt Enhancer (8.88GB)",
+          href: "download/qwen3_vl_4b.js",
           mode: "refresh"
         })
       }
