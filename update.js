@@ -23,6 +23,35 @@ module.exports = {
     {
       method: "shell.run",
       params: {
+        path: "app/custom_nodes/ComfyUI-MiniMax-H3-Turbo",
+        message: "git pull"
+      }
+    },
+    {
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes/ComfyUI-H3-VisionPromptor",
+        message: "git pull"
+      }
+    },
+    {
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes/ComfyUI-Custom-Scripts",
+        message: "git pull"
+      }
+    },
+    {
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes/rgthree-comfy",
+        message: "git pull"
+      }
+    },
+    {
+      when: "{{platform === 'win32' && gpu === 'nvidia'}}",
+      method: "shell.run",
+      params: {
         path: "app/custom_nodes/ComfyUI-KJNodes",
         message: "git pull",
       }
@@ -35,6 +64,15 @@ module.exports = {
         message: [
           "uv pip install -r requirements.txt"
         ]
+      }
+    },
+    {
+      when: "{{platform === 'win32' && gpu === 'nvidia'}}",
+      method: "shell.run",
+      params: {
+        venv: "../../env",
+        path: "app/custom_nodes/ComfyUI-KJNodes",
+        message: [ "uv pip install -r requirements.txt", ]
       }
     },
     // Re-assert the cu130 pins after requirements.txt, so a future change to
