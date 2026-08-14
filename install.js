@@ -34,6 +34,16 @@ module.exports = {
         ]
       }
     },
+    {
+      method: "shell.run",
+      params: {
+        venv: "../../env",
+        path: "app/custom_nodes/ComfyUI-Manager",
+        message: [
+          "uv pip install -r requirements.txt"
+        ]
+      }
+    },
     // Install comfyui-miniMax-h3-turbo Nodes
     {
       when: "{{!exists('app/custom_nodes/ComfyUI-MiniMax-H3-Turbo')}}",

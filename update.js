@@ -67,6 +67,16 @@ module.exports = {
       }
     },
     {
+      method: "shell.run",
+      params: {
+        venv: "../../env",
+        path: "app/custom_nodes/ComfyUI-Manager",
+        message: [
+          "uv pip install -r requirements.txt"
+        ]
+      }
+    },
+    {
       when: "{{platform === 'win32' && gpu === 'nvidia'}}",
       method: "shell.run",
       params: {
