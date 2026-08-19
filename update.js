@@ -27,6 +27,39 @@ module.exports = {
         message: "git pull"
       }
     },
+    // Install comfyui-h3-VisionPromptor Nodes
+    {
+      when: "{{!exists('app/custom_nodes/ComfyUI-H3-VisionPromptor')}}",
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes",
+        message: [
+          "git clone https://github.com/benjiyaya/ComfyUI-H3-VisionPromptor"
+        ],
+      }
+    },
+    // Install comfyui-custom-scripts Nodes
+    {
+      when: "{{!exists('app/custom_nodes/ComfyUI-Custom-Scripts')}}",
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes",
+        message: [
+          "git clone https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
+        ],
+      }
+    },
+    // Install rgthree-comfy Nodes
+    {
+      when: "{{!exists('app/custom_nodes/rgthree-comfy')}}",
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes",
+        message: [
+          "git clone https://github.com/rgthree/rgthree-comfy"
+        ],
+      }
+    },
     {
       method: "shell.run",
       params: {
@@ -96,6 +129,12 @@ module.exports = {
           venv: "env",
           path: "app"
         }
+      }
+    },
+    {
+      method: "script.start",
+      params: {
+        uri: "download/qwen3_vl_4b.js"
       }
     },
     {
