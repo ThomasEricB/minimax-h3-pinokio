@@ -111,6 +111,20 @@ module.exports = {
     {
       method: "fs.copy",
       params: {
+        src: "workflows/MiniMax H3 - Lipsync (NVIDIA).json",
+        dest: "app/user/default/workflows/MiniMax H3 - Lipsync (NVIDIA).json"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "workflows/MiniMax H3 - Lipsync.json",
+        dest: "app/user/default/workflows/MiniMax H3 - Lipsync.json"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
         src: "workflows/Prompt Enhancer - Image Analyzer.json",
         dest: "app/user/default/workflows/Prompt Enhancer - Image Analyzer.json"
       }
