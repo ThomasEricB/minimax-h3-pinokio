@@ -40,8 +40,11 @@
         "aux_id": "pythongosssss/ComfyUI-Custom-Scripts"
       },
       "widgets_values": [
-        "How the reference pictures align with the target video — <Picture 1> (from [Shot 1]) aligns with the 0.00-second mark of the target video; <Picture 2> (from [Shot 4]) aligns with the 5.00-second mark of the target video.\n\n[Shot 1] Live-action, cinematic, a wide-angle shot frames the Kung Fu fighter standing on a rocky beach at sunset, surrounded by crashing waves and a distant horizon. The camera tilts up slightly to emphasize the imposing figure. The fighter, a middle-aged man with short black hair and a weathered face, wears a faded blue martial arts uniform and holds a wooden staff. [Shot 2] At 00:01.500, the camera cuts to a low-angle close-up of the fighter’s hands executing a spinning kick, his boots kicking up sand while waves crash behind him. [Shot 3] At 00:03.000, the shot transitions to a wide shot showing the fighter landing a punch, his uniform billowing in the wind as waves roll in. [Shot 4] At 00:04.500, the camera pulls back to reveal the fighter standing center frame, staff raised high, surrounded by receding waves. The final shot settles into the exact pose and composition of <Picture 2> (office setting). The soundscape includes distant waves, rustling fabric, and the rhythmic sound of the fighter’s movements. Non-diegetic music features slow, steady drum patterns with a low-toned instrument.\n\noverall_soundscape: N/A\n\nnon_diegetic_music: N/A"
-      ]
+        "How the reference pictures align with the target video — <Picture 1> (from [Shot 1]) aligns with the 0.00-second mark of the target video; <Picture 2> (from [Shot 5]) aligns with the 5.00-second mark of the target video.\n\n[Shot 1] Live-action, cinematic, a medium full-body shot frames the Kung Fu fighter in <Picture 1> standing on a grassy field, mid-kick, with his dark hair, red headband, light blue V-neck shirt, black pants, and black shoes with white socks clearly visible. The camera holds static as he begins his sequence. [Shot 2] At 00:01.000, the camera pans right with small amplitude at slow speed as he transitions to the beach, the grassy field replaced by wet sand and ocean waves. [Shot 3] At 00:02.000, the shot cuts to a low-angle view of the beach at sunset, the fighter now in the foreground, mid-kick, as the golden hour light glints off the waves. [Shot 4] At 00:03.000, the camera pulls back with small amplitude at slow speed to a wide-angle view, showing the fighter’s pose against the rolling waves and distant hills. [Shot 5] At 00:05.000, the shot ends on <Picture 2>, the fighter frozen mid-kick, the ocean waves crashing, the sun casting long shadows, and the distant hillside with faint urban structures visible.\n\noverall_soundscape: N/A\n\nnon_diegetic_music: N/A"
+      ],
+      "widgets_values_named": {
+        "text_0": "How the reference pictures align with the target video — <Picture 1> (from [Shot 1]) aligns with the 0.00-second mark of the target video; <Picture 2> (from [Shot 5]) aligns with the 5.00-second mark of the target video.\n\n[Shot 1] Live-action, cinematic, a medium full-body shot frames the Kung Fu fighter in <Picture 1> standing on a grassy field, mid-kick, with his dark hair, red headband, light blue V-neck shirt, black pants, and black shoes with white socks clearly visible. The camera holds static as he begins his sequence. [Shot 2] At 00:01.000, the camera pans right with small amplitude at slow speed as he transitions to the beach, the grassy field replaced by wet sand and ocean waves. [Shot 3] At 00:02.000, the shot cuts to a low-angle view of the beach at sunset, the fighter now in the foreground, mid-kick, as the golden hour light glints off the waves. [Shot 4] At 00:03.000, the camera pulls back with small amplitude at slow speed to a wide-angle view, showing the fighter’s pose against the rolling waves and distant hills. [Shot 5] At 00:05.000, the shot ends on <Picture 2>, the fighter frozen mid-kick, the ocean waves crashing, the sun casting long shadows, and the distant hillside with faint urban structures visible.\n\noverall_soundscape: N/A\n\nnon_diegetic_music: N/A"
+      }
     },
     {
       "id": 12,
@@ -81,7 +84,11 @@
       "widgets_values": [
         "Jackie.jpg",
         "image"
-      ]
+      ],
+      "widgets_values_named": {
+        "image": "Jackie.jpg",
+        "upload": "image"
+      }
     },
     {
       "id": 11,
@@ -120,7 +127,10 @@
       },
       "widgets_values": [
         "A male figure with black, medium-length, slightly wavy hair and a red headband is captured mid-kick in a dynamic martial arts pose; he wears a light blue short-sleeved V-neck shirt, black loose-fitting pants, and black shoes with white socks, one of which is visible above the shoe; no other accessories or props are visible. The scene is set outdoors on a grassy field with a reddish-brown dirt patch behind him, and distant hills and two thin flags (one yellow, one red and blue) are visible in the background; the lighting is diffuse daylight with a slightly overcast sky, resulting in a muted color palette dominated by greens, browns, and the blue of the shirt; the visual style is live-action, with naturalistic detail and motion captured in a medium full shot that frames the subject from the knees up, emphasizing his posture and the environment around him.\n\nA beach scene at sunset or sunrise, with the camera positioned low near the sand, capturing the foreground of foamy ocean waves breaking onto the shore; the water is textured with white foam and greenish-blue undertones, and the sand is dark brown and granular; in the background, a hilly coastline with sparse vegetation and a distant town or settlement is visible under a clear sky that transitions from pale yellow near the horizon to deep blue above, with a faint wispy cloud; the lighting is warm and directional, casting a golden glow across the water and land; the visual style is cinematic, with shallow depth of field blurring the distant hills and emphasizing the waves and sand; the shot is a wide-angle, low-angle view that captures the expanse of the beach and horizon, conveying a sense of natural scale and tranquility."
-      ]
+      ],
+      "widgets_values_named": {
+        "text_0": "A male figure with black, medium-length, slightly wavy hair and a red headband is captured mid-kick in a dynamic martial arts pose; he wears a light blue short-sleeved V-neck shirt, black loose-fitting pants, and black shoes with white socks, one of which is visible above the shoe; no other accessories or props are visible. The scene is set outdoors on a grassy field with a reddish-brown dirt patch behind him, and distant hills and two thin flags (one yellow, one red and blue) are visible in the background; the lighting is diffuse daylight with a slightly overcast sky, resulting in a muted color palette dominated by greens, browns, and the blue of the shirt; the visual style is live-action, with naturalistic detail and motion captured in a medium full shot that frames the subject from the knees up, emphasizing his posture and the environment around him.\n\nA beach scene at sunset or sunrise, with the camera positioned low near the sand, capturing the foreground of foamy ocean waves breaking onto the shore; the water is textured with white foam and greenish-blue undertones, and the sand is dark brown and granular; in the background, a hilly coastline with sparse vegetation and a distant town or settlement is visible under a clear sky that transitions from pale yellow near the horizon to deep blue above, with a faint wispy cloud; the lighting is warm and directional, casting a golden glow across the water and land; the visual style is cinematic, with shallow depth of field blurring the distant hills and emphasizing the waves and sand; the shot is a wide-angle, low-angle view that captures the expanse of the beach and horizon, conveying a sense of natural scale and tranquility."
+      }
     },
     {
       "id": 10,
@@ -181,13 +191,95 @@
       "widgets_values": [
         "qwen3vl_4b_bf16.safetensors",
         "detailed_subject_scene",
-        861856986,
+        4238258468,
         "randomize",
         0.2,
         1024,
         true,
         ""
-      ]
+      ],
+      "widgets_values_named": {
+        "text_encoder": "qwen3vl_4b_bf16.safetensors",
+        "vision_mode": "detailed_subject_scene",
+        "seed": 4238258468,
+        "randomize": "randomize",
+        "temperature": 0.2,
+        "max_tokens": 1024,
+        "keep_model_loaded": true,
+        "custom_prompt": ""
+      }
+    },
+    {
+      "id": 13,
+      "type": "LoadImage",
+      "pos": [
+        -1080,
+        6010
+      ],
+      "size": [
+        330,
+        470
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            13,
+            14
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.31.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Beach_square.jpg",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "Beach_square.jpg",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 16,
+      "type": "MarkdownNote",
+      "pos": [
+        -1480,
+        5860
+      ],
+      "size": [
+        380,
+        90
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Workflow Guide",
+      "properties": {},
+      "widgets_values": [
+        "1. Upload your reference images\n2. Set the durion in the **H3 Vision Promptor** according to the video duration you plan to generate\n3. Bypass the group you don't need with the **Fast Groups Bypasser**"
+      ],
+      "widgets_values_named": {
+        "text": "1. Upload your reference images\n2. Set the durion in the **H3 Vision Promptor** according to the video duration you plan to generate\n3. Bypass the group you don't need with the **Fast Groups Bypasser**"
+      },
+      "color": "#222",
+      "bgcolor": "#000",
+      "shape": "default"
     },
     {
       "id": 1,
@@ -257,12 +349,12 @@
         "Node name for S&R": "H3VisionPromptor"
       },
       "widgets_values": [
-        "qwen_3_4b.safetensors",
+        "qwen3vl_4b_bf16.safetensors",
         "A Kung Fu fighter performing Kung Fu on the beach of <Picture 2>",
         "Auto",
         5,
         "detailed_subject_scene",
-        3399576430,
+        1546243553,
         "randomize",
         0.7,
         0.95,
@@ -273,47 +365,25 @@
         true,
         "",
         ""
-      ]
-    },
-    {
-      "id": 13,
-      "type": "LoadImage",
-      "pos": [
-        -1080,
-        6010
       ],
-      "size": [
-        330,
-        470
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            13,
-            14
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.31.0",
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "Beach_square.jpg",
-        "image"
-      ]
+      "widgets_values_named": {
+        "text_encoder": "qwen3vl_4b_bf16.safetensors",
+        "user_idea": "A Kung Fu fighter performing Kung Fu on the beach of <Picture 2>",
+        "task_type": "Auto",
+        "duration": 5,
+        "vision_mode": "detailed_subject_scene",
+        "seed": 1546243553,
+        "randomize": "randomize",
+        "temperature": 0.7,
+        "top_p": 0.95,
+        "top_k": 64,
+        "max_tokens": 2048,
+        "variants": 1,
+        "use_default_template": false,
+        "keep_model_loaded": true,
+        "extra_instructions": "",
+        "custom_system_prompt": ""
+      }
     },
     {
       "id": 14,
@@ -327,7 +397,7 @@
         90
       ],
       "flags": {},
-      "order": 2,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -348,31 +418,6 @@
       },
       "color": "#223",
       "bgcolor": "#335"
-    },
-    {
-      "id": 16,
-      "type": "MarkdownNote",
-      "pos": [
-        -1480,
-        5860
-      ],
-      "size": [
-        380,
-        90
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Workflow Guide",
-      "properties": {},
-      "widgets_values": [
-        "1. Upload your reference images\n2. Set the durion in the **H3 Vision Promptor** according to the video duration you plan to generate\n3. Bypass the group you don't need with the **Fast Groups Bypasser**"
-      ],
-      "color": "#222",
-      "bgcolor": "#000",
-      "shape": "default"
     }
   ],
   "links": [
@@ -454,13 +499,13 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6830134553650707,
+      "scale": 0.6830134553650705,
       "offset": [
-        1880.493403667367,
-        -5107.77893852291
+        1497.2125395382868,
+        -5177.905576202668
       ]
     },
-    "frontendVersion": "1.48.7"
+    "frontendVersion": "1.49.6"
   },
   "version": 0.4
 }
