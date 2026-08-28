@@ -156,6 +156,13 @@ module.exports = {
         }
       }
     },
+    // Ready-to-run graphs in the Workflows sidebar, models already selected.
+    {
+      method: "script.start",
+      params: {
+        uri: "workflows.js"
+      }
+    },
     // ~63 GB total. Shared encoder + VAEs first, then each transformer.
     {
       method: "script.start",
@@ -185,13 +192,6 @@ module.exports = {
       method: "script.start",
       params: {
         uri: "download/qwen3_vl_4b.js"
-      }
-    },
-    // Ready-to-run graphs in the Workflows sidebar, models already selected.
-    {
-      method: "script.start",
-      params: {
-        uri: "workflows.js"
       }
     }
   ]

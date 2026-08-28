@@ -134,13 +134,13 @@ module.exports = {
     {
       method: "script.start",
       params: {
-        uri: "download/qwen3_vl_4b.js"
+        uri: "workflows.js"
       }
     },
     {
       method: "script.start",
       params: {
-        uri: "workflows.js"
+        uri: "download/qwen3_vl_4b.js"
       }
     }
   ]
