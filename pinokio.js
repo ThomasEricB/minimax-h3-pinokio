@@ -12,12 +12,20 @@ module.exports = {
       reset: info.running("reset.js")
     }
     let downloading = [
-      "download/shared.js",
+      "download/text_encoder_nvfp4.js",
+      "download/qwen3_vl_4b.js",
+      "download/text_encoder_int8.js",
+      "download/vae.js",
       "download/fl2va.js",
       "download/ref2va.js",
-      "download/text_encoder_int8.js",
+      "download/fl2va-4steps.js",
+      "download/turbo_lora.js",
+      "download/turbo_lora2.js",
       "remove/fl2va.js",
       "remove/ref2va.js",
+      "remove/fl2va-4steps.js",
+      "remove/turbo_lora.js",
+      "remove/turbo_lora2.js",
       "workflows.js"
     ]
     let is_downloading = null
@@ -32,9 +40,13 @@ module.exports = {
     let has = {
       fl2va: info.exists("app/models/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors"),
       ref2va: info.exists("app/models/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors"),
+      encoder_nvfp4: info.exists("app/models/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"),
       encoder_int8: info.exists("app/models/text_encoders/qwen3vl_32b_minimax_h3_int8_convrot.safetensors"),
-      turbo_lora: info.exists("app/models/loras/minimax_h3_turbo_v4_step600_ema.safetensors"),
-      prompt_enhancer: info.exists("app/models/clip/qwen3vl_4b_bf16.safetensors")
+      vae: info.exists("app/models/vae/minimax_h3_video_vae_fp16.safetensors"),
+      turbo_lora: info.exists("app/models/loras/minimax_h3_fl2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors"),
+      turbo_lora2: info.exists("app/models/loras/minimax_h3_ref2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors"),
+      prompt_enhancer: info.exists("app/models/clip/qwen3vl_4b_bf16.safetensors"),
+      fast_video: info.exists("app/models/diffusion_models/minimax_h3_fastvideo_vsa_datafree_1300step_4step_int8_convrot.safetensors")
     }
 
     if (running.install) {
@@ -107,19 +119,51 @@ module.exports = {
           mode: "refresh"
         })
       }
+      if (!has.fast_video) {
+        downloads.push({
+          icon: "fa-solid fa-download",
+          text: "FastVideo — experimental (22.0GB)",
+          href: "download/fl2va-4steps.js",
+          mode: "refresh"
+        })
+      }
+      if (!has.encoder_nvfp4) {
+        downloads.push({
+          icon: "fa-solid fa-download",
+          text: "NVFP4 text encoder — optional upgrade [NVIDIA ONLY] (15.7GB)",
+          href: "download/text_encoder_nvfp4.js",
+          mode: "refresh"
+        })
+      }
       if (!has.encoder_int8) {
         downloads.push({
           icon: "fa-solid fa-download",
-          text: "INT8 text encoder — optional upgrade (27.1GB)",
+          text: "int8 text encoder — optional upgrade [High VRAM] (27.1GB)",
           href: "download/text_encoder_int8.js",
+          mode: "refresh"
+        })
+      }
+      if (!has.vae) {
+        downloads.push({
+          icon: "fa-solid fa-download",
+          text: "Video and Audio VAE (5.8GB)",
+          href: "download/vae.js",
           mode: "refresh"
         })
       }
       if (!has.turbo_lora) {
         downloads.push({
           icon: "fa-solid fa-download",
-          text: "Turbo LoRA (780MB)",
+          text: "Turbo LoRA - fl2va (1.96GB)",
           href: "download/turbo_lora.js",
+          mode: "refresh"
+        })
+      }
+      if (!has.turbo_lora2) {
+        downloads.push({
+          icon: "fa-solid fa-download",
+          text: "Turbo LoRA - ref2va (1.96GB)",
+          href: "download/turbo_lora2.js",
           mode: "refresh"
         })
       }
@@ -131,12 +175,6 @@ module.exports = {
           mode: "refresh"
         })
       }
-      downloads.push({
-        icon: "fa-solid fa-rotate",
-        text: "Re-download shared encoder + VAEs (21.5GB)",
-        href: "download/shared.js",
-        mode: "refresh"
-      })
 
       // Each variant is independently removable -- 21GB back per click.
       let removals = []
@@ -156,6 +194,33 @@ module.exports = {
           href: "remove/ref2va.js",
           mode: "refresh",
           confirm: "Delete the Ref2VA transformer? You can re-download it later."
+        })
+      }
+      if (has.fast_video) {
+        removals.push({
+          icon: "fa-regular fa-trash-can",
+          text: "Delete FastVideo — experimental (frees 22.0GB)",
+          href: "remove/fl2va-4steps.js",
+          mode: "refresh",
+          confirm: "Delete the FastVideo model, needed for Turbo workflows? You can re-download it later."
+        })
+      }
+      if (has.turbo_lora) {
+        removals.push({
+          icon: "fa-regular fa-trash-can",
+          text: "Delete Turbo LoRA - fl2va (frees 1.96GB)",
+          href: "remove/turbo_lora.js",
+          mode: "refresh",
+          confirm: "Delete the fl2va Turbo LoRA, needed for Turbo workflows? You can re-download it later."
+        })
+      }
+      if (has.turbo_lora2) {
+        removals.push({
+          icon: "fa-regular fa-trash-can",
+          text: "Delete Turbo LoRA - ref2va (frees 1.96GB)",
+          href: "remove/turbo_lora2.js",
+          mode: "refresh",
+          confirm: "Delete the ref2va Turbo LoRA, needed for Turbo workflows? You can re-download it later."
         })
       }
 

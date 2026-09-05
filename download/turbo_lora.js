@@ -3,7 +3,7 @@ module.exports = {
     {
       method: "fs.download",
       params: {
-        uri: "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora/resolve/main/minimax_h3_turbo_v4_step600_ema.safetensors?download=true",
+        uri: "https://huggingface.co/lightx2v/Minimax-h3-Turbo/resolve/main/minimax_h3_fl2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors?download=true",
         dir: "../app/models/loras"
       }
     }

@@ -1,19 +1,19 @@
 {
   "id": "a80eb4b1-aa62-4bd6-96ac-b4db3f0a0e3b",
   "revision": 0,
-  "last_node_id": 36,
-  "last_link_id": 60,
+  "last_node_id": 38,
+  "last_link_id": 66,
   "nodes": [
     {
       "id": 19,
       "type": "SaveVideo",
       "pos": [
-        2470,
+        2440,
         550
       ],
       "size": [
         1030,
-        1447.655172413793
+        773.9375
       ],
       "flags": {},
       "order": 4,
@@ -51,54 +51,40 @@
       }
     },
     {
-      "id": 6,
-      "type": "LoadImage",
+      "id": 20,
+      "type": "MarkdownNote",
       "pos": [
-        1290,
+        660,
         550
       ],
       "size": [
-        440,
-        430
+        610,
+        990
       ],
       "flags": {},
       "order": 0,
       "mode": 0,
       "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            40
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
+      "outputs": [],
+      "title": "Lip-sync workflow - read first",
       "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.30.1",
-        "Node name for S&R": "LoadImage"
+        "Node name for S&R": "MarkdownNote"
       },
       "widgets_values": [
-        "WonderWoman.jpg",
-        "image"
+        "# Lip-sync to your own audio  (ref2va)\n\n## Usage\n\n- Upload your Reference Image in the **Load Image** node\n- Upload your Audio in the **Load Audio** node\n- Write your prompt to describe the video\n- Set width and height for the video\n- Set the duration of the video\n\n## Prompt\n\nYour photo is `<Picture 1>` - an *identity reference* carried through the clip,\nnot an exact opening frame. The video will look like your subject; it will not necessarily start on your image.\n\n**The prompt must use the tags.** References are addressed positionally as\n`<Picture 1>`, `<Audio 1>`.\n\n**NOTE:** The video may NOT be longer than the Audio or it gets out of Sync!\n\n## The 15 second wall\n\n362 frames / 15.08s is H3's trained maximum, so you cannot sync a longer audio in one\npass. Work one segment at a time:\n\n- **duration** is the length of the video.\n- **start audio at sec** picks at *which* second the audio starts. It accepts negatives to count from the end.\n\n\nTo build a longer video, render several segments with sequential `start audio at sec`\nvalues and concatenate them afterwards.\n\n## Presets\n\n| # | canvas | duration | tokens | notes |\n|---|---|---|---|---|\n| **0** | manual | manual | - | set width and height manually |\n| **1** | 768 x 768 | 5s (124 fr) | 21.3k | safest - square |\n| **2** | 1344 x 768 | 5s (124 fr) | 37.3k | max quality wide, 5s |\n| **3** | 864 x 480 | 10s (243 fr) | 29.2k | DEFAULT - 10s at 480p |\n| **4** | 960 x 544 | 10s (243 fr) | 36.7k | 10s, higher res |\n| **5** | 736 x 416 | 15s (362 fr) | 32.0k | safest 15s |\n| **6** | 864 x 480 | 15s (362 fr) | 43.3k | max duration - at the OOM edge |\n\n### Preset 0 - manual\n\nSet PRESET to `0` and set width and height manually; they are ignored otherwise.\n\nSeconds snap **UP** to the next legal length. Ask for 12.0s and you get 12.25s (294 frames).\n**8.000s (192 frames) is the only exactly-round length** in the usable range.\n\n| frames | secs | frames | secs | frames | secs |\n|---|---|---|---|---|---|\n| 124 | 5.167 | 209 | 8.708 | 294 | 12.250 |\n| 141 | 5.875 | 226 | 9.417 | 311 | 12.958 |\n| 158 | 6.583 | 243 | 10.125 | 328 | 13.667 |\n| 175 | 7.292 | 260 | 10.833 | 345 | 14.375 |\n| **192** | **8.000** | 277 | 11.542 | 362 | 15.083 |\n\n## Handle Out of Memory Errors\n\nTo avoid out of memory erros:\n- Decrease the Resolution (with and height).\n- Set the **memory_mode** to _**Lower VRAM (slower)**_  \n- Additionally you can decrease the **chunks**.  \n\n(H3 normally creates several very large temporary tensors while generating a video. Larger chunks can be faster but use more temporary memory. Smaller chunks can substantially reduce peak VRAM use.)"
       ],
       "widgets_values_named": {
-        "image": "WonderWoman.jpg",
-        "upload": "image"
-      }
+        "text": "# Lip-sync to your own audio  (ref2va)\n\n## Usage\n\n- Upload your Reference Image in the **Load Image** node\n- Upload your Audio in the **Load Audio** node\n- Write your prompt to describe the video\n- Set width and height for the video\n- Set the duration of the video\n\n## Prompt\n\nYour photo is `<Picture 1>` - an *identity reference* carried through the clip,\nnot an exact opening frame. The video will look like your subject; it will not necessarily start on your image.\n\n**The prompt must use the tags.** References are addressed positionally as\n`<Picture 1>`, `<Audio 1>`.\n\n**NOTE:** The video may NOT be longer than the Audio or it gets out of Sync!\n\n## The 15 second wall\n\n362 frames / 15.08s is H3's trained maximum, so you cannot sync a longer audio in one\npass. Work one segment at a time:\n\n- **duration** is the length of the video.\n- **start audio at sec** picks at *which* second the audio starts. It accepts negatives to count from the end.\n\n\nTo build a longer video, render several segments with sequential `start audio at sec`\nvalues and concatenate them afterwards.\n\n## Presets\n\n| # | canvas | duration | tokens | notes |\n|---|---|---|---|---|\n| **0** | manual | manual | - | set width and height manually |\n| **1** | 768 x 768 | 5s (124 fr) | 21.3k | safest - square |\n| **2** | 1344 x 768 | 5s (124 fr) | 37.3k | max quality wide, 5s |\n| **3** | 864 x 480 | 10s (243 fr) | 29.2k | DEFAULT - 10s at 480p |\n| **4** | 960 x 544 | 10s (243 fr) | 36.7k | 10s, higher res |\n| **5** | 736 x 416 | 15s (362 fr) | 32.0k | safest 15s |\n| **6** | 864 x 480 | 15s (362 fr) | 43.3k | max duration - at the OOM edge |\n\n### Preset 0 - manual\n\nSet PRESET to `0` and set width and height manually; they are ignored otherwise.\n\nSeconds snap **UP** to the next legal length. Ask for 12.0s and you get 12.25s (294 frames).\n**8.000s (192 frames) is the only exactly-round length** in the usable range.\n\n| frames | secs | frames | secs | frames | secs |\n|---|---|---|---|---|---|\n| 124 | 5.167 | 209 | 8.708 | 294 | 12.250 |\n| 141 | 5.875 | 226 | 9.417 | 311 | 12.958 |\n| 158 | 6.583 | 243 | 10.125 | 328 | 13.667 |\n| 175 | 7.292 | 260 | 10.833 | 345 | 14.375 |\n| **192** | **8.000** | 277 | 11.542 | 362 | 15.083 |\n\n## Handle Out of Memory Errors\n\nTo avoid out of memory erros:\n- Decrease the Resolution (with and height).\n- Set the **memory_mode** to _**Lower VRAM (slower)**_  \n- Additionally you can decrease the **chunks**.  \n\n(H3 normally creates several very large temporary tensors while generating a video. Larger chunks can be faster but use more temporary memory. Smaller chunks can substantially reduce peak VRAM use.)"
+      },
+      "color": "#222",
+      "bgcolor": "#000"
     },
     {
       "id": 28,
       "type": "LoadAudio",
       "pos": [
         1290,
-        1030
+        1110
       ],
       "size": [
         440,
@@ -123,61 +109,75 @@
         "Node name for S&R": "LoadAudio"
       },
       "widgets_values": [
-        "female _singer.mp3",
+        "hero.mp3",
         null,
         null
       ],
       "widgets_values_named": {
-        "audio": "female _singer.mp3",
+        "audio": "hero.mp3",
         "upload": null
       }
     },
     {
-      "id": 20,
-      "type": "MarkdownNote",
+      "id": 6,
+      "type": "LoadImage",
       "pos": [
-        1650,
-        1230
+        1290,
+        550
       ],
       "size": [
-        750,
-        690
+        440,
+        510
       ],
       "flags": {},
       "order": 2,
       "mode": 0,
       "inputs": [],
-      "outputs": [],
-      "title": "Lip-sync workflow - read first",
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            40
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
       "properties": {
-        "Node name for S&R": "MarkdownNote"
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "# Lip-sync to your own audio  (ref2va)\n\n## Usage\n\n- Upload your Reference Image in the **Load Image** node\n- Upload your Audio in the **Load Audio** node\n- Write your prompt to describe the video\n- Set width and height for the video\n- Set the duration of the video\n\n## Prompt\n\nYour photo is `<Picture 1>` - an *identity reference* carried through the clip,\nnot an exact opening frame. The video will look like your subject; it will not necessarily start on your image.\n\n**The prompt must use the tags.** References are addressed positionally as\n`<Picture 1>`, `<Audio 1>`.\n\n## The 15 second wall\n\n362 frames / 15.08s is H3's trained maximum, so you cannot sync a longer audio in one\npass. Work one segment at a time:\n\n- **duration** is the length of the video.\n- **start audio at sec** picks at *which* second the audio starts. It accepts negatives to count from the end.\n\n\nTo build a longer video, render several segments with sequential `start audio at sec`\nvalues and concatenate them afterwards.\n\n## Presets\n\n| # | canvas | duration | tokens | notes |\n|---|---|---|---|---|\n| **0** | manual | manual | - | set width and height manually |\n| **1** | 768 x 768 | 5s (124 fr) | 21.3k | safest - square |\n| **2** | 1344 x 768 | 5s (124 fr) | 37.3k | max quality wide, 5s |\n| **3** | 864 x 480 | 10s (243 fr) | 29.2k | DEFAULT - 10s at 480p |\n| **4** | 960 x 544 | 10s (243 fr) | 36.7k | 10s, higher res |\n| **5** | 736 x 416 | 15s (362 fr) | 32.0k | safest 15s |\n| **6** | 864 x 480 | 15s (362 fr) | 43.3k | max duration - at the OOM edge |\n\n### Preset 0 - manual\n\nSet PRESET to `0` and set width and height manually; they are ignored otherwise.\n\nSeconds snap **UP** to the next legal length. Ask for 12.0s and you get 12.25s (294 frames).\n**8.000s (192 frames) is the only exactly-round length** in the usable range.\n\n| frames | secs | frames | secs | frames | secs |\n|---|---|---|---|---|---|\n| 124 | 5.167 | 209 | 8.708 | 294 | 12.250 |\n| 141 | 5.875 | 226 | 9.417 | 311 | 12.958 |\n| 158 | 6.583 | 243 | 10.125 | 328 | 13.667 |\n| 175 | 7.292 | 260 | 10.833 | 345 | 14.375 |\n| **192** | **8.000** | 277 | 11.542 | 362 | 15.083 |\n"
+        "red_superboy_on_city_roof.png",
+        "image"
       ],
       "widgets_values_named": {
-        "text": "# Lip-sync to your own audio  (ref2va)\n\n## Usage\n\n- Upload your Reference Image in the **Load Image** node\n- Upload your Audio in the **Load Audio** node\n- Write your prompt to describe the video\n- Set width and height for the video\n- Set the duration of the video\n\n## Prompt\n\nYour photo is `<Picture 1>` - an *identity reference* carried through the clip,\nnot an exact opening frame. The video will look like your subject; it will not necessarily start on your image.\n\n**The prompt must use the tags.** References are addressed positionally as\n`<Picture 1>`, `<Audio 1>`.\n\n## The 15 second wall\n\n362 frames / 15.08s is H3's trained maximum, so you cannot sync a longer audio in one\npass. Work one segment at a time:\n\n- **duration** is the length of the video.\n- **start audio at sec** picks at *which* second the audio starts. It accepts negatives to count from the end.\n\n\nTo build a longer video, render several segments with sequential `start audio at sec`\nvalues and concatenate them afterwards.\n\n## Presets\n\n| # | canvas | duration | tokens | notes |\n|---|---|---|---|---|\n| **0** | manual | manual | - | set width and height manually |\n| **1** | 768 x 768 | 5s (124 fr) | 21.3k | safest - square |\n| **2** | 1344 x 768 | 5s (124 fr) | 37.3k | max quality wide, 5s |\n| **3** | 864 x 480 | 10s (243 fr) | 29.2k | DEFAULT - 10s at 480p |\n| **4** | 960 x 544 | 10s (243 fr) | 36.7k | 10s, higher res |\n| **5** | 736 x 416 | 15s (362 fr) | 32.0k | safest 15s |\n| **6** | 864 x 480 | 15s (362 fr) | 43.3k | max duration - at the OOM edge |\n\n### Preset 0 - manual\n\nSet PRESET to `0` and set width and height manually; they are ignored otherwise.\n\nSeconds snap **UP** to the next legal length. Ask for 12.0s and you get 12.25s (294 frames).\n**8.000s (192 frames) is the only exactly-round length** in the usable range.\n\n| frames | secs | frames | secs | frames | secs |\n|---|---|---|---|---|---|\n| 124 | 5.167 | 209 | 8.708 | 294 | 12.250 |\n| 141 | 5.875 | 226 | 9.417 | 311 | 12.958 |\n| 158 | 6.583 | 243 | 10.125 | 328 | 13.667 |\n| 175 | 7.292 | 260 | 10.833 | 345 | 14.375 |\n| **192** | **8.000** | 277 | 11.542 | 362 | 15.083 |\n"
-      },
-      "color": "#222",
-      "bgcolor": "#000"
+        "image": "red_superboy_on_city_roof.png",
+        "upload": "image"
+      }
     },
     {
       "id": 36,
       "type": "1d1d4ad0-84c3-4a41-9194-75d90ca9eb1e",
       "pos": [
         1840,
-        550
+        550.6682905181884
       ],
       "size": [
-        560.924932861328,
-        624.2443328857418
+        560,
+        700
       ],
       "flags": {},
       "order": 3,
       "mode": 0,
       "inputs": [
         {
-          "label": "preset resolutions",
+          "label": "presets",
           "name": "value_2",
           "type": "INT",
           "widget": {
@@ -222,7 +222,16 @@
           "link": null
         },
         {
-          "label": "noise_seed",
+          "label": "sampler",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        },
+        {
+          "label": "seed",
           "name": "noise_seed",
           "type": "INT",
           "widget": {
@@ -267,6 +276,24 @@
           "link": null
         },
         {
+          "label": "memory_mode",
+          "name": "kitchen_v_memory_mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "kitchen_v_memory_mode"
+          },
+          "link": null
+        },
+        {
+          "label": "chunks",
+          "name": "chunk_rows",
+          "type": "INT",
+          "widget": {
+            "name": "chunk_rows"
+          },
+          "link": null
+        },
+        {
           "label": "ref_image",
           "name": "ref_images.ref_image_0",
           "shape": 7,
@@ -295,36 +322,40 @@
         "previewExposures": []
       },
       "widgets_values": [
-        "A medium shot of <Picture 1> standing on top of a skyscraper, singing directly to the camera with lip movements matching <Audio 1> precisely. As she sings, she walks forward toward the lens while the camera smoothly tracks backward at the same pace, keeping her centered against the sprawling city skyline.",
+        "A medium shot of <Picture 1> standing on top of a skyscraper, speaking directly to the camera with lip movements matching <Audio 1> precisely. His cape and hair are moving in the wind as he approaches slowly.",
         0,
-        939.5267333984375,
-        1200,
-        8,
+        1024,
+        680,
+        3.4,
         0,
-        2825644501079,
         20,
         "res_multistep",
         "simple",
+        530404153373369,
         "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
-        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "qwen3vl_4b_bf16.safetensors",
         "minimax_h3_video_vae_fp16.safetensors",
-        "minimax_h3_audio_vae_fp32.safetensors"
+        "minimax_h3_audio_vae_fp32.safetensors",
+        "Standard",
+        4096
       ],
       "widgets_values_named": {
-        "prompt": "A medium shot of <Picture 1> standing on top of a skyscraper, singing directly to the camera with lip movements matching <Audio 1> precisely. As she sings, she walks forward toward the lens while the camera smoothly tracks backward at the same pace, keeping her centered against the sprawling city skyline.",
+        "prompt": "A medium shot of <Picture 1> standing on top of a skyscraper, speaking directly to the camera with lip movements matching <Audio 1> precisely. His cape and hair are moving in the wind as he approaches slowly.",
         "value_2": 0,
-        "value": 939.5267333984375,
-        "value_1": 1200,
-        "value_3": 8,
+        "value": 1024,
+        "value_1": 680,
+        "value_3": 3.4,
         "start_index": 0,
-        "noise_seed": 2825644501079,
         "steps": 20,
         "sampler_name": "res_multistep",
         "scheduler": "simple",
+        "noise_seed": 530404153373369,
         "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
-        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "clip_name": "qwen3vl_4b_bf16.safetensors",
         "vae_name": "minimax_h3_video_vae_fp16.safetensors",
-        "vae_name_1": "minimax_h3_audio_vae_fp32.safetensors"
+        "vae_name_1": "minimax_h3_audio_vae_fp32.safetensors",
+        "kitchen_v_memory_mode": "Standard",
+        "chunk_rows": 4096
       }
     }
   ],
@@ -334,7 +365,7 @@
       6,
       0,
       36,
-      10,
+      13,
       "IMAGE"
     ],
     [
@@ -350,7 +381,7 @@
       28,
       0,
       36,
-      11,
+      14,
       "AUDIO"
     ]
   ],
@@ -362,8 +393,8 @@
         "version": 1,
         "state": {
           "lastGroupId": 7,
-          "lastNodeId": 36,
-          "lastLinkId": 60,
+          "lastNodeId": 38,
+          "lastLinkId": 66,
           "lastRerouteId": 0
         },
         "revision": 0,
@@ -374,15 +405,15 @@
           "bounding": [
             -420,
             390,
-            149.58984375,
-            368
+            189.17578125,
+            408
           ]
         },
         "outputNode": {
           "id": -20,
           "bounding": [
-            4090,
-            420,
+            4240,
+            460,
             128,
             68
           ]
@@ -396,7 +427,7 @@
               51
             ],
             "pos": [
-              -294.41015625,
+              -254.82421875,
               414
             ]
           },
@@ -409,7 +440,7 @@
             ],
             "label": "preset resolutions",
             "pos": [
-              -294.41015625,
+              -254.82421875,
               434
             ]
           },
@@ -422,7 +453,7 @@
             ],
             "label": "width",
             "pos": [
-              -294.41015625,
+              -254.82421875,
               454
             ]
           },
@@ -435,7 +466,7 @@
             ],
             "label": "height",
             "pos": [
-              -294.41015625,
+              -254.82421875,
               474
             ]
           },
@@ -448,7 +479,7 @@
             ],
             "label": "duration",
             "pos": [
-              -294.41015625,
+              -254.82421875,
               494
             ]
           },
@@ -460,20 +491,8 @@
               57
             ],
             "pos": [
-              -294.41015625,
+              -254.82421875,
               514
-            ]
-          },
-          {
-            "id": "6a84e4e3-4acb-4c3f-abee-cd14515359f6",
-            "name": "noise_seed",
-            "type": "INT",
-            "linkIds": [
-              53
-            ],
-            "pos": [
-              -294.41015625,
-              534
             ]
           },
           {
@@ -484,8 +503,8 @@
               54
             ],
             "pos": [
-              -294.41015625,
-              554
+              -254.82421875,
+              534
             ]
           },
           {
@@ -496,8 +515,8 @@
               56
             ],
             "pos": [
-              -294.41015625,
-              574
+              -254.82421875,
+              554
             ]
           },
           {
@@ -508,7 +527,19 @@
               55
             ],
             "pos": [
-              -294.41015625,
+              -254.82421875,
+              574
+            ]
+          },
+          {
+            "id": "6a84e4e3-4acb-4c3f-abee-cd14515359f6",
+            "name": "noise_seed",
+            "type": "INT",
+            "linkIds": [
+              53
+            ],
+            "pos": [
+              -254.82421875,
               594
             ]
           },
@@ -520,7 +551,7 @@
               44
             ],
             "pos": [
-              -294.41015625,
+              -254.82421875,
               614
             ]
           },
@@ -532,7 +563,7 @@
               45
             ],
             "pos": [
-              -294.41015625,
+              -254.82421875,
               634
             ]
           },
@@ -544,7 +575,7 @@
               46
             ],
             "pos": [
-              -294.41015625,
+              -254.82421875,
               654
             ]
           },
@@ -556,8 +587,32 @@
               52
             ],
             "pos": [
-              -294.41015625,
+              -254.82421875,
               674
+            ]
+          },
+          {
+            "id": "8bd01ca1-15bb-4bc2-a2e5-388c0debc697",
+            "name": "kitchen_v_memory_mode",
+            "type": "COMBO",
+            "linkIds": [
+              65
+            ],
+            "pos": [
+              -254.82421875,
+              694
+            ]
+          },
+          {
+            "id": "0de4d831-37d9-4721-8583-38f1e4c50e9f",
+            "name": "chunk_rows",
+            "type": "INT",
+            "linkIds": [
+              66
+            ],
+            "pos": [
+              -254.82421875,
+              714
             ]
           },
           {
@@ -571,8 +626,8 @@
             "label": "ref_image",
             "shape": 7,
             "pos": [
-              -294.41015625,
-              694
+              -254.82421875,
+              734
             ]
           },
           {
@@ -584,8 +639,8 @@
             ],
             "label": "audio",
             "pos": [
-              -294.41015625,
-              714
+              -254.82421875,
+              754
             ]
           }
         ],
@@ -599,8 +654,8 @@
             ],
             "localized_name": "VIDEO",
             "pos": [
-              4114,
-              444
+              4264,
+              484
             ]
           }
         ],
@@ -610,7 +665,7 @@
             "id": 31,
             "type": "PrimitiveInt",
             "pos": [
-              630,
+              1000,
               360
             ],
             "size": [
@@ -663,7 +718,7 @@
             "id": 32,
             "type": "PrimitiveInt",
             "pos": [
-              630,
+              1000,
               490
             ],
             "size": [
@@ -716,7 +771,7 @@
             "id": 7,
             "type": "PrimitiveInt",
             "pos": [
-              630,
+              1000,
               230
             ],
             "size": [
@@ -770,7 +825,7 @@
             "id": 30,
             "type": "PrimitiveFloat",
             "pos": [
-              630,
+              1000,
               700
             ],
             "size": [
@@ -822,7 +877,7 @@
             "id": 8,
             "type": "ComfyMathExpression",
             "pos": [
-              1230,
+              1600,
               230
             ],
             "size": [
@@ -896,7 +951,7 @@
             "id": 25,
             "type": "ComfyMathExpression",
             "pos": [
-              1230,
+              1600,
               680
             ],
             "size": [
@@ -970,7 +1025,7 @@
             "id": 9,
             "type": "ComfyMathExpression",
             "pos": [
-              1230,
+              1600,
               470
             ],
             "size": [
@@ -1044,7 +1099,7 @@
             "id": 27,
             "type": "ComfyMathExpression",
             "pos": [
-              1160,
+              1220,
               1050
             ],
             "size": [
@@ -1122,8 +1177,8 @@
             "id": 10,
             "type": "MiniMaxH3ReferenceToVideo",
             "pos": [
-              2000,
-              190
+              2150,
+              230
             ],
             "size": [
               531.1005233895753,
@@ -1137,7 +1192,7 @@
                 "localized_name": "clip",
                 "name": "clip",
                 "type": "CLIP",
-                "link": 6
+                "link": 64
               },
               {
                 "localized_name": "vae",
@@ -1279,8 +1334,8 @@
             "id": 13,
             "type": "BasicScheduler",
             "pos": [
-              2610,
-              560
+              2760,
+              600
             ],
             "size": [
               400,
@@ -1348,8 +1403,8 @@
             "id": 12,
             "type": "KSamplerSelect",
             "pos": [
-              2610,
-              450
+              2760,
+              490
             ],
             "size": [
               400,
@@ -1395,8 +1450,8 @@
             "id": 11,
             "type": "RandomNoise",
             "pos": [
-              2610,
-              310
+              2760,
+              350
             ],
             "size": [
               400,
@@ -1444,8 +1499,8 @@
             "id": 14,
             "type": "BasicGuider",
             "pos": [
-              2610,
-              200
+              2760,
+              240
             ],
             "size": [
               400,
@@ -1488,8 +1543,8 @@
             "id": 15,
             "type": "SamplerCustomAdvanced",
             "pos": [
-              3110,
-              310
+              3260,
+              350
             ],
             "size": [
               380,
@@ -1556,8 +1611,8 @@
             "id": 16,
             "type": "VAEDecode",
             "pos": [
-              3600,
-              310
+              3750,
+              350
             ],
             "size": [
               390,
@@ -1600,8 +1655,8 @@
             "id": 18,
             "type": "CreateVideo",
             "pos": [
-              3600,
-              430
+              3750,
+              470
             ],
             "size": [
               390,
@@ -1658,7 +1713,7 @@
             "id": 29,
             "type": "TrimAudioDuration",
             "pos": [
-              1520,
+              1580,
               980
             ],
             "size": [
@@ -1723,62 +1778,115 @@
             "bgcolor": "#353"
           },
           {
-            "id": 2,
-            "type": "CLIPLoader",
+            "id": 1,
+            "type": "UNETLoader",
             "pos": [
-              -120,
-              230
+              -140,
+              610
             ],
             "size": [
               600,
-              110
+              90
             ],
             "flags": {},
-            "order": 1,
+            "order": 0,
             "mode": 0,
             "inputs": [
               {
-                "localized_name": "clip_name",
-                "name": "clip_name",
+                "localized_name": "unet_name",
+                "name": "unet_name",
                 "type": "COMBO",
                 "widget": {
-                  "name": "clip_name"
+                  "name": "unet_name"
                 },
-                "link": 45
+                "link": 44
               }
             ],
             "outputs": [
               {
-                "localized_name": "CLIP",
-                "name": "CLIP",
-                "type": "CLIP",
+                "localized_name": "MODEL",
+                "name": "MODEL",
+                "type": "MODEL",
                 "links": [
-                  6
+                  61
                 ]
               }
             ],
-            "title": "Load CLIP  -  shared with the i2v workflow",
+            "title": "Load Diffusion Model  -  ref2va (NOT fl2va). int8, native on sm_86.",
             "properties": {
               "cnr_id": "comfy-core",
               "ver": "0.30.1",
-              "Node name for S&R": "CLIPLoader"
+              "Node name for S&R": "UNETLoader",
+              "models": [
+                {
+                  "name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+                  "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+                  "directory": "diffusion_models"
+                }
+              ]
             },
             "widgets_values": [
-              "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-              "minimax",
+              "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
               "default"
             ],
             "widgets_values_named": {
-              "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-              "type": "minimax",
-              "device": "default"
+              "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+              "weight_dtype": "default"
+            }
+          },
+          {
+            "id": 4,
+            "type": "VAELoader",
+            "pos": [
+              -140,
+              500
+            ],
+            "size": [
+              600,
+              60
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "vae_name",
+                "name": "vae_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "vae_name"
+                },
+                "link": 52
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "VAE",
+                "name": "VAE",
+                "type": "VAE",
+                "links": [
+                  9
+                ]
+              }
+            ],
+            "title": "Load VAE (audio)  -  encodes your song into the reference",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.30.1",
+              "Node name for S&R": "VAELoader"
+            },
+            "widgets_values": [
+              "minimax_h3_audio_vae_fp32.safetensors"
+            ],
+            "widgets_values_named": {
+              "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
             }
           },
           {
             "id": 3,
             "type": "VAELoader",
             "pos": [
-              -120,
+              -140,
               390
             ],
             "size": [
@@ -1824,116 +1932,11 @@
             }
           },
           {
-            "id": 4,
-            "type": "VAELoader",
-            "pos": [
-              -120,
-              500
-            ],
-            "size": [
-              600,
-              60
-            ],
-            "flags": {},
-            "order": 3,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "vae_name",
-                "name": "vae_name",
-                "type": "COMBO",
-                "widget": {
-                  "name": "vae_name"
-                },
-                "link": 52
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "VAE",
-                "name": "VAE",
-                "type": "VAE",
-                "links": [
-                  9
-                ]
-              }
-            ],
-            "title": "Load VAE (audio)  -  encodes your song into the reference",
-            "properties": {
-              "cnr_id": "comfy-core",
-              "ver": "0.30.1",
-              "Node name for S&R": "VAELoader"
-            },
-            "widgets_values": [
-              "minimax_h3_audio_vae_fp32.safetensors"
-            ],
-            "widgets_values_named": {
-              "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
-            }
-          },
-          {
-            "id": 1,
-            "type": "UNETLoader",
-            "pos": [
-              -120,
-              610
-            ],
-            "size": [
-              600,
-              90
-            ],
-            "flags": {},
-            "order": 0,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "unet_name",
-                "name": "unet_name",
-                "type": "COMBO",
-                "widget": {
-                  "name": "unet_name"
-                },
-                "link": 44
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "MODEL",
-                "name": "MODEL",
-                "type": "MODEL",
-                "links": [
-                  60
-                ]
-              }
-            ],
-            "title": "Load Diffusion Model  -  ref2va (NOT fl2va). int8, native on sm_86.",
-            "properties": {
-              "cnr_id": "comfy-core",
-              "ver": "0.30.1",
-              "Node name for S&R": "UNETLoader",
-              "models": [
-                {
-                  "name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
-                  "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
-                  "directory": "diffusion_models"
-                }
-              ]
-            },
-            "widgets_values": [
-              "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
-              "default"
-            ],
-            "widgets_values_named": {
-              "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
-              "weight_dtype": "default"
-            }
-          },
-          {
             "id": 5,
             "type": "MiniMaxH3SigmaShift",
             "pos": [
-              -120,
-              750
+              -140,
+              959.6882583850573
             ],
             "size": [
               600,
@@ -1947,7 +1950,7 @@
                 "localized_name": "model",
                 "name": "model",
                 "type": "MODEL",
-                "link": 60
+                "link": 62
               }
             ],
             "outputs": [
@@ -1975,6 +1978,180 @@
               "shift_video": 12,
               "shift_audio": 3
             }
+          },
+          {
+            "id": 37,
+            "type": "H3MemoryOptimization",
+            "pos": [
+              -140,
+              750
+            ],
+            "size": [
+              600,
+              160
+            ],
+            "flags": {},
+            "order": 22,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 61
+              },
+              {
+                "localized_name": "chunk_rows",
+                "name": "chunk_rows",
+                "type": "INT",
+                "widget": {
+                  "name": "chunk_rows"
+                },
+                "link": 66
+              },
+              {
+                "localized_name": "kitchen_v_memory_mode",
+                "name": "kitchen_v_memory_mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "kitchen_v_memory_mode"
+                },
+                "link": 65
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "MODEL",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  62
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "h3-optimizations",
+              "ver": "0.2.36",
+              "Node name for S&R": "H3MemoryOptimization"
+            },
+            "widgets_values": [
+              "auto",
+              "auto",
+              4096,
+              true,
+              "Auto",
+              "Auto",
+              "Auto",
+              "Standard"
+            ],
+            "widgets_values_named": {
+              "fused_qkv": "auto",
+              "mlp_memory": "auto",
+              "chunk_rows": 4096,
+              "preserve_precision": true,
+              "precision_mode": "Auto",
+              "qkv_streaming_mode": "Auto",
+              "embedding_memory_mode": "Auto",
+              "kitchen_v_memory_mode": "Standard"
+            },
+            "color": "#223",
+            "bgcolor": "#335"
+          },
+          {
+            "id": 38,
+            "type": "ClipProjApply",
+            "pos": [
+              530,
+              230
+            ],
+            "size": [
+              400,
+              60
+            ],
+            "flags": {},
+            "order": 23,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "clip",
+                "name": "clip",
+                "type": "CLIP",
+                "link": 63
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "clip",
+                "name": "clip",
+                "type": "CLIP",
+                "links": [
+                  64
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfyui-clipproj",
+              "ver": "0.1.13",
+              "Node name for S&R": "ClipProjApply"
+            },
+            "widgets_values": [
+              "mmh3-4b-ClipProj-v3.1-mlp.safetensors"
+            ],
+            "widgets_values_named": {
+              "projection": "mmh3-4b-ClipProj-v3.1-mlp.safetensors"
+            }
+          },
+          {
+            "id": 2,
+            "type": "CLIPLoader",
+            "pos": [
+              -140,
+              230
+            ],
+            "size": [
+              600,
+              110
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "clip_name",
+                "name": "clip_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "clip_name"
+                },
+                "link": 45
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "CLIP",
+                "name": "CLIP",
+                "type": "CLIP",
+                "links": [
+                  63
+                ]
+              }
+            ],
+            "title": "Load CLIP  -  shared with the i2v workflow",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.30.1",
+              "Node name for S&R": "CLIPLoader"
+            },
+            "widgets_values": [
+              "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+              "krea2",
+              "default"
+            ],
+            "widgets_values_named": {
+              "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+              "type": "krea2",
+              "device": "default"
+            }
           }
         ],
         "groups": [
@@ -1982,7 +2159,7 @@
             "id": 2,
             "title": "PRESET -> size / length / audio trim  (0 = manual)",
             "bounding": [
-              600,
+              970,
               150,
               1110,
               710
@@ -1996,8 +2173,8 @@
             "bounding": [
               -170,
               150,
-              720,
-              710
+              660,
+              920
             ],
             "color": "#3f789e",
             "flags": {}
@@ -2006,7 +2183,7 @@
             "id": 7,
             "title": "Audio Processing",
             "bounding": [
-              1130,
+              1190,
               900,
               890,
               240
@@ -2018,8 +2195,8 @@
             "id": 4,
             "title": "Conditioning + AV latent",
             "bounding": [
-              1970,
-              110,
+              2120,
+              150,
               590,
               600
             ],
@@ -2030,8 +2207,8 @@
             "id": 5,
             "title": "Sampling",
             "bounding": [
-              2590,
-              110,
+              2740,
+              150,
               940,
               600
             ],
@@ -2042,8 +2219,8 @@
             "id": 6,
             "title": "Decode + mux (original song)",
             "bounding": [
-              3570,
-              110,
+              3720,
+              150,
               450,
               600
             ],
@@ -2123,14 +2300,6 @@
             "target_id": 29,
             "target_slot": 2,
             "type": "FLOAT"
-          },
-          {
-            "id": 6,
-            "origin_id": 2,
-            "origin_slot": 0,
-            "target_id": 10,
-            "target_slot": 0,
-            "type": "CLIP"
           },
           {
             "id": 7,
@@ -2263,7 +2432,7 @@
           {
             "id": 23,
             "origin_id": -10,
-            "origin_slot": 14,
+            "origin_slot": 16,
             "target_id": 10,
             "target_slot": 3,
             "type": "IMAGE"
@@ -2279,7 +2448,7 @@
           {
             "id": 42,
             "origin_id": -10,
-            "origin_slot": 15,
+            "origin_slot": 17,
             "target_id": 29,
             "target_slot": 0,
             "type": "AUDIO"
@@ -2359,7 +2528,7 @@
           {
             "id": 53,
             "origin_id": -10,
-            "origin_slot": 6,
+            "origin_slot": 9,
             "target_id": 11,
             "target_slot": 0,
             "type": "INT"
@@ -2367,7 +2536,7 @@
           {
             "id": 54,
             "origin_id": -10,
-            "origin_slot": 7,
+            "origin_slot": 6,
             "target_id": 13,
             "target_slot": 2,
             "type": "INT"
@@ -2375,7 +2544,7 @@
           {
             "id": 55,
             "origin_id": -10,
-            "origin_slot": 9,
+            "origin_slot": 8,
             "target_id": 13,
             "target_slot": 1,
             "type": "COMBO"
@@ -2383,7 +2552,7 @@
           {
             "id": 56,
             "origin_id": -10,
-            "origin_slot": 8,
+            "origin_slot": 7,
             "target_id": 12,
             "target_slot": 0,
             "type": "COMBO"
@@ -2413,12 +2582,52 @@
             "type": "MODEL"
           },
           {
-            "id": 60,
+            "id": 61,
             "origin_id": 1,
+            "origin_slot": 0,
+            "target_id": 37,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 62,
+            "origin_id": 37,
             "origin_slot": 0,
             "target_id": 5,
             "target_slot": 0,
             "type": "MODEL"
+          },
+          {
+            "id": 63,
+            "origin_id": 2,
+            "origin_slot": 0,
+            "target_id": 38,
+            "target_slot": 0,
+            "type": "CLIP"
+          },
+          {
+            "id": 64,
+            "origin_id": 38,
+            "origin_slot": 0,
+            "target_id": 10,
+            "target_slot": 0,
+            "type": "CLIP"
+          },
+          {
+            "id": 65,
+            "origin_id": -10,
+            "origin_slot": 14,
+            "target_id": 37,
+            "target_slot": 2,
+            "type": "COMBO"
+          },
+          {
+            "id": 66,
+            "origin_id": -10,
+            "origin_slot": 15,
+            "target_id": 37,
+            "target_slot": 1,
+            "type": "INT"
           }
         ],
         "extra": {}
@@ -2433,10 +2642,10 @@
     "VHS_MetadataImage": true,
     "VHS_KeepIntermediate": true,
     "ds": {
-      "scale": 0.5644739300537773,
+      "scale": 0.9090909090909091,
       "offset": [
-        -963.258968844246,
-        -337.8936423520053
+        -716.280087276045,
+        -336.35983083610637
       ]
     }
   },

@@ -5,92 +5,6 @@
   "last_link_id": 14,
   "nodes": [
     {
-      "id": 3,
-      "type": "ShowText|pysssss",
-      "pos": [
-        -160,
-        5330
-      ],
-      "size": [
-        460,
-        590
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 2
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "shape": 6,
-          "type": "STRING",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfyui-custom-scripts",
-        "ver": "1.2.5",
-        "Node name for S&R": "ShowText|pysssss",
-        "aux_id": "pythongosssss/ComfyUI-Custom-Scripts"
-      },
-      "widgets_values": [
-        "How the reference pictures align with the target video — <Picture 1> (from [Shot 1]) aligns with the 0.00-second mark of the target video; <Picture 2> (from [Shot 5]) aligns with the 5.00-second mark of the target video.\n\n[Shot 1] Live-action, cinematic, a medium full-body shot frames the Kung Fu fighter in <Picture 1> standing on a grassy field, mid-kick, with his dark hair, red headband, light blue V-neck shirt, black pants, and black shoes with white socks clearly visible. The camera holds static as he begins his sequence. [Shot 2] At 00:01.000, the camera pans right with small amplitude at slow speed as he transitions to the beach, the grassy field replaced by wet sand and ocean waves. [Shot 3] At 00:02.000, the shot cuts to a low-angle view of the beach at sunset, the fighter now in the foreground, mid-kick, as the golden hour light glints off the waves. [Shot 4] At 00:03.000, the camera pulls back with small amplitude at slow speed to a wide-angle view, showing the fighter’s pose against the rolling waves and distant hills. [Shot 5] At 00:05.000, the shot ends on <Picture 2>, the fighter frozen mid-kick, the ocean waves crashing, the sun casting long shadows, and the distant hillside with faint urban structures visible.\n\noverall_soundscape: N/A\n\nnon_diegetic_music: N/A"
-      ],
-      "widgets_values_named": {
-        "text_0": "How the reference pictures align with the target video — <Picture 1> (from [Shot 1]) aligns with the 0.00-second mark of the target video; <Picture 2> (from [Shot 5]) aligns with the 5.00-second mark of the target video.\n\n[Shot 1] Live-action, cinematic, a medium full-body shot frames the Kung Fu fighter in <Picture 1> standing on a grassy field, mid-kick, with his dark hair, red headband, light blue V-neck shirt, black pants, and black shoes with white socks clearly visible. The camera holds static as he begins his sequence. [Shot 2] At 00:01.000, the camera pans right with small amplitude at slow speed as he transitions to the beach, the grassy field replaced by wet sand and ocean waves. [Shot 3] At 00:02.000, the shot cuts to a low-angle view of the beach at sunset, the fighter now in the foreground, mid-kick, as the golden hour light glints off the waves. [Shot 4] At 00:03.000, the camera pulls back with small amplitude at slow speed to a wide-angle view, showing the fighter’s pose against the rolling waves and distant hills. [Shot 5] At 00:05.000, the shot ends on <Picture 2>, the fighter frozen mid-kick, the ocean waves crashing, the sun casting long shadows, and the distant hillside with faint urban structures visible.\n\noverall_soundscape: N/A\n\nnon_diegetic_music: N/A"
-      }
-    },
-    {
-      "id": 12,
-      "type": "LoadImage",
-      "pos": [
-        -1080,
-        5330
-      ],
-      "size": [
-        330,
-        470
-      ],
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            11,
-            12
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.31.0",
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "Jackie.jpg",
-        "image"
-      ],
-      "widgets_values_named": {
-        "image": "Jackie.jpg",
-        "upload": "image"
-      }
-    },
-    {
       "id": 11,
       "type": "ShowText|pysssss",
       "pos": [
@@ -126,10 +40,10 @@
         "aux_id": "pythongosssss/ComfyUI-Custom-Scripts"
       },
       "widgets_values": [
-        "A male figure with black, medium-length, slightly wavy hair and a red headband is captured mid-kick in a dynamic martial arts pose; he wears a light blue short-sleeved V-neck shirt, black loose-fitting pants, and black shoes with white socks, one of which is visible above the shoe; no other accessories or props are visible. The scene is set outdoors on a grassy field with a reddish-brown dirt patch behind him, and distant hills and two thin flags (one yellow, one red and blue) are visible in the background; the lighting is diffuse daylight with a slightly overcast sky, resulting in a muted color palette dominated by greens, browns, and the blue of the shirt; the visual style is live-action, with naturalistic detail and motion captured in a medium full shot that frames the subject from the knees up, emphasizing his posture and the environment around him.\n\nA beach scene at sunset or sunrise, with the camera positioned low near the sand, capturing the foreground of foamy ocean waves breaking onto the shore; the water is textured with white foam and greenish-blue undertones, and the sand is dark brown and granular; in the background, a hilly coastline with sparse vegetation and a distant town or settlement is visible under a clear sky that transitions from pale yellow near the horizon to deep blue above, with a faint wispy cloud; the lighting is warm and directional, casting a golden glow across the water and land; the visual style is cinematic, with shallow depth of field blurring the distant hills and emphasizing the waves and sand; the shot is a wide-angle, low-angle view that captures the expanse of the beach and horizon, conveying a sense of natural scale and tranquility."
+        "A young male superhero, approximately 10–12 years old, with tousled, medium-length, vibrant orange hair and a black eye mask covering his eyes, stands confidently with hands on hips. He wears a red cape with a jagged, wing-like hem, a black suit with red gloves and boots, and a black chest panel featuring a white five-pointed star. His footwear consists of red high-top sneakers with white soles. The scene is set on a wet, cracked concrete rooftop with scattered debris and reflective puddles, illuminated by ambient red and blue neon lights from surrounding buildings. The lighting is dramatic, with high contrast between the dark urban environment and the bright reds and blues of the glow, creating a moody, cinematic atmosphere. The visual style is stylized 2D digital illustration with sharp linework and painterly textures, rendered in a dynamic overhead shot that captures the character from a slightly elevated angle, emphasizing his heroic stance.\n\nA massive, monstrous creature with a reptilian or biomechanical appearance dominates the frame, standing in the foreground of a dark, rain-slicked cityscape at night. Its body is covered in dark, segmented armor with glowing red veins and circuit-like patterns, and its chest emits a bright, pulsating red energy core. The creature has a wide, open maw filled with sharp, jagged teeth, glowing red eyes, and lightning bolts crackling above its head. Its muscular limbs are thick and armored, with visible spikes and claws. The background features tall, modern skyscrapers with red-lit windows, partially obscured by dark clouds and streaks of rain. The lighting is low-key and atmospheric, with the creature’s internal glow and ambient red city lights creating a stark contrast against the deep blues and blacks of the night. The visual style is high-contrast 2D digital illustration with bold linework and dramatic shading, rendered in a wide-angle, low-angle shot that emphasizes the creature’s towering presence and menacing scale."
       ],
       "widgets_values_named": {
-        "text_0": "A male figure with black, medium-length, slightly wavy hair and a red headband is captured mid-kick in a dynamic martial arts pose; he wears a light blue short-sleeved V-neck shirt, black loose-fitting pants, and black shoes with white socks, one of which is visible above the shoe; no other accessories or props are visible. The scene is set outdoors on a grassy field with a reddish-brown dirt patch behind him, and distant hills and two thin flags (one yellow, one red and blue) are visible in the background; the lighting is diffuse daylight with a slightly overcast sky, resulting in a muted color palette dominated by greens, browns, and the blue of the shirt; the visual style is live-action, with naturalistic detail and motion captured in a medium full shot that frames the subject from the knees up, emphasizing his posture and the environment around him.\n\nA beach scene at sunset or sunrise, with the camera positioned low near the sand, capturing the foreground of foamy ocean waves breaking onto the shore; the water is textured with white foam and greenish-blue undertones, and the sand is dark brown and granular; in the background, a hilly coastline with sparse vegetation and a distant town or settlement is visible under a clear sky that transitions from pale yellow near the horizon to deep blue above, with a faint wispy cloud; the lighting is warm and directional, casting a golden glow across the water and land; the visual style is cinematic, with shallow depth of field blurring the distant hills and emphasizing the waves and sand; the shot is a wide-angle, low-angle view that captures the expanse of the beach and horizon, conveying a sense of natural scale and tranquility."
+        "text_0": "A young male superhero, approximately 10–12 years old, with tousled, medium-length, vibrant orange hair and a black eye mask covering his eyes, stands confidently with hands on hips. He wears a red cape with a jagged, wing-like hem, a black suit with red gloves and boots, and a black chest panel featuring a white five-pointed star. His footwear consists of red high-top sneakers with white soles. The scene is set on a wet, cracked concrete rooftop with scattered debris and reflective puddles, illuminated by ambient red and blue neon lights from surrounding buildings. The lighting is dramatic, with high contrast between the dark urban environment and the bright reds and blues of the glow, creating a moody, cinematic atmosphere. The visual style is stylized 2D digital illustration with sharp linework and painterly textures, rendered in a dynamic overhead shot that captures the character from a slightly elevated angle, emphasizing his heroic stance.\n\nA massive, monstrous creature with a reptilian or biomechanical appearance dominates the frame, standing in the foreground of a dark, rain-slicked cityscape at night. Its body is covered in dark, segmented armor with glowing red veins and circuit-like patterns, and its chest emits a bright, pulsating red energy core. The creature has a wide, open maw filled with sharp, jagged teeth, glowing red eyes, and lightning bolts crackling above its head. Its muscular limbs are thick and armored, with visible spikes and claws. The background features tall, modern skyscrapers with red-lit windows, partially obscured by dark clouds and streaks of rain. The lighting is low-key and atmospheric, with the creature’s internal glow and ambient red city lights creating a stark contrast against the deep blues and blacks of the night. The visual style is high-contrast 2D digital illustration with bold linework and dramatic shading, rendered in a wide-angle, low-angle shot that emphasizes the creature’s towering presence and menacing scale."
       }
     },
     {
@@ -191,7 +105,7 @@
       "widgets_values": [
         "qwen3vl_4b_bf16.safetensors",
         "detailed_subject_scene",
-        4238258468,
+        497410109,
         "randomize",
         0.2,
         1024,
@@ -201,12 +115,90 @@
       "widgets_values_named": {
         "text_encoder": "qwen3vl_4b_bf16.safetensors",
         "vision_mode": "detailed_subject_scene",
-        "seed": 4238258468,
+        "seed": 497410109,
         "randomize": "randomize",
         "temperature": 0.2,
         "max_tokens": 1024,
         "keep_model_loaded": true,
         "custom_prompt": ""
+      }
+    },
+    {
+      "id": 14,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        -1080,
+        5860
+      ],
+      "size": [
+        330,
+        90
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "",
+        "showNav": true,
+        "showAllGraphs": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 12,
+      "type": "LoadImage",
+      "pos": [
+        -1080,
+        5330
+      ],
+      "size": [
+        330,
+        470
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11,
+            12
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.31.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "red_superboy_on_city_roof.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "red_superboy_on_city_roof.png",
+        "upload": "image"
       }
     },
     {
@@ -221,7 +213,7 @@
         470
       ],
       "flags": {},
-      "order": 1,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -245,41 +237,13 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "Beach_square.jpg",
+        "mecha_dragon_lightning.png",
         "image"
       ],
       "widgets_values_named": {
-        "image": "Beach_square.jpg",
+        "image": "mecha_dragon_lightning.png",
         "upload": "image"
       }
-    },
-    {
-      "id": 16,
-      "type": "MarkdownNote",
-      "pos": [
-        -1480,
-        5860
-      ],
-      "size": [
-        380,
-        90
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Workflow Guide",
-      "properties": {},
-      "widgets_values": [
-        "1. Upload your reference images\n2. Set the durion in the **H3 Vision Promptor** according to the video duration you plan to generate\n3. Bypass the group you don't need with the **Fast Groups Bypasser**"
-      ],
-      "widgets_values_named": {
-        "text": "1. Upload your reference images\n2. Set the durion in the **H3 Vision Promptor** according to the video duration you plan to generate\n3. Bypass the group you don't need with the **Fast Groups Bypasser**"
-      },
-      "color": "#222",
-      "bgcolor": "#000",
-      "shape": "default"
     },
     {
       "id": 1,
@@ -350,11 +314,11 @@
       },
       "widgets_values": [
         "qwen3vl_4b_bf16.safetensors",
-        "A Kung Fu fighter performing Kung Fu on the beach of <Picture 2>",
+        "The boy in <Picture 1> shouts \"Meet your Maker\" while comic action speek bubbles apear above him. The dragon in <Picture 2> appears on the screen and roars.",
         "Auto",
         5,
         "detailed_subject_scene",
-        1546243553,
+        3660012229,
         "randomize",
         0.7,
         0.95,
@@ -368,11 +332,11 @@
       ],
       "widgets_values_named": {
         "text_encoder": "qwen3vl_4b_bf16.safetensors",
-        "user_idea": "A Kung Fu fighter performing Kung Fu on the beach of <Picture 2>",
+        "user_idea": "The boy in <Picture 1> shouts \"Meet your Maker\" while comic action speek bubbles apear above him. The dragon in <Picture 2> appears on the screen and roars.",
         "task_type": "Auto",
         "duration": 5,
         "vision_mode": "detailed_subject_scene",
-        "seed": 1546243553,
+        "seed": 3660012229,
         "randomize": "randomize",
         "temperature": 0.7,
         "top_p": 0.95,
@@ -386,38 +350,74 @@
       }
     },
     {
-      "id": 14,
-      "type": "Fast Groups Bypasser (rgthree)",
+      "id": 3,
+      "type": "ShowText|pysssss",
       "pos": [
-        -1080,
-        5860
+        -160,
+        5330
       ],
       "size": [
-        330,
-        90
+        460,
+        590
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "aux_id": "pythongosssss/ComfyUI-Custom-Scripts"
+      },
+      "widgets_values": [
+        "How the reference pictures align with the target video — <Picture 1> (from [Shot 1]) aligns with the 0.00-second mark of the target video; <Picture 2> (from [Shot 2]) aligns with the 5.00-second mark of the target video.\n\nintegrated_multimodal_description: [Shot 1] 2D-animated, high-angle shot frames the boy in his red-and-black suit, hands on hips, smiling confidently on a wet rooftop. The camera holds static as he shouts, <d>[English] Meet your Maker!</d> (S1). Comic action speech bubbles materialize above him, glowing with neon red and blue outlines. [Shot 2] At 00:05.000, the shot cuts to the massive dragon roaring, its red core pulsing, electrical arcs crackling above its head as it dominates the ruined cityscape. The boy’s shout carries over into the next shot, fading as the dragon’s roar dominates the frame.\n\noverall_soundscape: The boy’s shout echoes with a sharp, reverberating tone, followed by the dragon’s deep, guttural roar shaking the air. Rain patters against the rooftop, and distant city sirens wail as debris rattles in the wind.\n\nnon_diegetic_music: A low, pulsing bassline with distorted electric guitar riffs, escalating in intensity to match the dragon’s roar, then fading into a dissonant, echoing synth note."
+      ],
+      "widgets_values_named": {
+        "text_0": "How the reference pictures align with the target video — <Picture 1> (from [Shot 1]) aligns with the 0.00-second mark of the target video; <Picture 2> (from [Shot 2]) aligns with the 5.00-second mark of the target video.\n\nintegrated_multimodal_description: [Shot 1] 2D-animated, high-angle shot frames the boy in his red-and-black suit, hands on hips, smiling confidently on a wet rooftop. The camera holds static as he shouts, <d>[English] Meet your Maker!</d> (S1). Comic action speech bubbles materialize above him, glowing with neon red and blue outlines. [Shot 2] At 00:05.000, the shot cuts to the massive dragon roaring, its red core pulsing, electrical arcs crackling above its head as it dominates the ruined cityscape. The boy’s shout carries over into the next shot, fading as the dragon’s roar dominates the frame.\n\noverall_soundscape: The boy’s shout echoes with a sharp, reverberating tone, followed by the dragon’s deep, guttural roar shaking the air. Rain patters against the rooftop, and distant city sirens wail as debris rattles in the wind.\n\nnon_diegetic_music: A low, pulsing bassline with distorted electric guitar riffs, escalating in intensity to match the dragon’s roar, then fading into a dissonant, echoing synth note."
+      }
+    },
+    {
+      "id": 16,
+      "type": "MarkdownNote",
+      "pos": [
+        -1480,
+        5850
+      ],
+      "size": [
+        380,
+        110
       ],
       "flags": {},
       "order": 3,
       "mode": 0,
       "inputs": [],
-      "outputs": [
-        {
-          "name": "OPT_CONNECTION",
-          "type": "*",
-          "links": null
-        }
+      "outputs": [],
+      "title": "Workflow Guide",
+      "properties": {},
+      "widgets_values": [
+        "1. Upload your reference images\n2. Set the duration in the **H3 Vision Promptor** according to the video duration you plan to generate\n3. Write the prompt you want to enhance in the upper text area of the **H3 Vision Promptor** node (not needed for analyzing images)\n3. Bypass the group you don't need with the **Fast Groups Bypasser**"
       ],
-      "properties": {
-        "matchColors": "",
-        "matchTitle": "",
-        "showNav": true,
-        "showAllGraphs": true,
-        "sort": "position",
-        "customSortAlphabet": "",
-        "toggleRestriction": "default"
+      "widgets_values_named": {
+        "text": "1. Upload your reference images\n2. Set the duration in the **H3 Vision Promptor** according to the video duration you plan to generate\n3. Write the prompt you want to enhance in the upper text area of the **H3 Vision Promptor** node (not needed for analyzing images)\n3. Bypass the group you don't need with the **Fast Groups Bypasser**"
       },
-      "color": "#223",
-      "bgcolor": "#335"
+      "color": "#222",
+      "bgcolor": "#000",
+      "shape": "default"
     }
   ],
   "links": [
@@ -499,10 +499,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6830134553650705,
+      "scale": 0.620921323059155,
       "offset": [
-        1497.2125395382868,
-        -5177.905576202668
+        2102.855790078898,
+        -5081.950122790178
       ]
     },
     "frontendVersion": "1.49.6"

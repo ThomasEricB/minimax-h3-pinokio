@@ -41,15 +41,15 @@ module.exports = {
     {
       method: "fs.copy",
       params: {
-        src: "workflows/MiniMax H3 - Reference to Video.json",
-        dest: "app/user/default/workflows/MiniMax H3 - Reference to Video.json"
+        src: "workflows/MiniMax H3 - Text to Video - Turbo.json",
+        dest: "app/user/default/workflows/MiniMax H3 - Text to Video - Turbo.json"
       }
     },
     {
       method: "fs.copy",
       params: {
-        src: "workflows/MiniMax H3 - Reference to Video (NVIDIA).json",
-        dest: "app/user/default/workflows/MiniMax H3 - Reference to Video (NVIDIA).json"
+        src: "workflows/MiniMax H3 - Text to Video - Turbo (NVIDIA).json",
+        dest: "app/user/default/workflows/MiniMax H3 - Text to Video - Turbo (NVIDIA).json"
       }
     },
     {
@@ -69,15 +69,29 @@ module.exports = {
     {
       method: "fs.copy",
       params: {
-        src: "workflows/MiniMax H3 - Text to Video - Turbo.json",
-        dest: "app/user/default/workflows/MiniMax H3 - Text to Video - Turbo.json"
+        src: "workflows/MiniMax H3 - Image to Video - Turbo.json",
+        dest: "app/user/default/workflows/MiniMax H3 - Image to Video - Turbo.json"
       }
     },
     {
       method: "fs.copy",
       params: {
-        src: "workflows/MiniMax H3 - Text to Video - Turbo (NVIDIA).json",
-        dest: "app/user/default/workflows/MiniMax H3 - Text to Video - Turbo (NVIDIA).json"
+        src: "workflows/MiniMax H3 - Image to Video - Turbo (NVIDIA).json",
+        dest: "app/user/default/workflows/MiniMax H3 - Image to Video - Turbo (NVIDIA).json"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "workflows/MiniMax H3 - Reference to Video.json",
+        dest: "app/user/default/workflows/MiniMax H3 - Reference to Video.json"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "workflows/MiniMax H3 - Reference to Video (NVIDIA).json",
+        dest: "app/user/default/workflows/MiniMax H3 - Reference to Video (NVIDIA).json"
       }
     },
     {
@@ -97,20 +111,6 @@ module.exports = {
     {
       method: "fs.copy",
       params: {
-        src: "workflows/MiniMax H3 - Image to Video - Turbo.json",
-        dest: "app/user/default/workflows/MiniMax H3 - Image to Video - Turbo.json"
-      }
-    },
-    {
-      method: "fs.copy",
-      params: {
-        src: "workflows/MiniMax H3 - Image to Video - Turbo (NVIDIA).json",
-        dest: "app/user/default/workflows/MiniMax H3 - Image to Video - Turbo (NVIDIA).json"
-      }
-    },
-    {
-      method: "fs.copy",
-      params: {
         src: "workflows/MiniMax H3 - Lipsync (NVIDIA).json",
         dest: "app/user/default/workflows/MiniMax H3 - Lipsync (NVIDIA).json"
       }
@@ -125,8 +125,50 @@ module.exports = {
     {
       method: "fs.copy",
       params: {
+        src: "workflows/MiniMax H3 - Lipsync - Turbo.json",
+        dest: "app/user/default/workflows/MiniMax H3 - Lipsync - Turbo.json"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "workflows/MiniMax H3 - Lipsync - Turbo (NVIDIA).json",
+        dest: "app/user/default/workflows/MiniMax H3 - Lipsync - Turbo (NVIDIA).json"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
         src: "workflows/Prompt Enhancer - Image Analyzer.json",
         dest: "app/user/default/workflows/Prompt Enhancer - Image Analyzer.json"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "assets/hero.mp3",
+        dest: "app/input/hero.mp3"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "assets/mecha_dragon_lightning.png",
+        dest: "app/input/mecha_dragon_lightning.png"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "assets/mouse2.png",
+        dest: "app/input/mouse2.png"
+      }
+    },
+    {
+      method: "fs.copy",
+      params: {
+        src: "assets/red_superboy_on_city_roof.png",
+        dest: "app/input/red_superboy_on_city_roof.png"
       }
     }
   ]

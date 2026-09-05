@@ -44,14 +44,14 @@ module.exports = {
         ]
       }
     },
-    // Install comfyui-miniMax-h3-turbo Nodes
+    // Install H3-Optimizations Nodes
     {
-      when: "{{!exists('app/custom_nodes/ComfyUI-MiniMax-H3-Turbo')}}",
+      when: "{{!exists('app/custom_nodes/H3-Optimizations')}}",
       method: "shell.run",
       params: {
         path: "app/custom_nodes",
         message: [
-          "git clone https://github.com/larryvrh/ComfyUI-MiniMax-H3-Turbo"
+          "git clone https://github.com/Zironic/H3-Optimizations"
         ],
       }
     },
@@ -85,6 +85,17 @@ module.exports = {
         path: "app/custom_nodes",
         message: [
           "git clone https://github.com/rgthree/rgthree-comfy"
+        ],
+      }
+    },
+    // Install ComfyUI-ClipProjection Nodes
+    {
+      when: "{{!exists('app/custom_nodes/ComfyUI-ClipProj')}}",
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes",
+        message: [
+          "git clone https://github.com/nicolab28/ComfyUI-ClipProj"
         ],
       }
     },
@@ -163,11 +174,24 @@ module.exports = {
         uri: "workflows.js"
       }
     },
-    // ~63 GB total. Shared encoder + VAEs first, then each transformer.
+    // ~85 GB total. Shared encoder + VAEs first, then each transformer.
+    {
+      when: "{{platform === 'win32' && gpu === 'nvidia'}}",
+      method: "script.start",
+      params: {
+        uri: "download/text_encoder_nvfp4.js"
+      }
+    },
     {
       method: "script.start",
       params: {
-        uri: "download/shared.js"
+        uri: "download/qwen3_vl_4b.js"
+      }
+    },
+    {
+      method: "script.start",
+      params: {
+        uri: "download/vae.js"
       }
     },
     {
@@ -185,13 +209,19 @@ module.exports = {
     {
       method: "script.start",
       params: {
+        uri: "download/fl2va-4steps.js"
+      }
+    },
+    {
+      method: "script.start",
+      params: {
         uri: "download/turbo_lora.js"
       }
     },
     {
       method: "script.start",
       params: {
-        uri: "download/qwen3_vl_4b.js"
+        uri: "download/turbo_lora2.js"
       }
     }
   ]

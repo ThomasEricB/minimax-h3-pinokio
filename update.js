@@ -20,11 +20,13 @@ module.exports = {
         message: "git pull"
       }
     },
+    // Install H3-Optimizations Nodes
     {
+      when: "{{!exists('app/custom_nodes/H3-Optimizations')}}",
       method: "shell.run",
       params: {
-        path: "app/custom_nodes/ComfyUI-MiniMax-H3-Turbo",
-        message: "git pull"
+        path: "app/custom_nodes",
+        message: "git clone https://github.com/Zironic/H3-Optimizations"
       }
     },
     // Install comfyui-h3-VisionPromptor Nodes
@@ -60,6 +62,35 @@ module.exports = {
         ],
       }
     },
+    // Install ComfyUI-ClipProjection Nodes
+    {
+      when: "{{!exists('app/custom_nodes/ComfyUI-ClipProj')}}",
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes",
+        message: [
+          "git clone https://github.com/nicolab28/ComfyUI-ClipProj"
+        ],
+      }
+    },
+    // Install KJNodes
+    {
+      when: "{{platform === 'win32' && gpu === 'nvidia' && !exists('app/custom_nodes/ComfyUI-KJNodes')}}",
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes",
+        message: [
+          "git clone https://github.com/kijai/ComfyUI-KJNodes"
+        ],
+      }
+    },
+    {
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes/H3-Optimizations",
+        message: "git pull"
+      }
+    },
     {
       method: "shell.run",
       params: {
@@ -78,6 +109,13 @@ module.exports = {
       method: "shell.run",
       params: {
         path: "app/custom_nodes/rgthree-comfy",
+        message: "git pull"
+      }
+    },
+    {
+      method: "shell.run",
+      params: {
+        path: "app/custom_nodes/ComfyUI-ClipProj",
         message: "git pull"
       }
     },
@@ -138,9 +176,10 @@ module.exports = {
       }
     },
     {
-      method: "script.start",
+      method: "input",
       params: {
-        uri: "download/qwen3_vl_4b.js"
+        title: "Update Finished",
+        description: "Missing Models can be downloaded with the <b>Download Models</b> button on the left side menu. (Only visible when Minimax H3 Comfyui is NOT running).<br>All Missing Models get automatically installed by clicking the <b>Install</b> button on the left side menu."
       }
     }
   ]

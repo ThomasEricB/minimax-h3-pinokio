@@ -1,47 +1,9 @@
 {
   "id": "9d7006a0-9633-4e27-a6df-cb8de48ceded",
   "revision": 0,
-  "last_node_id": 146,
-  "last_link_id": 314,
+  "last_node_id": 149,
+  "last_link_id": 325,
   "nodes": [
-    {
-      "id": 92,
-      "type": "SaveVideo",
-      "pos": [
-        80,
-        4850
-      ],
-      "size": [
-        1210,
-        106
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "video",
-          "type": "VIDEO",
-          "link": 288
-        }
-      ],
-      "outputs": [
-        {
-          "name": "video",
-          "type": "VIDEO",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.30.0"
-      },
-      "widgets_values": [
-        "video/MiniMax_H3",
-        "auto",
-        "auto"
-      ]
-    },
     {
       "id": 139,
       "type": "LoadImage",
@@ -79,7 +41,11 @@
       "widgets_values": [
         "mecha_dragon_lightning.png",
         "image"
-      ]
+      ],
+      "widgets_values_named": {
+        "image": "mecha_dragon_lightning.png",
+        "upload": "image"
+      }
     },
     {
       "id": 137,
@@ -118,55 +84,11 @@
       "widgets_values": [
         "red_superboy_on_city_roof.png",
         "image"
-      ]
-    },
-    {
-      "id": 117,
-      "type": "MarkdownNote",
-      "pos": [
-        -2180,
-        5460
       ],
-      "size": [
-        500,
-        510
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Note: Model Links",
-      "properties": {},
-      "widgets_values": [
-        "## Model Links\n[🤗 Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)\n\n**vae**\n\n- [minimax_h3_video_vae_fp16.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors)\n- [minimax_h3_audio_vae_fp32.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors)\n\n**diffusion_models**\n\n- [minimax_h3_ref2va_pruned_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors)\n\n**text_encoders**\n\n- [qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors)\n\n\n## Model Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 vae/\n│   │   ├── minimax_h3_video_vae_fp16.safetensors\n│   │   └── minimax_h3_audio_vae_fp32.safetensors\n│   ├── 📂 diffusion_models/\n│   │   └── minimax_h3_ref2va_pruned_int8_convrot.safetensors\n│   └── 📂 text_encoders/\n│       └── qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\n```\n\n## Report Issue\n\nNote: Please update ComfyUI first ([guide](https://docs.comfy.org/installation/update_comfyui)) and prepare required models. Desktop/Cloud updates follow stable releases, so some nightly-supported models may not be available yet.\n\n- Cannot run / runtime errors: [ComfyUI/issues](https://github.com/comfyanonymous/ComfyUI/issues)\n- UI / frontend issues: [ComfyUI_frontend/issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)\n- Workflow issues: [workflow_templates/issues](https://github.com/Comfy-Org/workflow_templates/issues)\n"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
-      "id": 116,
-      "type": "MarkdownNote",
-      "pos": [
-        -2180,
-        4850
-      ],
-      "size": [
-        500,
-        570
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Note: MiniMax H3",
-      "properties": {},
-      "widgets_values": [
-        "## MiniMax H3\n\n[MiniMax H3](https://www.minimax.io/blog/minimax-h3) is MiniMax's general-purpose, omni-modal generation model. It jointly understands text, image, video, and audio, and generates video with **native stereo audio**: voice, sound effects, and music are modeled jointly in a single forward pass, not layered on afterward. Output is up to 2K resolution, 24fps, and up to about 15 seconds.\n\n## ComfyUI links\n- [ComfyUI#15224](https://github.com/Comfy-Org/ComfyUI/pull/15224)\n- [🤗 Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)\n\n## About this workflow\n\nThis template runs the **reference-to-video (ref2va)** task using the `MiniMaxH3ReferenceToVideo` node. It takes any mix of reference images, videos, and standalone audio, and weaves them into the generation to lock in a character's identity, a style, a motion, a camera move, or a voice.\n\n**Key inputs**\n\n- **ref_images / ref_videos / ref_video_audios / ref_audios**: up to 9 reference images, 3 reference videos (each may carry its own paired soundtrack), and 3 standalone reference audio clips\n- **prompt**: reference the inputs by tag, in the exact order they were connected, for example `<Picture 1>`, `<Video 1>`, `<Audio 1>`, then describe the target scene, motion, and audio\n- **ref_image_size**: `match` scales references down to the generation's resolution (faster); `max` keeps up to a 2048px short edge for stronger identity fidelity, at the cost of speed since reference tokens ride along every sampling step\n- **width / height**: set via Resolution Selector.\n- **duration (seconds)**: converted to a valid frame `length` by the Math Expression node\n\n**Sampling and decode**\n\n- Sampler: `res_multistep`. `beta` or `normal` scheduler tends to outperform `simple` for reference-heavy prompts like this one\n- The sampler's joint audio+video `LATENT` output feeds directly into both `VAEDecode` (video, `minimax_h3_video_vae_fp16`) and `VAEDecodeAudio` (audio, `minimax_h3_audio_vae_fp32`); each decode node automatically pulls its own half out of the packed latent. `CreateVideo` then muxes the two into a single MP4 with synced sound\n- The diffusion model here is `minimax_h3_ref2va_pruned_int8_convrot.safetensors`, a different set of weights from the `fl2va` model used by the t2v/i2v templates\n\nRef2va's output is very sensitive to prompt wording; matching the reference tags precisely and being explicit about which reference drives which part of the shot tends to work best."
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
+      "widgets_values_named": {
+        "image": "red_superboy_on_city_roof.png",
+        "upload": "image"
+      }
     },
     {
       "id": 140,
@@ -180,7 +102,7 @@
         376.6567461816403
       ],
       "flags": {},
-      "order": 4,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -189,6 +111,9 @@
       "widgets_values": [
         "| megapixels | Aspect | Output (multiple=32) |\n|---|---|---|\n| 0.2 | 16:9 | 608 x 352 |\n| 0.3 | 16:9 | 736 x 416 |\n| 0.4 | 16:9 | 864 x 480 |\n| 0.5 | 16:9 | 960 x 544 |\n| 0.6 | 16:9 | 1056 x 608 |\n| 0.7 | 16:9 | 1152 x 640 |\n| 0.8 | 16:9 | 1216 x 672 |\n| 0.9 | 16:9 | 1280 x 736 |\n| 0.98 | 16:9 | 1344 x 768 |\n| 1.0 | 16:9 | 1376 x 768 |\n| 1.2 | 16:9 | 1504 x 832 |\n| 1.5 | 16:9 | 1664 x 928 |\n| 1.8 | 16:9 | 1824 x 1024 |\n| 2.0 | 16:9 | 1920 x 1088 |\n"
       ],
+      "widgets_values_named": {
+        "text": "| megapixels | Aspect | Output (multiple=32) |\n|---|---|---|\n| 0.2 | 16:9 | 608 x 352 |\n| 0.3 | 16:9 | 736 x 416 |\n| 0.4 | 16:9 | 864 x 480 |\n| 0.5 | 16:9 | 960 x 544 |\n| 0.6 | 16:9 | 1056 x 608 |\n| 0.7 | 16:9 | 1152 x 640 |\n| 0.8 | 16:9 | 1216 x 672 |\n| 0.9 | 16:9 | 1280 x 736 |\n| 0.98 | 16:9 | 1344 x 768 |\n| 1.0 | 16:9 | 1376 x 768 |\n| 1.2 | 16:9 | 1504 x 832 |\n| 1.5 | 16:9 | 1664 x 928 |\n| 1.8 | 16:9 | 1824 x 1024 |\n| 2.0 | 16:9 | 1920 x 1088 |\n"
+      },
       "color": "#222",
       "bgcolor": "#000"
     },
@@ -204,7 +129,7 @@
         170
       ],
       "flags": {},
-      "order": 5,
+      "order": 3,
       "mode": 0,
       "showAdvanced": false,
       "inputs": [],
@@ -232,9 +157,113 @@
       },
       "widgets_values": [
         "16:9 (Widescreen)",
-        0.4,
+        0.6,
         32
-      ]
+      ],
+      "widgets_values_named": {
+        "aspect_ratio": "16:9 (Widescreen)",
+        "megapixels": 0.6,
+        "multiple": 32
+      }
+    },
+    {
+      "id": 117,
+      "type": "MarkdownNote",
+      "pos": [
+        -2180,
+        5600
+      ],
+      "size": [
+        540,
+        510
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: Model Links",
+      "properties": {},
+      "widgets_values": [
+        "## Model Links\n[🤗 Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)\n\n**vae**\n\n- [minimax_h3_video_vae_fp16.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors)\n- [minimax_h3_audio_vae_fp32.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors)\n\n**diffusion_models**\n\n- [minimax_h3_ref2va_pruned_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors)\n\n**text_encoders**\n\n- [qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors)\n\n\n## Model Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 vae/\n│   │   ├── minimax_h3_video_vae_fp16.safetensors\n│   │   └── minimax_h3_audio_vae_fp32.safetensors\n│   ├── 📂 diffusion_models/\n│   │   └── minimax_h3_ref2va_pruned_int8_convrot.safetensors\n│   └── 📂 text_encoders/\n│       └── qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\n```\n\n## Report Issue\n\nNote: Please update ComfyUI first ([guide](https://docs.comfy.org/installation/update_comfyui)) and prepare required models. Desktop/Cloud updates follow stable releases, so some nightly-supported models may not be available yet.\n\n- Cannot run / runtime errors: [ComfyUI/issues](https://github.com/comfyanonymous/ComfyUI/issues)\n- UI / frontend issues: [ComfyUI_frontend/issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)\n- Workflow issues: [workflow_templates/issues](https://github.com/Comfy-Org/workflow_templates/issues)\n"
+      ],
+      "widgets_values_named": {
+        "text": "## Model Links\n[🤗 Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)\n\n**vae**\n\n- [minimax_h3_video_vae_fp16.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors)\n- [minimax_h3_audio_vae_fp32.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors)\n\n**diffusion_models**\n\n- [minimax_h3_ref2va_pruned_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors)\n\n**text_encoders**\n\n- [qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors)\n\n\n## Model Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 vae/\n│   │   ├── minimax_h3_video_vae_fp16.safetensors\n│   │   └── minimax_h3_audio_vae_fp32.safetensors\n│   ├── 📂 diffusion_models/\n│   │   └── minimax_h3_ref2va_pruned_int8_convrot.safetensors\n│   └── 📂 text_encoders/\n│       └── qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors\n```\n\n## Report Issue\n\nNote: Please update ComfyUI first ([guide](https://docs.comfy.org/installation/update_comfyui)) and prepare required models. Desktop/Cloud updates follow stable releases, so some nightly-supported models may not be available yet.\n\n- Cannot run / runtime errors: [ComfyUI/issues](https://github.com/comfyanonymous/ComfyUI/issues)\n- UI / frontend issues: [ComfyUI_frontend/issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)\n- Workflow issues: [workflow_templates/issues](https://github.com/Comfy-Org/workflow_templates/issues)\n"
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 116,
+      "type": "MarkdownNote",
+      "pos": [
+        -2180,
+        4850
+      ],
+      "size": [
+        540,
+        700
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: MiniMax H3",
+      "properties": {},
+      "widgets_values": [
+        "## MiniMax H3\n\n[MiniMax H3](https://www.minimax.io/blog/minimax-h3) is MiniMax's general-purpose, omni-modal generation model. It jointly understands text, image, video, and audio, and generates video with **native stereo audio**: voice, sound effects, and music are modeled jointly in a single forward pass, not layered on afterward. Output is up to 2K resolution, 24fps, and up to about 15 seconds.\n\n## ComfyUI links\n- [ComfyUI#15224](https://github.com/Comfy-Org/ComfyUI/pull/15224)\n- [🤗 Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)\n\n## About this workflow\n\nThis template runs the **reference-to-video (ref2va)** task using the `MiniMaxH3ReferenceToVideo` node. It takes any mix of reference images, videos, and standalone audio, and weaves them into the generation to lock in a character's identity, a style, a motion, a camera move, or a voice.\n\n**Key inputs**\n\n- **ref_images / ref_videos / ref_video_audios / ref_audios**: up to 9 reference images, 3 reference videos (each may carry its own paired soundtrack), and 3 standalone reference audio clips\n- **prompt**: reference the inputs by tag, in the exact order they were connected, for example `<Picture 1>`, `<Video 1>`, `<Audio 1>`, then describe the target scene, motion, and audio\n- **ref_image_size**: `match` scales references down to the generation's resolution (faster); `max` keeps up to a 2048px short edge for stronger identity fidelity, at the cost of speed since reference tokens ride along every sampling step\n- **width / height**: set via Resolution Selector.\n- **duration (seconds)**: converted to a valid frame `length` by the Math Expression node\n\n**Sampling and decode**\n\n- Sampler: `res_multistep`. `beta` or `normal` scheduler tends to outperform `simple` for reference-heavy prompts like this one\n- The sampler's joint audio+video `LATENT` output feeds directly into both `VAEDecode` (video, `minimax_h3_video_vae_fp16`) and `VAEDecodeAudio` (audio, `minimax_h3_audio_vae_fp32`); each decode node automatically pulls its own half out of the packed latent. `CreateVideo` then muxes the two into a single MP4 with synced sound\n- The diffusion model here is `minimax_h3_ref2va_pruned_int8_convrot.safetensors`, a different set of weights from the `fl2va` model used by the t2v/i2v templates\n\nRef2va's output is very sensitive to prompt wording; matching the reference tags precisely and being explicit about which reference drives which part of the shot tends to work best.\n\n## Handle Out of Memory Errors\n\nTo avoid out of memory erros:\n- Decrease **_megapixels_** in the *Resolution Selector** node.\n- Set the **memory_mode** to _**Lower VRAM (slower)**_  \n- Additionally you can decrease the **chunks**.  \n\n(H3 normally creates several very large temporary tensors while generating a video. Larger chunks can be faster but use more temporary memory. Smaller chunks can substantially reduce peak VRAM use.)"
+      ],
+      "widgets_values_named": {
+        "text": "## MiniMax H3\n\n[MiniMax H3](https://www.minimax.io/blog/minimax-h3) is MiniMax's general-purpose, omni-modal generation model. It jointly understands text, image, video, and audio, and generates video with **native stereo audio**: voice, sound effects, and music are modeled jointly in a single forward pass, not layered on afterward. Output is up to 2K resolution, 24fps, and up to about 15 seconds.\n\n## ComfyUI links\n- [ComfyUI#15224](https://github.com/Comfy-Org/ComfyUI/pull/15224)\n- [🤗 Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)\n\n## About this workflow\n\nThis template runs the **reference-to-video (ref2va)** task using the `MiniMaxH3ReferenceToVideo` node. It takes any mix of reference images, videos, and standalone audio, and weaves them into the generation to lock in a character's identity, a style, a motion, a camera move, or a voice.\n\n**Key inputs**\n\n- **ref_images / ref_videos / ref_video_audios / ref_audios**: up to 9 reference images, 3 reference videos (each may carry its own paired soundtrack), and 3 standalone reference audio clips\n- **prompt**: reference the inputs by tag, in the exact order they were connected, for example `<Picture 1>`, `<Video 1>`, `<Audio 1>`, then describe the target scene, motion, and audio\n- **ref_image_size**: `match` scales references down to the generation's resolution (faster); `max` keeps up to a 2048px short edge for stronger identity fidelity, at the cost of speed since reference tokens ride along every sampling step\n- **width / height**: set via Resolution Selector.\n- **duration (seconds)**: converted to a valid frame `length` by the Math Expression node\n\n**Sampling and decode**\n\n- Sampler: `res_multistep`. `beta` or `normal` scheduler tends to outperform `simple` for reference-heavy prompts like this one\n- The sampler's joint audio+video `LATENT` output feeds directly into both `VAEDecode` (video, `minimax_h3_video_vae_fp16`) and `VAEDecodeAudio` (audio, `minimax_h3_audio_vae_fp32`); each decode node automatically pulls its own half out of the packed latent. `CreateVideo` then muxes the two into a single MP4 with synced sound\n- The diffusion model here is `minimax_h3_ref2va_pruned_int8_convrot.safetensors`, a different set of weights from the `fl2va` model used by the t2v/i2v templates\n\nRef2va's output is very sensitive to prompt wording; matching the reference tags precisely and being explicit about which reference drives which part of the shot tends to work best.\n\n## Handle Out of Memory Errors\n\nTo avoid out of memory erros:\n- Decrease **_megapixels_** in the *Resolution Selector** node.\n- Set the **memory_mode** to _**Lower VRAM (slower)**_  \n- Additionally you can decrease the **chunks**.  \n\n(H3 normally creates several very large temporary tensors while generating a video. Larger chunks can be faster but use more temporary memory. Smaller chunks can substantially reduce peak VRAM use.)"
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 92,
+      "type": "SaveVideo",
+      "pos": [
+        100,
+        4850
+      ],
+      "size": [
+        1210,
+        794.6666666666666
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 288
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0"
+      },
+      "widgets_values": [
+        "video/MiniMax_H3",
+        "auto",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "video/MiniMax_H3",
+        "format": "auto",
+        "format.codec": "auto",
+        "codec": "auto"
+      }
     },
     {
       "id": 142,
@@ -244,8 +273,8 @@
         4850
       ],
       "size": [
-        630,
-        940
+        660,
+        1010
       ],
       "flags": {},
       "order": 6,
@@ -273,6 +302,15 @@
           "type": "FLOAT",
           "widget": {
             "name": "value_1"
+          },
+          "link": null
+        },
+        {
+          "label": "sampler",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
           },
           "link": null
         },
@@ -331,6 +369,24 @@
           "link": null
         },
         {
+          "label": "memory_mode",
+          "name": "kitchen_v_memory_mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "kitchen_v_memory_mode"
+          },
+          "link": null
+        },
+        {
+          "label": "chunks",
+          "name": "chunk_rows",
+          "type": "INT",
+          "widget": {
+            "name": "chunk_rows"
+          },
+          "link": null
+        },
+        {
           "label": "ref_image_0",
           "name": "ref_images.ref_image_0",
           "shape": 7,
@@ -364,15 +420,35 @@
         1344,
         768,
         5,
-        8,
-        157368968253448,
+        10,
+        "simple",
+        "res_multistep",
+        205514887804235,
         "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
         "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "minimax_h3_video_vae_fp16.safetensors",
         "minimax_h3_audio_vae_fp32.safetensors",
-        "minimax_h3_turbo_v4_step600_ema.safetensors",
-        false
-      ]
+        "minimax_h3_ref2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors",
+        "Standard",
+        4096
+      ],
+      "widgets_values_named": {
+        "value": "Bold comic-book ink style, heavy linework, red and blue-black palette, night city. Use <Picture 2> and <Picture 1> as reference frames and <Audio 1> exactly as it is.\nCUT 1: top-down view of the little boy superhero on the rooftop — red cape fluttering in the wind, hands planted on his hips, freckles and a cocky grin as he looks straight up into the camera. The camera slowly descends toward him as he delivers his line — as he speaks, comic-book graphic overlay text word by word in sync with his voice: \"GET READY TO\" - \"MEET\" — \"YOUR\" — \"MAKER\" — huge jagged comic lettering, white with heavy black outlines and red drop shadows, tilted at scrappy angles, until the three words hang stacked in the air above him between his face and the lens.\nTRANSITION: a violent WHIP PAN off the rooftop that SMEARS the floating words away with it, motion-streaked —\nCUT 2: low hero angle on the colossal black mech-kaiju towering over the skyline as it rears back and unleashes a GIANT terrifying ROAR — jaws wide with fangs, red eyes and chest-core flaring blinding bright, blue lightning arcing off its head, the roar's shockwave rippling dust and rattling windows down the buildings, comic-style speed-lines and ink splatter bursting from the impact of the sound. It leans INTO the camera as the roar peaks. Hold on the roar.",
+        "width": 1344,
+        "height": 768,
+        "value_1": 5,
+        "steps": 10,
+        "scheduler": "simple",
+        "sampler_name": "res_multistep",
+        "noise_seed": 205514887804235,
+        "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "vae_name": "minimax_h3_video_vae_fp16.safetensors",
+        "vae_name_1": "minimax_h3_audio_vae_fp32.safetensors",
+        "lora_name": "minimax_h3_ref2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors",
+        "kitchen_v_memory_mode": "Standard",
+        "chunk_rows": 4096
+      }
     }
   ],
   "links": [
@@ -381,7 +457,7 @@
       137,
       0,
       142,
-      9,
+      12,
       "IMAGE"
     ],
     [
@@ -389,7 +465,7 @@
       139,
       0,
       142,
-      10,
+      13,
       "IMAGE"
     ],
     [
@@ -425,8 +501,8 @@
         "version": 1,
         "state": {
           "lastGroupId": 5,
-          "lastNodeId": 146,
-          "lastLinkId": 314,
+          "lastNodeId": 149,
+          "lastLinkId": 325,
           "lastRerouteId": 0
         },
         "revision": 0,
@@ -437,14 +513,14 @@
           "bounding": [
             -2250,
             5050,
-            128,
-            328
+            189.17578125,
+            388
           ]
         },
         "outputNode": {
           "id": -20,
           "bounding": [
-            1430,
+            1380,
             5080,
             128,
             68
@@ -459,7 +535,7 @@
               289
             ],
             "pos": [
-              -2146,
+              -2084.82421875,
               5074
             ]
           },
@@ -472,7 +548,7 @@
             ],
             "localized_name": "width",
             "pos": [
-              -2146,
+              -2084.82421875,
               5094
             ]
           },
@@ -485,7 +561,7 @@
             ],
             "localized_name": "height",
             "pos": [
-              -2146,
+              -2084.82421875,
               5114
             ]
           },
@@ -498,7 +574,7 @@
             ],
             "label": "duration",
             "pos": [
-              -2146,
+              -2084.82421875,
               5134
             ]
           },
@@ -510,8 +586,32 @@
               312
             ],
             "pos": [
-              -2146,
+              -2084.82421875,
               5154
+            ]
+          },
+          {
+            "id": "6805c241-e820-4fa3-a51c-e1bd49554b16",
+            "name": "scheduler",
+            "type": "COMBO",
+            "linkIds": [
+              325
+            ],
+            "pos": [
+              -2084.82421875,
+              5174
+            ]
+          },
+          {
+            "id": "ec6f31aa-69fc-464a-993f-1f00393b209d",
+            "name": "sampler_name",
+            "type": "COMBO",
+            "linkIds": [
+              324
+            ],
+            "pos": [
+              -2084.82421875,
+              5194
             ]
           },
           {
@@ -522,8 +622,8 @@
               291
             ],
             "pos": [
-              -2146,
-              5174
+              -2084.82421875,
+              5214
             ]
           },
           {
@@ -534,8 +634,8 @@
               292
             ],
             "pos": [
-              -2146,
-              5194
+              -2084.82421875,
+              5234
             ]
           },
           {
@@ -546,8 +646,8 @@
               293
             ],
             "pos": [
-              -2146,
-              5214
+              -2084.82421875,
+              5254
             ]
           },
           {
@@ -558,8 +658,8 @@
               294
             ],
             "pos": [
-              -2146,
-              5234
+              -2084.82421875,
+              5274
             ]
           },
           {
@@ -571,8 +671,8 @@
             ],
             "label": "audio_vae",
             "pos": [
-              -2146,
-              5254
+              -2084.82421875,
+              5294
             ]
           },
           {
@@ -580,24 +680,36 @@
             "name": "lora_name",
             "type": "COMBO",
             "linkIds": [
-              310
+              321
             ],
             "label": "turbo_lora",
             "pos": [
-              -2146,
-              5274
+              -2084.82421875,
+              5314
             ]
           },
           {
-            "id": "e7cf04c3-d287-4252-8adb-1aff199db429",
-            "name": "low_vram",
-            "type": "BOOLEAN",
+            "id": "a629335b-e021-4e4f-9ac0-2010c18e61b4",
+            "name": "kitchen_v_memory_mode",
+            "type": "COMBO",
             "linkIds": [
-              311
+              322
             ],
             "pos": [
-              -2146,
-              5294
+              -2084.82421875,
+              5334
+            ]
+          },
+          {
+            "id": "432743f2-f383-4a82-b8be-cf0b031aeb6c",
+            "name": "chunk_rows",
+            "type": "INT",
+            "linkIds": [
+              323
+            ],
+            "pos": [
+              -2084.82421875,
+              5354
             ]
           },
           {
@@ -611,8 +723,8 @@
             "label": "ref_image_0",
             "shape": 7,
             "pos": [
-              -2146,
-              5314
+              -2084.82421875,
+              5374
             ]
           },
           {
@@ -626,8 +738,8 @@
             "label": "ref_image_1",
             "shape": 7,
             "pos": [
-              -2146,
-              5334
+              -2084.82421875,
+              5394
             ]
           }
         ],
@@ -641,7 +753,7 @@
             ],
             "localized_name": "VIDEO",
             "pos": [
-              1454,
+              1404,
               5104
             ]
           }
@@ -660,7 +772,7 @@
               120
             ],
             "flags": {},
-            "order": 9,
+            "order": 8,
             "mode": 0,
             "inputs": [
               {
@@ -699,55 +811,12 @@
               "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
               "minimax",
               "default"
-            ]
-          },
-          {
-            "id": 138,
-            "type": "PrimitiveStringMultiline",
-            "pos": [
-              -1268.5168272886224,
-              5074.619747216735
             ],
-            "size": [
-              460.21604761962885,
-              327.1828806488038
-            ],
-            "flags": {},
-            "order": 15,
-            "mode": 0,
-            "inputs": [
-              {
-                "label": "value",
-                "localized_name": "value",
-                "name": "value",
-                "type": "STRING",
-                "widget": {
-                  "name": "value"
-                },
-                "link": 289
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "STRING",
-                "name": "STRING",
-                "type": "STRING",
-                "links": [
-                  279
-                ]
-              }
-            ],
-            "title": "Input Text (Prompt)",
-            "properties": {
-              "cnr_id": "comfy-core",
-              "ver": "0.30.0",
-              "Node name for S&R": "PrimitiveStringMultiline"
-            },
-            "widgets_values": [
-              "Bold comic-book ink style, heavy linework, red and blue-black palette, night city. Use <Picture 2> and <Picture 1> as reference frames and <Audio 1> exactly as it is.\nCUT 1: top-down view of the little boy superhero on the rooftop — red cape fluttering in the wind, hands planted on his hips, freckles and a cocky grin as he looks straight up into the camera. The camera slowly descends toward him as he delivers his line — as he speaks, comic-book graphic overlay text word by word in sync with his voice: \"GET READY TO\" - \"MEET\" — \"YOUR\" — \"MAKER\" — huge jagged comic lettering, white with heavy black outlines and red drop shadows, tilted at scrappy angles, until the three words hang stacked in the air above him between his face and the lens.\nTRANSITION: a violent WHIP PAN off the rooftop that SMEARS the floating words away with it, motion-streaked —\nCUT 2: low hero angle on the colossal black mech-kaiju towering over the skyline as it rears back and unleashes a GIANT terrifying ROAR — jaws wide with fangs, red eyes and chest-core flaring blinding bright, blue lightning arcing off its head, the roar's shockwave rippling dust and rattling windows down the buildings, comic-style speed-lines and ink splatter bursting from the impact of the sound. It leans INTO the camera as the roar peaks. Hold on the roar."
-            ],
-            "color": "#322",
-            "bgcolor": "#533"
+            "widgets_values_named": {
+              "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+              "type": "minimax",
+              "device": "default"
+            }
           },
           {
             "id": 119,
@@ -761,7 +830,7 @@
               70
             ],
             "flags": {},
-            "order": 1,
+            "order": 0,
             "mode": 0,
             "inputs": [
               {
@@ -799,13 +868,16 @@
             },
             "widgets_values": [
               "minimax_h3_video_vae_fp16.safetensors"
-            ]
+            ],
+            "widgets_values_named": {
+              "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+            }
           },
           {
             "id": 136,
             "type": "MiniMaxH3ReferenceToVideo",
             "pos": [
-              -460,
+              -510,
               4940
             ],
             "size": [
@@ -813,7 +885,7 @@
               564.0816100463862
             ],
             "flags": {},
-            "order": 14,
+            "order": 13,
             "mode": 0,
             "inputs": [
               {
@@ -948,60 +1020,14 @@
               768,
               124,
               "match"
-            ]
-          },
-          {
-            "id": 120,
-            "type": "VAELoader",
-            "pos": [
-              -1960,
-              5400
             ],
-            "size": [
-              650,
-              70
-            ],
-            "flags": {},
-            "order": 2,
-            "mode": 0,
-            "inputs": [
-              {
-                "label": "audio_vae",
-                "localized_name": "vae_name",
-                "name": "vae_name",
-                "type": "COMBO",
-                "widget": {
-                  "name": "vae_name"
-                },
-                "link": 295
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "VAE",
-                "name": "VAE",
-                "type": "VAE",
-                "links": [
-                  250,
-                  274
-                ]
-              }
-            ],
-            "properties": {
-              "cnr_id": "comfy-core",
-              "ver": "0.30.0",
-              "Node name for S&R": "VAELoader",
-              "models": [
-                {
-                  "name": "minimax_h3_audio_vae_fp32.safetensors",
-                  "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors",
-                  "directory": "vae"
-                }
-              ]
-            },
-            "widgets_values": [
-              "minimax_h3_audio_vae_fp32.safetensors"
-            ]
+            "widgets_values_named": {
+              "prompt": "",
+              "width": 1344,
+              "height": 768,
+              "length": 124,
+              "ref_image_size": "match"
+            }
           },
           {
             "id": 132,
@@ -1015,7 +1041,7 @@
               70
             ],
             "flags": {},
-            "order": 13,
+            "order": 12,
             "mode": 0,
             "inputs": [
               {
@@ -1048,66 +1074,17 @@
             "widgets_values": [
               5
             ],
+            "widgets_values_named": {
+              "value": 5
+            },
             "color": "#322",
             "bgcolor": "#533"
-          },
-          {
-            "id": 124,
-            "type": "BasicScheduler",
-            "pos": [
-              30,
-              5310
-            ],
-            "size": [
-              370,
-              130
-            ],
-            "flags": {},
-            "order": 5,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "model",
-                "name": "model",
-                "type": "MODEL",
-                "link": 309
-              },
-              {
-                "localized_name": "steps",
-                "name": "steps",
-                "type": "INT",
-                "widget": {
-                  "name": "steps"
-                },
-                "link": 312
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "SIGMAS",
-                "name": "SIGMAS",
-                "type": "SIGMAS",
-                "links": [
-                  256
-                ]
-              }
-            ],
-            "properties": {
-              "cnr_id": "comfy-core",
-              "ver": "0.30.0",
-              "Node name for S&R": "BasicScheduler"
-            },
-            "widgets_values": [
-              "simple",
-              20,
-              1
-            ]
           },
           {
             "id": 129,
             "type": "RandomNoise",
             "pos": [
-              30,
+              -20,
               4940
             ],
             "size": [
@@ -1115,7 +1092,7 @@
               90
             ],
             "flags": {},
-            "order": 10,
+            "order": 9,
             "mode": 0,
             "inputs": [
               {
@@ -1146,7 +1123,11 @@
             "widgets_values": [
               157368968253448,
               "randomize"
-            ]
+            ],
+            "widgets_values_named": {
+              "noise_seed": 157368968253448,
+              "control_after_generate": "randomize"
+            }
           },
           {
             "id": 131,
@@ -1162,7 +1143,7 @@
             "flags": {
               "collapsed": true
             },
-            "order": 12,
+            "order": 11,
             "mode": 0,
             "inputs": [
               {
@@ -1210,13 +1191,16 @@
             },
             "widgets_values": [
               "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17"
-            ]
+            ],
+            "widgets_values_named": {
+              "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17"
+            }
           },
           {
             "id": 125,
             "type": "SamplerCustomAdvanced",
             "pos": [
-              440,
+              390,
               5110
             ],
             "size": [
@@ -1224,7 +1208,7 @@
               140
             ],
             "flags": {},
-            "order": 6,
+            "order": 5,
             "mode": 0,
             "inputs": [
               {
@@ -1243,7 +1227,7 @@
                 "localized_name": "sampler",
                 "name": "sampler",
                 "type": "SAMPLER",
-                "link": 306
+                "link": 317
               },
               {
                 "localized_name": "sigmas",
@@ -1279,14 +1263,13 @@
               "cnr_id": "comfy-core",
               "ver": "0.30.0",
               "Node name for S&R": "SamplerCustomAdvanced"
-            },
-            "widgets_values": []
+            }
           },
           {
             "id": 121,
             "type": "VAEDecodeAudio",
             "pos": [
-              770,
+              720,
               5180
             ],
             "size": [
@@ -1296,7 +1279,7 @@
             "flags": {
               "collapsed": false
             },
-            "order": 3,
+            "order": 2,
             "mode": 0,
             "inputs": [
               {
@@ -1326,14 +1309,13 @@
               "cnr_id": "comfy-core",
               "ver": "0.30.0",
               "Node name for S&R": "VAEDecodeAudio"
-            },
-            "widgets_values": []
+            }
           },
           {
             "id": 122,
             "type": "VAEDecode",
             "pos": [
-              770,
+              720,
               5060
             ],
             "size": [
@@ -1343,7 +1325,7 @@
             "flags": {
               "collapsed": false
             },
-            "order": 4,
+            "order": 3,
             "mode": 0,
             "inputs": [
               {
@@ -1373,22 +1355,21 @@
               "cnr_id": "comfy-core",
               "ver": "0.30.0",
               "Node name for S&R": "VAEDecode"
-            },
-            "widgets_values": []
+            }
           },
           {
             "id": 130,
             "type": "CreateVideo",
             "pos": [
-              1080,
+              1030,
               5090
             ],
             "size": [
               270,
-              110
+              126
             ],
             "flags": {},
-            "order": 11,
+            "order": 10,
             "mode": 0,
             "inputs": [
               {
@@ -1422,14 +1403,20 @@
             },
             "widgets_values": [
               24,
-              8
-            ]
+              8,
+              "sRGB"
+            ],
+            "widgets_values_named": {
+              "fps": 24,
+              "bit_depth": 8,
+              "color_space": "sRGB"
+            }
           },
           {
             "id": 126,
             "type": "BasicGuider",
             "pos": [
-              30,
+              -20,
               5080
             ],
             "size": [
@@ -1437,14 +1424,14 @@
               60
             ],
             "flags": {},
-            "order": 7,
+            "order": 6,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "model",
                 "name": "model",
                 "type": "MODEL",
-                "link": 308
+                "link": 315
               },
               {
                 "localized_name": "conditioning",
@@ -1467,54 +1454,190 @@
               "cnr_id": "comfy-core",
               "ver": "0.30.0",
               "Node name for S&R": "BasicGuider"
-            },
-            "widgets_values": []
+            }
           },
           {
-            "id": 144,
-            "type": "MiniMaxH3TurboSampler",
+            "id": 124,
+            "type": "BasicScheduler",
             "pos": [
-              30,
-              5210
+              -20,
+              5320
             ],
             "size": [
-              280.2447265625,
-              26
+              360,
+              130
             ],
             "flags": {},
-            "order": 0,
+            "order": 4,
             "mode": 0,
-            "inputs": [],
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 316
+              },
+              {
+                "localized_name": "scheduler",
+                "name": "scheduler",
+                "type": "COMBO",
+                "widget": {
+                  "name": "scheduler"
+                },
+                "link": 325
+              },
+              {
+                "localized_name": "steps",
+                "name": "steps",
+                "type": "INT",
+                "widget": {
+                  "name": "steps"
+                },
+                "link": 312
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "SIGMAS",
+                "name": "SIGMAS",
+                "type": "SIGMAS",
+                "links": [
+                  256
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.30.0",
+              "Node name for S&R": "BasicScheduler"
+            },
+            "widgets_values": [
+              "simple",
+              20,
+              1
+            ],
+            "widgets_values_named": {
+              "scheduler": "simple",
+              "steps": 20,
+              "denoise": 1
+            }
+          },
+          {
+            "id": 147,
+            "type": "KSamplerSelect",
+            "pos": [
+              -20,
+              5200
+            ],
+            "size": [
+              360,
+              60
+            ],
+            "flags": {},
+            "order": 16,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "sampler_name",
+                "name": "sampler_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "sampler_name"
+                },
+                "link": 324
+              }
+            ],
             "outputs": [
               {
                 "localized_name": "SAMPLER",
                 "name": "SAMPLER",
                 "type": "SAMPLER",
                 "links": [
-                  306
+                  317
                 ]
               }
             ],
             "properties": {
-              "cnr_id": "comfyui-minimax-h3-turbo",
-              "ver": "1.2.3",
-              "Node name for S&R": "MiniMaxH3TurboSampler"
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "KSamplerSelect"
             },
-            "widgets_values": []
+            "widgets_values": [
+              "res_multistep"
+            ],
+            "widgets_values_named": {
+              "sampler_name": "res_multistep"
+            }
+          },
+          {
+            "id": 120,
+            "type": "VAELoader",
+            "pos": [
+              -1960,
+              5400
+            ],
+            "size": [
+              640,
+              70
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+              {
+                "label": "audio_vae",
+                "localized_name": "vae_name",
+                "name": "vae_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "vae_name"
+                },
+                "link": 295
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "VAE",
+                "name": "VAE",
+                "type": "VAE",
+                "links": [
+                  250,
+                  274
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.30.0",
+              "Node name for S&R": "VAELoader",
+              "models": [
+                {
+                  "name": "minimax_h3_audio_vae_fp32.safetensors",
+                  "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors",
+                  "directory": "vae"
+                }
+              ]
+            },
+            "widgets_values": [
+              "minimax_h3_audio_vae_fp32.safetensors"
+            ],
+            "widgets_values_named": {
+              "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+            }
           },
           {
             "id": 127,
             "type": "UNETLoader",
             "pos": [
               -1960,
-              4920
+              4940
             ],
             "size": [
               640,
               90
             ],
             "flags": {},
-            "order": 8,
+            "order": 7,
             "mode": 0,
             "inputs": [
               {
@@ -1533,7 +1656,7 @@
                 "name": "MODEL",
                 "type": "MODEL",
                 "links": [
-                  313
+                  318
                 ]
               }
             ],
@@ -1552,93 +1675,32 @@
             "widgets_values": [
               "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
               "default"
-            ]
-          },
-          {
-            "id": 145,
-            "type": "MiniMaxH3TurboLoRA",
-            "pos": [
-              -910,
-              4920
             ],
-            "size": [
-              330,
-              110
-            ],
-            "flags": {},
-            "order": 16,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "model",
-                "name": "model",
-                "type": "MODEL",
-                "link": 314
-              },
-              {
-                "label": "turbo_lora",
-                "localized_name": "lora_name",
-                "name": "lora_name",
-                "type": "COMBO",
-                "widget": {
-                  "name": "lora_name"
-                },
-                "link": 310
-              },
-              {
-                "localized_name": "low_vram",
-                "name": "low_vram",
-                "type": "BOOLEAN",
-                "widget": {
-                  "name": "low_vram"
-                },
-                "link": 311
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "MODEL",
-                "name": "MODEL",
-                "type": "MODEL",
-                "links": [
-                  308,
-                  309
-                ]
-              }
-            ],
-            "properties": {
-              "cnr_id": "comfyui-minimax-h3-turbo",
-              "ver": "1.2.3",
-              "Node name for S&R": "MiniMaxH3TurboLoRA"
-            },
-            "widgets_values": [
-              "minimax_h3_turbo_v4_step600_ema.safetensors",
-              1,
-              false
-            ],
-            "color": "#223",
-            "bgcolor": "#335"
+            "widgets_values_named": {
+              "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+              "weight_dtype": "default"
+            }
           },
           {
             "id": 146,
             "type": "PathchSageAttentionKJ",
             "pos": [
-              -1270,
-              4920
+              -910,
+              4790
             ],
             "size": [
               310,
               110
             ],
             "flags": {},
-            "order": 17,
+            "order": 15,
             "mode": 0,
             "inputs": [
               {
                 "localized_name": "model",
                 "name": "model",
                 "type": "MODEL",
-                "link": 313
+                "link": 320
               }
             ],
             "outputs": [
@@ -1647,7 +1709,8 @@
                 "name": "MODEL",
                 "type": "MODEL",
                 "links": [
-                  314
+                  315,
+                  316
                 ]
               }
             ],
@@ -1660,8 +1723,196 @@
               "auto",
               false
             ],
+            "widgets_values_named": {
+              "sage_attention": "auto",
+              "allow_compile": false
+            },
             "color": "#232",
             "bgcolor": "#353"
+          },
+          {
+            "id": 148,
+            "type": "LoraLoaderModelOnly",
+            "pos": [
+              -1960,
+              4790
+            ],
+            "size": [
+              640,
+              90
+            ],
+            "flags": {},
+            "order": 17,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 318
+              },
+              {
+                "localized_name": "lora_name",
+                "name": "lora_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "lora_name"
+                },
+                "link": 321
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "MODEL",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  319
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.33.0",
+              "Node name for S&R": "LoraLoaderModelOnly"
+            },
+            "widgets_values": [
+              "minimax_h3_ref2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors",
+              1
+            ],
+            "widgets_values_named": {
+              "lora_name": "minimax_h3_ref2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors",
+              "strength_model": 1
+            }
+          },
+          {
+            "id": 138,
+            "type": "PrimitiveStringMultiline",
+            "pos": [
+              -1268.5168272886224,
+              5074.619747216735
+            ],
+            "size": [
+              460,
+              130
+            ],
+            "flags": {},
+            "order": 14,
+            "mode": 0,
+            "inputs": [
+              {
+                "label": "value",
+                "localized_name": "value",
+                "name": "value",
+                "type": "STRING",
+                "widget": {
+                  "name": "value"
+                },
+                "link": 289
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "STRING",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  279
+                ]
+              }
+            ],
+            "title": "Input Text (Prompt)",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.30.0",
+              "Node name for S&R": "PrimitiveStringMultiline"
+            },
+            "widgets_values": [
+              "Bold comic-book ink style, heavy linework, red and blue-black palette, night city. Use <Picture 2> and <Picture 1> as reference frames and <Audio 1> exactly as it is.\nCUT 1: top-down view of the little boy superhero on the rooftop — red cape fluttering in the wind, hands planted on his hips, freckles and a cocky grin as he looks straight up into the camera. The camera slowly descends toward him as he delivers his line — as he speaks, comic-book graphic overlay text word by word in sync with his voice: \"GET READY TO\" - \"MEET\" — \"YOUR\" — \"MAKER\" — huge jagged comic lettering, white with heavy black outlines and red drop shadows, tilted at scrappy angles, until the three words hang stacked in the air above him between his face and the lens.\nTRANSITION: a violent WHIP PAN off the rooftop that SMEARS the floating words away with it, motion-streaked —\nCUT 2: low hero angle on the colossal black mech-kaiju towering over the skyline as it rears back and unleashes a GIANT terrifying ROAR — jaws wide with fangs, red eyes and chest-core flaring blinding bright, blue lightning arcing off its head, the roar's shockwave rippling dust and rattling windows down the buildings, comic-style speed-lines and ink splatter bursting from the impact of the sound. It leans INTO the camera as the roar peaks. Hold on the roar."
+            ],
+            "widgets_values_named": {
+              "value": "Bold comic-book ink style, heavy linework, red and blue-black palette, night city. Use <Picture 2> and <Picture 1> as reference frames and <Audio 1> exactly as it is.\nCUT 1: top-down view of the little boy superhero on the rooftop — red cape fluttering in the wind, hands planted on his hips, freckles and a cocky grin as he looks straight up into the camera. The camera slowly descends toward him as he delivers his line — as he speaks, comic-book graphic overlay text word by word in sync with his voice: \"GET READY TO\" - \"MEET\" — \"YOUR\" — \"MAKER\" — huge jagged comic lettering, white with heavy black outlines and red drop shadows, tilted at scrappy angles, until the three words hang stacked in the air above him between his face and the lens.\nTRANSITION: a violent WHIP PAN off the rooftop that SMEARS the floating words away with it, motion-streaked —\nCUT 2: low hero angle on the colossal black mech-kaiju towering over the skyline as it rears back and unleashes a GIANT terrifying ROAR — jaws wide with fangs, red eyes and chest-core flaring blinding bright, blue lightning arcing off its head, the roar's shockwave rippling dust and rattling windows down the buildings, comic-style speed-lines and ink splatter bursting from the impact of the sound. It leans INTO the camera as the roar peaks. Hold on the roar."
+            },
+            "color": "#322",
+            "bgcolor": "#533"
+          },
+          {
+            "id": 149,
+            "type": "H3MemoryOptimization",
+            "pos": [
+              -1270,
+              4790
+            ],
+            "size": [
+              310,
+              160
+            ],
+            "flags": {},
+            "order": 18,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 319
+              },
+              {
+                "localized_name": "chunk_rows",
+                "name": "chunk_rows",
+                "type": "INT",
+                "widget": {
+                  "name": "chunk_rows"
+                },
+                "link": 323
+              },
+              {
+                "localized_name": "kitchen_v_memory_mode",
+                "name": "kitchen_v_memory_mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "kitchen_v_memory_mode"
+                },
+                "link": 322
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "MODEL",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  320
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "h3-optimizations",
+              "ver": "0.2.36",
+              "Node name for S&R": "H3MemoryOptimization"
+            },
+            "widgets_values": [
+              "auto",
+              "auto",
+              4096,
+              true,
+              "Auto",
+              "Auto",
+              "Auto",
+              "Standard"
+            ],
+            "widgets_values_named": {
+              "fused_qkv": "auto",
+              "mlp_memory": "auto",
+              "chunk_rows": 4096,
+              "preserve_precision": true,
+              "precision_mode": "Auto",
+              "qkv_streaming_mode": "Auto",
+              "embedding_memory_mode": "Auto",
+              "kitchen_v_memory_mode": "Standard"
+            },
+            "color": "#223",
+            "bgcolor": "#335"
           }
         ],
         "groups": [
@@ -1669,7 +1920,7 @@
             "id": 2,
             "title": "Sampling",
             "bounding": [
-              10,
+              -40,
               4840,
               690,
               670
@@ -1681,7 +1932,7 @@
             "id": 3,
             "title": "Conditioning",
             "bounding": [
-              -500,
+              -550,
               4840,
               480,
               670
@@ -1830,7 +2081,7 @@
           {
             "id": 278,
             "origin_id": -10,
-            "origin_slot": 12,
+            "origin_slot": 15,
             "target_id": 136,
             "target_slot": 3,
             "type": "IMAGE"
@@ -1838,7 +2089,7 @@
           {
             "id": 282,
             "origin_id": -10,
-            "origin_slot": 13,
+            "origin_slot": 16,
             "target_id": 136,
             "target_slot": 4,
             "type": "IMAGE"
@@ -1886,7 +2137,7 @@
           {
             "id": 291,
             "origin_id": -10,
-            "origin_slot": 5,
+            "origin_slot": 7,
             "target_id": 129,
             "target_slot": 0,
             "type": "INT"
@@ -1894,7 +2145,7 @@
           {
             "id": 292,
             "origin_id": -10,
-            "origin_slot": 6,
+            "origin_slot": 8,
             "target_id": 127,
             "target_slot": 0,
             "type": "COMBO"
@@ -1902,7 +2153,7 @@
           {
             "id": 293,
             "origin_id": -10,
-            "origin_slot": 7,
+            "origin_slot": 9,
             "target_id": 128,
             "target_slot": 0,
             "type": "COMBO"
@@ -1910,7 +2161,7 @@
           {
             "id": 294,
             "origin_id": -10,
-            "origin_slot": 8,
+            "origin_slot": 10,
             "target_id": 119,
             "target_slot": 0,
             "type": "COMBO"
@@ -1918,74 +2169,106 @@
           {
             "id": 295,
             "origin_id": -10,
-            "origin_slot": 9,
+            "origin_slot": 11,
             "target_id": 120,
             "target_slot": 0,
             "type": "COMBO"
-          },
-          {
-            "id": 306,
-            "origin_id": 144,
-            "origin_slot": 0,
-            "target_id": 125,
-            "target_slot": 2,
-            "type": "SAMPLER"
-          },
-          {
-            "id": 308,
-            "origin_id": 145,
-            "origin_slot": 0,
-            "target_id": 126,
-            "target_slot": 0,
-            "type": "MODEL"
-          },
-          {
-            "id": 309,
-            "origin_id": 145,
-            "origin_slot": 0,
-            "target_id": 124,
-            "target_slot": 0,
-            "type": "MODEL"
-          },
-          {
-            "id": 310,
-            "origin_id": -10,
-            "origin_slot": 10,
-            "target_id": 145,
-            "target_slot": 1,
-            "type": "COMBO"
-          },
-          {
-            "id": 311,
-            "origin_id": -10,
-            "origin_slot": 11,
-            "target_id": 145,
-            "target_slot": 2,
-            "type": "BOOLEAN"
           },
           {
             "id": 312,
             "origin_id": -10,
             "origin_slot": 4,
             "target_id": 124,
-            "target_slot": 1,
+            "target_slot": 2,
             "type": "INT"
           },
           {
-            "id": 313,
+            "id": 315,
+            "origin_id": 146,
+            "origin_slot": 0,
+            "target_id": 126,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 316,
+            "origin_id": 146,
+            "origin_slot": 0,
+            "target_id": 124,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 317,
+            "origin_id": 147,
+            "origin_slot": 0,
+            "target_id": 125,
+            "target_slot": 2,
+            "type": "SAMPLER"
+          },
+          {
+            "id": 318,
             "origin_id": 127,
+            "origin_slot": 0,
+            "target_id": 148,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 319,
+            "origin_id": 148,
+            "origin_slot": 0,
+            "target_id": 149,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 320,
+            "origin_id": 149,
             "origin_slot": 0,
             "target_id": 146,
             "target_slot": 0,
             "type": "MODEL"
           },
           {
-            "id": 314,
-            "origin_id": 146,
-            "origin_slot": 0,
-            "target_id": 145,
+            "id": 321,
+            "origin_id": -10,
+            "origin_slot": 12,
+            "target_id": 148,
+            "target_slot": 1,
+            "type": "COMBO"
+          },
+          {
+            "id": 322,
+            "origin_id": -10,
+            "origin_slot": 13,
+            "target_id": 149,
+            "target_slot": 2,
+            "type": "COMBO"
+          },
+          {
+            "id": 323,
+            "origin_id": -10,
+            "origin_slot": 14,
+            "target_id": 149,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 324,
+            "origin_id": -10,
+            "origin_slot": 6,
+            "target_id": 147,
             "target_slot": 0,
-            "type": "MODEL"
+            "type": "COMBO"
+          },
+          {
+            "id": 325,
+            "origin_id": -10,
+            "origin_slot": 5,
+            "target_id": 124,
+            "target_slot": 1,
+            "type": "COMBO"
           }
         ],
         "extra": {}
@@ -1994,16 +2277,16 @@
   },
   "config": {},
   "extra": {
-    "frontendVersion": "1.48.7",
+    "frontendVersion": "1.49.6",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,
     "VHS_KeepIntermediate": true,
     "ds": {
-      "scale": 0.7339985837243587,
+      "scale": 0.5514639997929065,
       "offset": [
-        1953.71008152953,
-        -4665.212795095536
+        2204.715178413073,
+        -4458.653764667729
       ]
     }
   },

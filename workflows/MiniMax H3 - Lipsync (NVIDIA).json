@@ -1,19 +1,19 @@
 {
   "id": "59852681-288c-43d9-bd2d-530363bf6bc6",
   "revision": 0,
-  "last_node_id": 38,
-  "last_link_id": 60,
+  "last_node_id": 40,
+  "last_link_id": 69,
   "nodes": [
     {
       "id": 19,
       "type": "SaveVideo",
       "pos": [
-        2470,
+        2440,
         550
       ],
       "size": [
         1030,
-        1447.655172413793
+        773.9375
       ],
       "flags": {},
       "order": 4,
@@ -51,18 +51,100 @@
       }
     },
     {
-      "id": 20,
-      "type": "MarkdownNote",
+      "id": 6,
+      "type": "LoadImage",
       "pos": [
-        1650,
-        1230
+        1290,
+        550
       ],
       "size": [
-        750,
-        690
+        440,
+        520
       ],
       "flags": {},
       "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            40
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "red_superboy_on_city_roof.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "red_superboy_on_city_roof.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 28,
+      "type": "LoadAudio",
+      "pos": [
+        1290,
+        1120
+      ],
+      "size": [
+        440,
+        140
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            43
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.1",
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "hero.mp3",
+        null,
+        null
+      ],
+      "widgets_values_named": {
+        "audio": "hero.mp3",
+        "upload": null
+      }
+    },
+    {
+      "id": 20,
+      "type": "MarkdownNote",
+      "pos": [
+        660,
+        550
+      ],
+      "size": [
+        610,
+        990
+      ],
+      "flags": {},
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -71,10 +153,10 @@
         "Node name for S&R": "MarkdownNote"
       },
       "widgets_values": [
-        "# Lip-sync to your own audio  (ref2va)\n\n## Usage\n\n- Upload your Reference Image in the **Load Image** node\n- Upload your Audio in the **Load Audio** node\n- Write your prompt to describe the video\n- Set width and height for the video\n- Set the duration of the video\n\n## Prompt\n\nYour photo is `<Picture 1>` - an *identity reference* carried through the clip,\nnot an exact opening frame. The video will look like your subject; it will not necessarily start on your image.\n\n**The prompt must use the tags.** References are addressed positionally as\n`<Picture 1>`, `<Audio 1>`.\n\n## The 15 second wall\n\n362 frames / 15.08s is H3's trained maximum, so you cannot sync a longer audio in one\npass. Work one segment at a time:\n\n- **duration** is the length of the video.\n- **start audio at sec** picks at *which* second the audio starts. It accepts negatives to count from the end.\n\n\nTo build a longer video, render several segments with sequential `start audio at sec`\nvalues and concatenate them afterwards.\n\n## Presets\n\n| # | canvas | duration | tokens | notes |\n|---|---|---|---|---|\n| **0** | manual | manual | - | set width and height manually |\n| **1** | 768 x 768 | 5s (124 fr) | 21.3k | safest - square |\n| **2** | 1344 x 768 | 5s (124 fr) | 37.3k | max quality wide, 5s |\n| **3** | 864 x 480 | 10s (243 fr) | 29.2k | DEFAULT - 10s at 480p |\n| **4** | 960 x 544 | 10s (243 fr) | 36.7k | 10s, higher res |\n| **5** | 736 x 416 | 15s (362 fr) | 32.0k | safest 15s |\n| **6** | 864 x 480 | 15s (362 fr) | 43.3k | max duration - at the OOM edge |\n\n### Preset 0 - manual\n\nSet PRESET to `0` and set width and height manually; they are ignored otherwise.\n\nSeconds snap **UP** to the next legal length. Ask for 12.0s and you get 12.25s (294 frames).\n**8.000s (192 frames) is the only exactly-round length** in the usable range.\n\n| frames | secs | frames | secs | frames | secs |\n|---|---|---|---|---|---|\n| 124 | 5.167 | 209 | 8.708 | 294 | 12.250 |\n| 141 | 5.875 | 226 | 9.417 | 311 | 12.958 |\n| 158 | 6.583 | 243 | 10.125 | 328 | 13.667 |\n| 175 | 7.292 | 260 | 10.833 | 345 | 14.375 |\n| **192** | **8.000** | 277 | 11.542 | 362 | 15.083 |\n"
+        "# Lip-sync to your own audio  (ref2va)\n\n## Usage\n\n- Upload your Reference Image in the **Load Image** node\n- Upload your Audio in the **Load Audio** node\n- Write your prompt to describe the video\n- Set width and height for the video\n- Set the duration of the video\n\n## Prompt\n\nYour photo is `<Picture 1>` - an *identity reference* carried through the clip,\nnot an exact opening frame. The video will look like your subject; it will not necessarily start on your image.\n\n**The prompt must use the tags.** References are addressed positionally as\n`<Picture 1>`, `<Audio 1>`.\n\n**NOTE:** The video may NOT be longer than the Audio or it gets out of Sync!\n\n## The 15 second wall\n\n362 frames / 15.08s is H3's trained maximum, so you cannot sync a longer audio in one\npass. Work one segment at a time:\n\n- **duration** is the length of the video.\n- **start audio at sec** picks at *which* second the audio starts. It accepts negatives to count from the end.\n\n\nTo build a longer video, render several segments with sequential `start audio at sec`\nvalues and concatenate them afterwards.\n\n## Presets\n\n| # | canvas | duration | tokens | notes |\n|---|---|---|---|---|\n| **0** | manual | manual | - | set width and height manually |\n| **1** | 768 x 768 | 5s (124 fr) | 21.3k | safest - square |\n| **2** | 1344 x 768 | 5s (124 fr) | 37.3k | max quality wide, 5s |\n| **3** | 864 x 480 | 10s (243 fr) | 29.2k | DEFAULT - 10s at 480p |\n| **4** | 960 x 544 | 10s (243 fr) | 36.7k | 10s, higher res |\n| **5** | 736 x 416 | 15s (362 fr) | 32.0k | safest 15s |\n| **6** | 864 x 480 | 15s (362 fr) | 43.3k | max duration - at the OOM edge |\n\n### Preset 0 - manual\n\nSet PRESET to `0` and set width and height manually; they are ignored otherwise.\n\nSeconds snap **UP** to the next legal length. Ask for 12.0s and you get 12.25s (294 frames).\n**8.000s (192 frames) is the only exactly-round length** in the usable range.\n\n| frames | secs | frames | secs | frames | secs |\n|---|---|---|---|---|---|\n| 124 | 5.167 | 209 | 8.708 | 294 | 12.250 |\n| 141 | 5.875 | 226 | 9.417 | 311 | 12.958 |\n| 158 | 6.583 | 243 | 10.125 | 328 | 13.667 |\n| 175 | 7.292 | 260 | 10.833 | 345 | 14.375 |\n| **192** | **8.000** | 277 | 11.542 | 362 | 15.083 |\n\n## Handle Out of Memory Errors\n\nTo avoid out of memory erros:\n- Decrease the Resolution (with and height).\n- Set the **memory_mode** to _**Lower VRAM (slower)**_  \n- Additionally you can decrease the **chunks**.  \n\n(H3 normally creates several very large temporary tensors while generating a video. Larger chunks can be faster but use more temporary memory. Smaller chunks can substantially reduce peak VRAM use.)"
       ],
       "widgets_values_named": {
-        "text": "# Lip-sync to your own audio  (ref2va)\n\n## Usage\n\n- Upload your Reference Image in the **Load Image** node\n- Upload your Audio in the **Load Audio** node\n- Write your prompt to describe the video\n- Set width and height for the video\n- Set the duration of the video\n\n## Prompt\n\nYour photo is `<Picture 1>` - an *identity reference* carried through the clip,\nnot an exact opening frame. The video will look like your subject; it will not necessarily start on your image.\n\n**The prompt must use the tags.** References are addressed positionally as\n`<Picture 1>`, `<Audio 1>`.\n\n## The 15 second wall\n\n362 frames / 15.08s is H3's trained maximum, so you cannot sync a longer audio in one\npass. Work one segment at a time:\n\n- **duration** is the length of the video.\n- **start audio at sec** picks at *which* second the audio starts. It accepts negatives to count from the end.\n\n\nTo build a longer video, render several segments with sequential `start audio at sec`\nvalues and concatenate them afterwards.\n\n## Presets\n\n| # | canvas | duration | tokens | notes |\n|---|---|---|---|---|\n| **0** | manual | manual | - | set width and height manually |\n| **1** | 768 x 768 | 5s (124 fr) | 21.3k | safest - square |\n| **2** | 1344 x 768 | 5s (124 fr) | 37.3k | max quality wide, 5s |\n| **3** | 864 x 480 | 10s (243 fr) | 29.2k | DEFAULT - 10s at 480p |\n| **4** | 960 x 544 | 10s (243 fr) | 36.7k | 10s, higher res |\n| **5** | 736 x 416 | 15s (362 fr) | 32.0k | safest 15s |\n| **6** | 864 x 480 | 15s (362 fr) | 43.3k | max duration - at the OOM edge |\n\n### Preset 0 - manual\n\nSet PRESET to `0` and set width and height manually; they are ignored otherwise.\n\nSeconds snap **UP** to the next legal length. Ask for 12.0s and you get 12.25s (294 frames).\n**8.000s (192 frames) is the only exactly-round length** in the usable range.\n\n| frames | secs | frames | secs | frames | secs |\n|---|---|---|---|---|---|\n| 124 | 5.167 | 209 | 8.708 | 294 | 12.250 |\n| 141 | 5.875 | 226 | 9.417 | 311 | 12.958 |\n| 158 | 6.583 | 243 | 10.125 | 328 | 13.667 |\n| 175 | 7.292 | 260 | 10.833 | 345 | 14.375 |\n| **192** | **8.000** | 277 | 11.542 | 362 | 15.083 |\n"
+        "text": "# Lip-sync to your own audio  (ref2va)\n\n## Usage\n\n- Upload your Reference Image in the **Load Image** node\n- Upload your Audio in the **Load Audio** node\n- Write your prompt to describe the video\n- Set width and height for the video\n- Set the duration of the video\n\n## Prompt\n\nYour photo is `<Picture 1>` - an *identity reference* carried through the clip,\nnot an exact opening frame. The video will look like your subject; it will not necessarily start on your image.\n\n**The prompt must use the tags.** References are addressed positionally as\n`<Picture 1>`, `<Audio 1>`.\n\n**NOTE:** The video may NOT be longer than the Audio or it gets out of Sync!\n\n## The 15 second wall\n\n362 frames / 15.08s is H3's trained maximum, so you cannot sync a longer audio in one\npass. Work one segment at a time:\n\n- **duration** is the length of the video.\n- **start audio at sec** picks at *which* second the audio starts. It accepts negatives to count from the end.\n\n\nTo build a longer video, render several segments with sequential `start audio at sec`\nvalues and concatenate them afterwards.\n\n## Presets\n\n| # | canvas | duration | tokens | notes |\n|---|---|---|---|---|\n| **0** | manual | manual | - | set width and height manually |\n| **1** | 768 x 768 | 5s (124 fr) | 21.3k | safest - square |\n| **2** | 1344 x 768 | 5s (124 fr) | 37.3k | max quality wide, 5s |\n| **3** | 864 x 480 | 10s (243 fr) | 29.2k | DEFAULT - 10s at 480p |\n| **4** | 960 x 544 | 10s (243 fr) | 36.7k | 10s, higher res |\n| **5** | 736 x 416 | 15s (362 fr) | 32.0k | safest 15s |\n| **6** | 864 x 480 | 15s (362 fr) | 43.3k | max duration - at the OOM edge |\n\n### Preset 0 - manual\n\nSet PRESET to `0` and set width and height manually; they are ignored otherwise.\n\nSeconds snap **UP** to the next legal length. Ask for 12.0s and you get 12.25s (294 frames).\n**8.000s (192 frames) is the only exactly-round length** in the usable range.\n\n| frames | secs | frames | secs | frames | secs |\n|---|---|---|---|---|---|\n| 124 | 5.167 | 209 | 8.708 | 294 | 12.250 |\n| 141 | 5.875 | 226 | 9.417 | 311 | 12.958 |\n| 158 | 6.583 | 243 | 10.125 | 328 | 13.667 |\n| 175 | 7.292 | 260 | 10.833 | 345 | 14.375 |\n| **192** | **8.000** | 277 | 11.542 | 362 | 15.083 |\n\n## Handle Out of Memory Errors\n\nTo avoid out of memory erros:\n- Decrease the Resolution (with and height).\n- Set the **memory_mode** to _**Lower VRAM (slower)**_  \n- Additionally you can decrease the **chunks**.  \n\n(H3 normally creates several very large temporary tensors while generating a video. Larger chunks can be faster but use more temporary memory. Smaller chunks can substantially reduce peak VRAM use.)"
       },
       "color": "#222",
       "bgcolor": "#000"
@@ -87,15 +169,15 @@
         550
       ],
       "size": [
-        560.924932861328,
-        624.2443328857418
+        560,
+        710
       ],
       "flags": {},
       "order": 3,
       "mode": 0,
       "inputs": [
         {
-          "label": "preset resolutions",
+          "label": "presets",
           "name": "value_2",
           "type": "INT",
           "widget": {
@@ -140,7 +222,16 @@
           "link": null
         },
         {
-          "label": "noise_seed",
+          "label": "sampler",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        },
+        {
+          "label": "seed",
           "name": "noise_seed",
           "type": "INT",
           "widget": {
@@ -185,6 +276,24 @@
           "link": null
         },
         {
+          "label": "memory_mode",
+          "name": "kitchen_v_memory_mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "kitchen_v_memory_mode"
+          },
+          "link": null
+        },
+        {
+          "label": "chunks",
+          "name": "chunk_rows",
+          "type": "INT",
+          "widget": {
+            "name": "chunk_rows"
+          },
+          "link": null
+        },
+        {
           "label": "ref_image",
           "name": "ref_images.ref_image_0",
           "shape": 7,
@@ -213,118 +322,40 @@
         "previewExposures": []
       },
       "widgets_values": [
-        "A medium shot of <Picture 1> standing on top of a skyscraper, singing directly to the camera with lip movements matching <Audio 1> precisely. As she sings, she walks forward toward the lens while the camera smoothly tracks backward at the same pace, keeping her centered against the sprawling city skyline.",
+        "A medium shot of <Picture 1> standing on top of a skyscraper, speaking directly to the camera with lip movements matching <Audio 1> precisely. His cape and hair are moving in the wind as he approaches slowly.",
         0,
-        939.5267333984375,
-        1200,
-        8,
+        1024,
+        680,
+        3.4,
         0,
-        20298957244857,
         20,
         "res_multistep",
         "simple",
+        735100118896543,
         "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
         "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "minimax_h3_video_vae_fp16.safetensors",
-        "minimax_h3_audio_vae_fp32.safetensors"
+        "minimax_h3_audio_vae_fp32.safetensors",
+        "Standard",
+        4096
       ],
       "widgets_values_named": {
-        "prompt": "A medium shot of <Picture 1> standing on top of a skyscraper, singing directly to the camera with lip movements matching <Audio 1> precisely. As she sings, she walks forward toward the lens while the camera smoothly tracks backward at the same pace, keeping her centered against the sprawling city skyline.",
+        "prompt": "A medium shot of <Picture 1> standing on top of a skyscraper, speaking directly to the camera with lip movements matching <Audio 1> precisely. His cape and hair are moving in the wind as he approaches slowly.",
         "value_2": 0,
-        "value": 939.5267333984375,
-        "value_1": 1200,
-        "value_3": 8,
+        "value": 1024,
+        "value_1": 680,
+        "value_3": 3.4,
         "start_index": 0,
-        "noise_seed": 20298957244857,
         "steps": 20,
         "sampler_name": "res_multistep",
         "scheduler": "simple",
+        "noise_seed": 735100118896543,
         "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
         "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
         "vae_name": "minimax_h3_video_vae_fp16.safetensors",
-        "vae_name_1": "minimax_h3_audio_vae_fp32.safetensors"
-      }
-    },
-    {
-      "id": 6,
-      "type": "LoadImage",
-      "pos": [
-        1290,
-        550
-      ],
-      "size": [
-        440,
-        430
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            40
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.30.1",
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "WonderWoman.jpg",
-        "image"
-      ],
-      "widgets_values_named": {
-        "image": "WonderWoman.jpg",
-        "upload": "image"
-      }
-    },
-    {
-      "id": 28,
-      "type": "LoadAudio",
-      "pos": [
-        1290,
-        1030
-      ],
-      "size": [
-        440,
-        140
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "AUDIO",
-          "type": "AUDIO",
-          "links": [
-            43
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.30.1",
-        "Node name for S&R": "LoadAudio"
-      },
-      "widgets_values": [
-        "female _singer.mp3",
-        null,
-        null
-      ],
-      "widgets_values_named": {
-        "audio": "female _singer.mp3",
-        "upload": null
+        "vae_name_1": "minimax_h3_audio_vae_fp32.safetensors",
+        "kitchen_v_memory_mode": "Standard",
+        "chunk_rows": 4096
       }
     }
   ],
@@ -334,7 +365,7 @@
       6,
       0,
       36,
-      10,
+      13,
       "IMAGE"
     ],
     [
@@ -350,7 +381,7 @@
       28,
       0,
       36,
-      11,
+      14,
       "AUDIO"
     ]
   ],
@@ -362,8 +393,8 @@
         "version": 1,
         "state": {
           "lastGroupId": 8,
-          "lastNodeId": 38,
-          "lastLinkId": 60,
+          "lastNodeId": 40,
+          "lastLinkId": 69,
           "lastRerouteId": 0
         },
         "revision": 0,
@@ -374,15 +405,15 @@
           "bounding": [
             -380.12441293690557,
             359.9118621819649,
-            149.58984375,
-            368
+            189.17578125,
+            408
           ]
         },
         "outputNode": {
           "id": -20,
           "bounding": [
-            4080,
-            420,
+            3810,
+            280,
             128,
             68
           ]
@@ -396,7 +427,7 @@
               51
             ],
             "pos": [
-              -254.53456918690557,
+              -214.94863168690557,
               383.9118621819649
             ]
           },
@@ -409,7 +440,7 @@
             ],
             "label": "preset resolutions",
             "pos": [
-              -254.53456918690557,
+              -214.94863168690557,
               403.9118621819649
             ]
           },
@@ -422,7 +453,7 @@
             ],
             "label": "width",
             "pos": [
-              -254.53456918690557,
+              -214.94863168690557,
               423.9118621819649
             ]
           },
@@ -435,7 +466,7 @@
             ],
             "label": "height",
             "pos": [
-              -254.53456918690557,
+              -214.94863168690557,
               443.9118621819649
             ]
           },
@@ -448,7 +479,7 @@
             ],
             "label": "duration",
             "pos": [
-              -254.53456918690557,
+              -214.94863168690557,
               463.9118621819649
             ]
           },
@@ -460,20 +491,8 @@
               57
             ],
             "pos": [
-              -254.53456918690557,
+              -214.94863168690557,
               483.9118621819649
-            ]
-          },
-          {
-            "id": "6a84e4e3-4acb-4c3f-abee-cd14515359f6",
-            "name": "noise_seed",
-            "type": "INT",
-            "linkIds": [
-              53
-            ],
-            "pos": [
-              -254.53456918690557,
-              503.9118621819649
             ]
           },
           {
@@ -484,8 +503,8 @@
               54
             ],
             "pos": [
-              -254.53456918690557,
-              523.9118621819649
+              -214.94863168690557,
+              503.9118621819649
             ]
           },
           {
@@ -496,8 +515,8 @@
               56
             ],
             "pos": [
-              -254.53456918690557,
-              543.9118621819649
+              -214.94863168690557,
+              523.9118621819649
             ]
           },
           {
@@ -508,7 +527,19 @@
               55
             ],
             "pos": [
-              -254.53456918690557,
+              -214.94863168690557,
+              543.9118621819649
+            ]
+          },
+          {
+            "id": "6a84e4e3-4acb-4c3f-abee-cd14515359f6",
+            "name": "noise_seed",
+            "type": "INT",
+            "linkIds": [
+              53
+            ],
+            "pos": [
+              -214.94863168690557,
               563.9118621819649
             ]
           },
@@ -520,7 +551,7 @@
               44
             ],
             "pos": [
-              -254.53456918690557,
+              -214.94863168690557,
               583.9118621819649
             ]
           },
@@ -532,7 +563,7 @@
               45
             ],
             "pos": [
-              -254.53456918690557,
+              -214.94863168690557,
               603.9118621819649
             ]
           },
@@ -544,7 +575,7 @@
               46
             ],
             "pos": [
-              -254.53456918690557,
+              -214.94863168690557,
               623.9118621819649
             ]
           },
@@ -556,8 +587,32 @@
               52
             ],
             "pos": [
-              -254.53456918690557,
+              -214.94863168690557,
               643.9118621819649
+            ]
+          },
+          {
+            "id": "b6b35c66-88a8-4f62-a837-c1f0648c2eb5",
+            "name": "kitchen_v_memory_mode",
+            "type": "COMBO",
+            "linkIds": [
+              64
+            ],
+            "pos": [
+              -214.94863168690557,
+              663.9118621819649
+            ]
+          },
+          {
+            "id": "c5075f50-cbf7-4ee2-9564-10900a3e583d",
+            "name": "chunk_rows",
+            "type": "INT",
+            "linkIds": [
+              65
+            ],
+            "pos": [
+              -214.94863168690557,
+              683.9118621819649
             ]
           },
           {
@@ -571,8 +626,8 @@
             "label": "ref_image",
             "shape": 7,
             "pos": [
-              -254.53456918690557,
-              663.9118621819649
+              -214.94863168690557,
+              703.9118621819649
             ]
           },
           {
@@ -584,8 +639,8 @@
             ],
             "label": "audio",
             "pos": [
-              -254.53456918690557,
-              683.9118621819649
+              -214.94863168690557,
+              723.9118621819649
             ]
           }
         ],
@@ -599,8 +654,8 @@
             ],
             "localized_name": "VIDEO",
             "pos": [
-              4104,
-              444
+              3834,
+              304
             ]
           }
         ],
@@ -610,8 +665,8 @@
             "id": 31,
             "type": "PrimitiveInt",
             "pos": [
-              630,
-              320
+              600,
+              180
             ],
             "size": [
               420,
@@ -663,8 +718,8 @@
             "id": 32,
             "type": "PrimitiveInt",
             "pos": [
-              630,
-              450
+              600,
+              310
             ],
             "size": [
               420,
@@ -716,8 +771,8 @@
             "id": 7,
             "type": "PrimitiveInt",
             "pos": [
-              630,
-              190
+              600,
+              50
             ],
             "size": [
               420,
@@ -770,8 +825,8 @@
             "id": 30,
             "type": "PrimitiveFloat",
             "pos": [
-              630,
-              660
+              600,
+              520
             ],
             "size": [
               420,
@@ -819,85 +874,11 @@
             "bgcolor": "#355"
           },
           {
-            "id": 8,
-            "type": "ComfyMathExpression",
-            "pos": [
-              1230,
-              190
-            ],
-            "size": [
-              420,
-              150
-            ],
-            "flags": {},
-            "order": 6,
-            "mode": 0,
-            "inputs": [
-              {
-                "label": "a",
-                "localized_name": "values.a",
-                "name": "values.a",
-                "type": "FLOAT,INT,BOOLEAN",
-                "link": 10
-              },
-              {
-                "label": "b",
-                "localized_name": "values.b",
-                "name": "values.b",
-                "shape": 7,
-                "type": "FLOAT,INT,BOOLEAN",
-                "link": 18
-              },
-              {
-                "label": "c",
-                "localized_name": "values.c",
-                "name": "values.c",
-                "shape": 7,
-                "type": "FLOAT,INT,BOOLEAN",
-                "link": null
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "FLOAT",
-                "name": "FLOAT",
-                "type": "FLOAT",
-                "links": null
-              },
-              {
-                "localized_name": "INT",
-                "name": "INT",
-                "type": "INT",
-                "links": [
-                  14
-                ]
-              },
-              {
-                "localized_name": "BOOL",
-                "name": "BOOL",
-                "type": "BOOLEAN",
-                "links": null
-              }
-            ],
-            "title": "preset -> width   (a=preset, b=manual)",
-            "properties": {
-              "cnr_id": "comfy-core",
-              "ver": "0.30.1",
-              "Node name for S&R": "ComfyMathExpression"
-            },
-            "widgets_values": [
-              "(a==0)*(max(32, round(b/32)*32)) + (a==1)*768 + (a==2)*1344 + (a==3)*864 + (a==4)*960 + (a==5)*736 + (a==6)*864 + ((a<0)+(a>6))*864"
-            ],
-            "widgets_values_named": {
-              "expression": "(a==0)*(max(32, round(b/32)*32)) + (a==1)*768 + (a==2)*1344 + (a==3)*864 + (a==4)*960 + (a==5)*736 + (a==6)*864 + ((a<0)+(a>6))*864"
-            }
-          },
-          {
             "id": 25,
             "type": "ComfyMathExpression",
             "pos": [
-              1230,
-              640
+              1200,
+              500
             ],
             "size": [
               420,
@@ -970,8 +951,8 @@
             "id": 9,
             "type": "ComfyMathExpression",
             "pos": [
-              1230,
-              430
+              1200,
+              290
             ],
             "size": [
               420,
@@ -1044,8 +1025,8 @@
             "id": 10,
             "type": "MiniMaxH3ReferenceToVideo",
             "pos": [
-              2000,
-              190
+              1730,
+              50
             ],
             "size": [
               531.1005233895753,
@@ -1201,8 +1182,8 @@
             "id": 13,
             "type": "BasicScheduler",
             "pos": [
-              2610,
-              560
+              2340,
+              420
             ],
             "size": [
               400,
@@ -1216,7 +1197,7 @@
                 "localized_name": "model",
                 "name": "model",
                 "type": "MODEL",
-                "link": 60
+                "link": 67
               },
               {
                 "localized_name": "scheduler",
@@ -1270,8 +1251,8 @@
             "id": 12,
             "type": "KSamplerSelect",
             "pos": [
-              2610,
-              450
+              2340,
+              310
             ],
             "size": [
               400,
@@ -1317,8 +1298,8 @@
             "id": 11,
             "type": "RandomNoise",
             "pos": [
-              2610,
-              310
+              2340,
+              170
             ],
             "size": [
               400,
@@ -1366,8 +1347,8 @@
             "id": 14,
             "type": "BasicGuider",
             "pos": [
-              2610,
-              200
+              2340,
+              60
             ],
             "size": [
               400,
@@ -1381,7 +1362,7 @@
                 "localized_name": "model",
                 "name": "model",
                 "type": "MODEL",
-                "link": 59
+                "link": 66
               },
               {
                 "localized_name": "conditioning",
@@ -1410,8 +1391,8 @@
             "id": 15,
             "type": "SamplerCustomAdvanced",
             "pos": [
-              3110,
-              310
+              2840,
+              170
             ],
             "size": [
               380,
@@ -1478,8 +1459,8 @@
             "id": 16,
             "type": "VAEDecode",
             "pos": [
-              3600,
-              310
+              3330,
+              170
             ],
             "size": [
               390,
@@ -1522,8 +1503,8 @@
             "id": 18,
             "type": "CreateVideo",
             "pos": [
-              3600,
-              430
+              3330,
+              290
             ],
             "size": [
               390,
@@ -1726,55 +1707,6 @@
             }
           },
           {
-            "id": 23,
-            "type": "PathchSageAttentionKJ",
-            "pos": [
-              -140,
-              550
-            ],
-            "size": [
-              600,
-              100
-            ],
-            "flags": {},
-            "order": 16,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "model",
-                "name": "model",
-                "type": "MODEL",
-                "link": 1
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "MODEL",
-                "name": "MODEL",
-                "type": "MODEL",
-                "links": [
-                  2
-                ]
-              }
-            ],
-            "title": "Sage Attention: ON  -  3.0x on attention (measured, this GPU)",
-            "properties": {
-              "cnr_id": "comfyui_fearnworksnodes",
-              "ver": "0.1.2",
-              "Node name for S&R": "PathchSageAttentionKJ"
-            },
-            "widgets_values": [
-              "auto",
-              false
-            ],
-            "widgets_values_named": {
-              "sage_attention": "auto",
-              "allow_compile": false
-            },
-            "color": "#232",
-            "bgcolor": "#353"
-          },
-          {
             "id": 1,
             "type": "UNETLoader",
             "pos": [
@@ -1805,7 +1737,7 @@
                 "name": "MODEL",
                 "type": "MODEL",
                 "links": [
-                  1
+                  68
                 ]
               }
             ],
@@ -1835,8 +1767,8 @@
             "id": 27,
             "type": "ComfyMathExpression",
             "pos": [
-              1180,
-              1020
+              810,
+              870
             ],
             "size": [
               369.72040886810294,
@@ -1913,8 +1845,8 @@
             "id": 29,
             "type": "TrimAudioDuration",
             "pos": [
-              1540,
-              940
+              1170,
+              790
             ],
             "size": [
               486.464453125,
@@ -1978,11 +1910,85 @@
             "bgcolor": "#353"
           },
           {
+            "id": 8,
+            "type": "ComfyMathExpression",
+            "pos": [
+              1200,
+              50
+            ],
+            "size": [
+              420,
+              150
+            ],
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+              {
+                "label": "a",
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": 10
+              },
+              {
+                "label": "b",
+                "localized_name": "values.b",
+                "name": "values.b",
+                "shape": 7,
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": 18
+              },
+              {
+                "label": "c",
+                "localized_name": "values.c",
+                "name": "values.c",
+                "shape": 7,
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  14
+                ]
+              },
+              {
+                "localized_name": "BOOL",
+                "name": "BOOL",
+                "type": "BOOLEAN",
+                "links": null
+              }
+            ],
+            "title": "preset -> width   (a=preset, b=manual)",
+            "properties": {
+              "cnr_id": "comfy-core",
+              "ver": "0.30.1",
+              "Node name for S&R": "ComfyMathExpression"
+            },
+            "widgets_values": [
+              "(a==0)*(max(32, round(b/32)*32)) + (a==1)*768 + (a==2)*1344 + (a==3)*864 + (a==4)*960 + (a==5)*736 + (a==6)*864 + ((a<0)+(a>6))*864"
+            ],
+            "widgets_values_named": {
+              "expression": "(a==0)*(max(32, round(b/32)*32)) + (a==1)*768 + (a==2)*1344 + (a==3)*864 + (a==4)*960 + (a==5)*736 + (a==6)*864 + ((a<0)+(a>6))*864"
+            }
+          },
+          {
             "id": 5,
             "type": "MiniMaxH3SigmaShift",
             "pos": [
               -140,
-              700
+              910
             ],
             "size": [
               600,
@@ -2005,8 +2011,8 @@
                 "name": "MODEL",
                 "type": "MODEL",
                 "links": [
-                  59,
-                  60
+                  66,
+                  67
                 ]
               }
             ],
@@ -2024,6 +2030,133 @@
               "shift_video": 12,
               "shift_audio": 3
             }
+          },
+          {
+            "id": 23,
+            "type": "PathchSageAttentionKJ",
+            "pos": [
+              -140,
+              760
+            ],
+            "size": [
+              600,
+              100
+            ],
+            "flags": {},
+            "order": 16,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 69
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "MODEL",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  2
+                ]
+              }
+            ],
+            "title": "Sage Attention: ON  -  3.0x on attention (measured, this GPU)",
+            "properties": {
+              "cnr_id": "comfyui_fearnworksnodes",
+              "ver": "0.1.2",
+              "Node name for S&R": "PathchSageAttentionKJ"
+            },
+            "widgets_values": [
+              "auto",
+              false
+            ],
+            "widgets_values_named": {
+              "sage_attention": "auto",
+              "allow_compile": false
+            },
+            "color": "#232",
+            "bgcolor": "#353"
+          },
+          {
+            "id": 39,
+            "type": "H3MemoryOptimization",
+            "pos": [
+              -135.12862609260858,
+              549.6805730301928
+            ],
+            "size": [
+              590,
+              160
+            ],
+            "flags": {},
+            "order": 23,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 68
+              },
+              {
+                "localized_name": "chunk_rows",
+                "name": "chunk_rows",
+                "type": "INT",
+                "widget": {
+                  "name": "chunk_rows"
+                },
+                "link": 65
+              },
+              {
+                "localized_name": "kitchen_v_memory_mode",
+                "name": "kitchen_v_memory_mode",
+                "type": "COMBO",
+                "widget": {
+                  "name": "kitchen_v_memory_mode"
+                },
+                "link": 64
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "MODEL",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  69
+                ]
+              }
+            ],
+            "properties": {
+              "cnr_id": "h3-optimizations",
+              "ver": "0.2.36",
+              "Node name for S&R": "H3MemoryOptimization"
+            },
+            "widgets_values": [
+              "auto",
+              "auto",
+              4096,
+              true,
+              "Auto",
+              "Auto",
+              "Auto",
+              "Standard"
+            ],
+            "widgets_values_named": {
+              "fused_qkv": "auto",
+              "mlp_memory": "auto",
+              "chunk_rows": 4096,
+              "preserve_precision": true,
+              "precision_mode": "Auto",
+              "qkv_streaming_mode": "Auto",
+              "embedding_memory_mode": "Auto",
+              "kitchen_v_memory_mode": "Standard"
+            },
+            "color": "#223",
+            "bgcolor": "#335"
           }
         ],
         "groups": [
@@ -2031,8 +2164,8 @@
             "id": 2,
             "title": "PRESET -> size / length / audio trim  (0 = manual)",
             "bounding": [
-              600,
-              110,
+              570,
+              -30,
               1110,
               710
             ],
@@ -2046,7 +2179,7 @@
               -180,
               -30,
               710,
-              850
+              1050
             ],
             "color": "#3f789e",
             "flags": {}
@@ -2055,8 +2188,8 @@
             "id": 7,
             "title": "Audio Processing",
             "bounding": [
-              1150,
-              850,
+              780,
+              700,
               900,
               260
             ],
@@ -2067,8 +2200,8 @@
             "id": 4,
             "title": "Conditioning + AV latent",
             "bounding": [
-              1970,
-              110,
+              1700,
+              -30,
               590,
               600
             ],
@@ -2079,8 +2212,8 @@
             "id": 5,
             "title": "Sampling",
             "bounding": [
-              2590,
-              110,
+              2320,
+              -30,
               940,
               600
             ],
@@ -2091,8 +2224,8 @@
             "id": 6,
             "title": "Decode + mux (original song)",
             "bounding": [
-              3570,
-              110,
+              3300,
+              -30,
               450,
               600
             ],
@@ -2101,14 +2234,6 @@
           }
         ],
         "links": [
-          {
-            "id": 1,
-            "origin_id": 1,
-            "origin_slot": 0,
-            "target_id": 23,
-            "target_slot": 0,
-            "type": "MODEL"
-          },
           {
             "id": 2,
             "origin_id": 23,
@@ -2328,7 +2453,7 @@
           {
             "id": 23,
             "origin_id": -10,
-            "origin_slot": 14,
+            "origin_slot": 16,
             "target_id": 10,
             "target_slot": 3,
             "type": "IMAGE"
@@ -2344,7 +2469,7 @@
           {
             "id": 42,
             "origin_id": -10,
-            "origin_slot": 15,
+            "origin_slot": 17,
             "target_id": 29,
             "target_slot": 0,
             "type": "AUDIO"
@@ -2424,7 +2549,7 @@
           {
             "id": 53,
             "origin_id": -10,
-            "origin_slot": 6,
+            "origin_slot": 9,
             "target_id": 11,
             "target_slot": 0,
             "type": "INT"
@@ -2432,7 +2557,7 @@
           {
             "id": 54,
             "origin_id": -10,
-            "origin_slot": 7,
+            "origin_slot": 6,
             "target_id": 13,
             "target_slot": 2,
             "type": "INT"
@@ -2440,7 +2565,7 @@
           {
             "id": 55,
             "origin_id": -10,
-            "origin_slot": 9,
+            "origin_slot": 8,
             "target_id": 13,
             "target_slot": 1,
             "type": "COMBO"
@@ -2448,7 +2573,7 @@
           {
             "id": 56,
             "origin_id": -10,
-            "origin_slot": 8,
+            "origin_slot": 7,
             "target_id": 12,
             "target_slot": 0,
             "type": "COMBO"
@@ -2462,7 +2587,23 @@
             "type": "FLOAT"
           },
           {
-            "id": 59,
+            "id": 64,
+            "origin_id": -10,
+            "origin_slot": 14,
+            "target_id": 39,
+            "target_slot": 2,
+            "type": "COMBO"
+          },
+          {
+            "id": 65,
+            "origin_id": -10,
+            "origin_slot": 15,
+            "target_id": 39,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 66,
             "origin_id": 5,
             "origin_slot": 0,
             "target_id": 14,
@@ -2470,10 +2611,26 @@
             "type": "MODEL"
           },
           {
-            "id": 60,
+            "id": 67,
             "origin_id": 5,
             "origin_slot": 0,
             "target_id": 13,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 68,
+            "origin_id": 1,
+            "origin_slot": 0,
+            "target_id": 39,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 69,
+            "origin_id": 39,
+            "origin_slot": 0,
+            "target_id": 23,
             "target_slot": 0,
             "type": "MODEL"
           }
@@ -2490,10 +2647,10 @@
     "VHS_MetadataImage": true,
     "VHS_KeepIntermediate": true,
     "ds": {
-      "scale": 0.5131581182307068,
+      "scale": 0.8956835864328723,
       "offset": [
-        -995.567184275565,
-        -329.4976338753058
+        -705.6554632635825,
+        -339.4823445512156
       ]
     }
   },
