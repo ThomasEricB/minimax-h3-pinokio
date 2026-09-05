@@ -179,7 +179,7 @@ module.exports = {
       method: "input",
       params: {
         title: "Update Finished",
-        description: "Missing Models can be downloaded with the <b>Download Models</b> button on the left side menu. (Only visible when Minimax H3 Comfyui is NOT running).<br>All Missing Models get automatically installed by clicking the <b>Install</b> button on the left side menu."
+        description: "Missing Models can be downloaded with the <b>Download Models</b> button on the left side menu. (Only visible when Minimax H3 Comfyui is NOT running).<br>All Missing Models get automatically downloaded by clicking the <b>Install</b> button on the left side menu."
       }
     }
   ]

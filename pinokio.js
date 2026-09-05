@@ -130,7 +130,7 @@ module.exports = {
       if (!has.encoder_nvfp4) {
         downloads.push({
           icon: "fa-solid fa-download",
-          text: "NVFP4 text encoder — optional upgrade [NVIDIA ONLY] (15.7GB)",
+          text: "NVFP4 text encoder — [NVIDIA ONLY] (15.7GB)",
           href: "download/text_encoder_nvfp4.js",
           mode: "refresh"
         })
