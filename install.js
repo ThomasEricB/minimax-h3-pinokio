@@ -223,6 +223,12 @@ module.exports = {
       params: {
         uri: "download/turbo_lora2.js"
       }
+    },
+    {
+      method: "script.start",
+      params: {
+        uri: "download/clipproj.js"
+      }
     }
   ]
 }

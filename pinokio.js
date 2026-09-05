@@ -21,6 +21,7 @@ module.exports = {
       "download/fl2va-4steps.js",
       "download/turbo_lora.js",
       "download/turbo_lora2.js",
+      "download/clipproj.js",
       "remove/fl2va.js",
       "remove/ref2va.js",
       "remove/fl2va-4steps.js",
@@ -46,7 +47,8 @@ module.exports = {
       turbo_lora: info.exists("app/models/loras/minimax_h3_fl2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors"),
       turbo_lora2: info.exists("app/models/loras/minimax_h3_ref2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors"),
       prompt_enhancer: info.exists("app/models/clip/qwen3vl_4b_bf16.safetensors"),
-      fast_video: info.exists("app/models/diffusion_models/minimax_h3_fastvideo_vsa_datafree_1300step_4step_int8_convrot.safetensors")
+      fast_video: info.exists("app/models/diffusion_models/minimax_h3_fastvideo_vsa_datafree_1300step_4step_int8_convrot.safetensors"),
+      clipproj: info.exists("app/models/clip_projections/mmh3-4b-ClipProj-v3.1-mlp.safetensors")
     }
 
     if (running.install) {
@@ -172,6 +174,14 @@ module.exports = {
           icon: "fa-solid fa-download",
           text: "Prompt Enhancer (8.88GB)",
           href: "download/qwen3_vl_4b.js",
+          mode: "refresh"
+        })
+      }
+      if (!has.clipproj) {
+        downloads.push({
+          icon: "fa-solid fa-download",
+          text: "Clip Projecction model [AMD ONLY] (503MB)",
+          href: "download/clipproj.js",
           mode: "refresh"
         })
       }
